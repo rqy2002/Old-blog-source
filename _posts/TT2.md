@@ -359,4 +359,3 @@ $$
 这篇 Blog 大概讲了 Lambda Cube 及其对应的逻辑系统云云。
 
 之后的 Blog 的数学方面可能会削弱一点，取而代之的是一些更贴近于实际应用的东西，比如数据表示方式、一些命题如何表示；再之后大概就会讲我一开始就想要讲的东西，也就是怎么实现使用一个类型系统的语言（除去很trivial的parse和print，还有evaluation（即reduction）、type-checking等）。
-

@@ -12,11 +12,11 @@ date: 2020-05-18 18:23:39
 
 给定一个 $m-1$ 次多项式 $f(x)$ 以及 $n$ 个点 $\alpha_0,\dots,\alpha_{n-1}$，求 $f(\alpha_0),f(\alpha_1),\dots,f(\alpha_{n-1})$。
 
-*参考：《转置原理的简单介绍》rushcheyo, negiizhao, Created_Equal*
+参考：*《转置原理的简单介绍》rushcheyo, negiizhao, Created_Equal*
 
-*参考：[EI's blog](https://www.luogu.com.cn/blog/EntropyIncreaser/solution-p5050)*
+参考：*[EI's blog](https://www.luogu.com.cn/blog/EntropyIncreaser/solution-p5050)*
 
-*参考：[Tellegen’s Principle into Practice](https://specfun.inria.fr/bostan/publications/BoLeSc03.pdf)*
+参考：*[Tellegen’s Principle into Practice](https://specfun.inria.fr/bostan/publications/BoLeSc03.pdf)*
 
 <!--more-->
 

@@ -99,8 +99,6 @@ int main() {
 }
 ```
 
-
-
 ## 空行
 
 所有`#include <foobar>`与`using foo::bar;`之间不应空行，之后应空一行。
@@ -210,7 +208,7 @@ void Conv(LL *A, int n, LL *B, int m) {
     T2[i] = (i < m ? B[i] : 0);
 
   NTT(T1, len, 1);
-  NTT(T2, len, 1); 
+  NTT(T2, len, 1);
   for (int i = 0; i < len; ++i)
     (T1[i] *= T2[i]) %= mod;
   NTT(T1, len, -1);

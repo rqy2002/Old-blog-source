@@ -8,15 +8,15 @@ mathjax: true
 date: 2018-06-04 16:23:44
 ---
 
-# 生成函数
+## 生成函数
 
 生成函数(generating function)又称母函数，是处理组合数学问题的一大利器。
 
 <!--more-->
 
-## 普通型生成函数
+### 普通型生成函数
 
-### Definition
+#### Definition
 
 对于一个数列 $f=<f_0,f_1,f_2\dots>$ ，构造形式幂级数
 $$
@@ -64,11 +64,11 @@ $$
 
 你会发现以上都是一些看上去很简单的东西。那么生成函数到底哪里厉害了呢？
 
-### Examples
+#### Examples
 
 注：这里只是简介...所以并没有太多的例子...
 
-#### Example 1.
+##### Example 1
 
 $$f_n=\begin{cases}n&n\leq1\\f_{n-1}+f_{n-2}&n>1\end{cases}$$
 
@@ -88,7 +88,7 @@ $$
 
 根据$\frac1{1-cx}=\sum_nc^nx^n$，我们可以知道$f_n=\frac1{\sqrt5}\left(\phi^n-\hat\phi^n\right)$。就是这么简单。
 
-#### Example 2.
+##### Example 2
 
 ~~Warning!~~
 
@@ -134,9 +134,9 @@ $$
 
 或者[Wikipedia](https://en.wikipedia.org/wiki/Generating_function#Examples_of_generating_functions_for_simple_sequences)
 
-## 指数型生成函数
+### 指数型生成函数
 
-### Definition
+#### Definition
 
 指数型生成函数（exponential generating function，简称EGF），其定义为
 
@@ -175,9 +175,9 @@ $$
 
 那么EGF又有什么作用呢？
 
-### Examples
+#### Examples
 
-#### Example 1.
+##### Example 1
 
 贝尔数$\omega_n$是把大小为$n$的子集分割成若干非空不相交子集的方案数。
 

@@ -62,12 +62,12 @@ $$
 这样写的好处在于，我们可以通过一条一条横线叠加来证明一条结论。比如我们要证明 $({\rm if\ True\ then}\ (14+5)\ {\rm else}\ 3):{\bf Int}$，就可以这样写：
 $$
 \cfrac{
-	\cfrac{}{\vdash {\rm True}:{\bf Bool}}{\rm\tiny(TRUE)}
-	\quad\cfrac{
-		\cfrac{14{\rm\ is\ a\ number}}{\vdash 14:{\bf Int}}{\rm\tiny(NUM)}
-		\quad\cfrac{5{\rm\ is\ a\ number}}{\vdash 5:{\bf Int}}{\rm\tiny(NUM)}
-	}{\vdash (14+5):{\bf Int}}{\rm\tiny(PLUS)}
-	\quad\cfrac{3{\rm\ is\ a\ number}}{\vdash 3:{\bf Int}}{\rm\tiny(NUM)}
+  \cfrac{}{\vdash {\rm True}:{\bf Bool}}{\rm\tiny(TRUE)}
+  \quad\cfrac{
+    \cfrac{14{\rm\ is\ a\ number}}{\vdash 14:{\bf Int}}{\rm\tiny(NUM)}
+    \quad\cfrac{5{\rm\ is\ a\ number}}{\vdash 5:{\bf Int}}{\rm\tiny(NUM)}
+  }{\vdash (14+5):{\bf Int}}{\rm\tiny(PLUS)}
+  \quad\cfrac{3{\rm\ is\ a\ number}}{\vdash 3:{\bf Int}}{\rm\tiny(NUM)}
 }{\vdash ({\rm if\ True\ then}\ (14+5)\ {\rm else}\ 3):{\bf Int}}{\rm\tiny(IF)}
 $$
 当然这样逐字的写出证明来很无聊也很麻烦。
