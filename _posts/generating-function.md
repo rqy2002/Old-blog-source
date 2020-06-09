@@ -58,8 +58,8 @@ $$
 | $<1,c,c^2,c^3,\dots>$                    | $\frac1{1-cx}$   |
 | $<1,n,\binom n2,\binom n3,\dots>$        | $(1+x)^n$        |
 | $<1,n,\binom{n+1}2,\binom{n+1}3,\dots>$  | $(1-x)^{-n}$     |
-| $<0,1,\frac12.\frac13,\dots>$            | $\ln\frac1{1-x}$ |
-| $<0,1,-\frac12.\frac13,-\frac14,\dots>$  | $\ln(1+x)$       |
+| $<0,1,\frac12,\frac13,\dots>$            | $\ln\frac1{1-x}$ |
+| $<0,1,-\frac12,\frac13,-\frac14,\dots>$  | $\ln(1+x)$       |
 | $<1,1,\frac12,\frac16,\frac1{24},\dots>$ | $e^x$            |
 
 你会发现以上都是一些看上去很简单的东西。那么生成函数到底哪里厉害了呢？

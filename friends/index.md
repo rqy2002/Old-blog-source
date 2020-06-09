@@ -5,7 +5,11 @@ date: 2018-03-14 20:01:27
 
 *注：排名不分先后（雾）*
 
+## OIers&ACMers
+
 ### 学长&学姐
+
+[岛娘](http://www.shuizilong.com/house/)
 
 [hzwer](http://hzwer.com/)
 
@@ -47,7 +51,9 @@ date: 2018-03-14 20:01:27
 
 [qyf(konoset)](http://www.cnblogs.com/cellular-automaton/)
 
-### 其他
+### 同届 or 学弟学妹
+
+[苏卿念](http://www.cnblogs.com/cn-suqingnian)
 
 [Shadowice](https://www.luogu.org/blog/ShadowassIIXVIIIIV/)
 
@@ -58,8 +64,6 @@ date: 2018-03-14 20:01:27
 [玫葵之蝶](http://blog.csdn.net/stone41123)
 
 [danihao123](http://danihao123.is-programmer.com/)
-
-[苏卿念小可爱](http://www.cnblogs.com/cn-suqingnian)
 
 [Logey](https://oi.logey.cn)
 
@@ -98,3 +102,8 @@ date: 2018-03-14 20:01:27
 [陈雨濛](http://www.cnblogs.com/-cym) 
 
 [张梓淳](http://www.cnblogs.com/MisakaAzusa)
+
+## 非 OIer
+
+[千里冰封](https://ice1000.org)
+
