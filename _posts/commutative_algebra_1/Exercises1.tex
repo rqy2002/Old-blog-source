@@ -1,0 +1,339 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{amsmath}  
+\usepackage{amssymb}  
+\usepackage{amsfonts}  
+\usepackage{enumitem}
+\usepackage{textcomp, gensymb}
+
+\usepackage{fancyhdr}  % Header and Footer formatting
+\pagestyle{fancy}  
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\setlength{\headheight}{18pt}
+
+% Header and Footer Information
+\lhead{\small{\itshape Qingyu Ren}}
+\chead{}
+\rhead{\textsc{Introduction to Commutative Algebra}}
+\lfoot{\today}
+\cfoot{}
+\rfoot{\thepage\ of \ref{NumPages}}  % Counts the pages.
+
+\makeatletter % This provides a total page count as \ref{NumPages}                 
+\AtEndDocument{\immediate\write\@auxout{\string\newlabel{NumPages}{{\thepage}}}}
+\makeatother
+
+\usepackage{amsthm}  % This will create the Problem environment
+\newtheoremstyle{noparens}%
+    {}{}%
+    {}{}%
+    {\itshape\bfseries}{.}%
+    {.5em}%
+    {\thmname{#1}\thmnumber{ #2}\thmnote{ #3}}
+
+\theoremstyle{noparens}
+\newtheorem*{exercise}{Exercise}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem{exercises}{Exercises}[section]
+\renewcommand*{\proofname}{Solution}
+
+\setlist[enumerate]{label={\roman*)}}
+
+\newcommand{\ga}{\mathfrak{a}}
+\newcommand{\gb}{\mathfrak{b}}
+\newcommand{\gc}{\mathfrak{c}}
+\newcommand{\gp}{\mathfrak{p}}
+\newcommand{\gm}{\mathfrak{m}}
+\newcommand{\gR}{\mathfrak{R}}
+\newcommand{\Spec}{\mathtt{Spec}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\iffalse
+\makeatletter
+\def\old@comma{,}
+\catcode`\,=13
+\def,{%
+  \ifmmode%
+    \old@comma\discretionary{}{}{}%
+  \else%
+    \old@comma%
+  \fi%
+}
+\makeatother
+\fi
+
+\begin{document}
+
+\section{Rings and Ideals}
+
+\begin{exercise}[1.12]
+  $(\ga:\gb)=\{x\in A:x\gb\subseteq\ga\}$
+\begin{enumerate}
+    \item $\ga\subseteq(\ga:\gb)$
+    \item $(\ga:\gb)\gb\subseteq\ga$
+    \item $((\ga:\gb):\gc)=(\ga:\gb\gc)=((\ga:\gc):\gb)$
+    \item $(\bigcap_i\ga_i:\gb)=\bigcap_i(\ga_i:\gb)$
+    \item $(\ga:\sum_i\gb_i)=\bigcap_i(\ga:\gb_i)$
+\end{enumerate}
+
+\begin{proof} Trivial.
+\end{proof}
+\end{exercise}
+
+\begin{exercise}[1.13]
+  $r(\ga)=\{x\in A:\exists n, x^n\in\ga\}$
+\begin{enumerate}
+    \item $r(\ga)\supseteq\ga$
+    \item $r(r(\ga))=r(\ga)$
+    \item $r(\ga\gb)=r(\ga\cap\gb)=r(\ga)\cap r(\gb)$
+    \item $r(\ga)=(1)\iff\ga=(1)$
+    \item $r(\ga+\gb)=r(r(\ga)+r(\gb))$
+    \item if $\gp$ is a prime, $r(\gp^n)=\gp$ forall $n>0$.
+\end{enumerate}
+
+\begin{proof}
+  i) ii) Trivial.
+
+  iii) Suppose $x^n\in\ga,x^m\in\gb$, then $x^{n+m}\in\ga\gb$, so $r(\ga)\cap r(\gb)\subseteq r(\ga\gb)$. Obviously $r(\ga\gb)\subseteq r(\ga\cap\gb)\subseteq r(\ga)\cap r(\gb)$.
+
+  iv) $1=1^n\in\ga$ , hence $\ga=(1)$.
+
+  v) If $x^n=u+v, u^m\in\ga, v^l\in\gb$, then by binomal theorem $x^{n(m+l-1)}$ can be written in sums of $u^av^b$ where $a\geq m$ or $b\geq l$, hence $u^av^b\in\ga+\gb$, and $x^{n(m+l-1)}\in\ga+\gb$.
+
+  vi) By iii), we have $r(\ga^n)=r(\ga)$ for any $n>0$; so by $r(\gp)=\gp$ we have $r(\gp^n)=\gp$.
+\end{proof}
+\end{exercise}
+
+\begin{exercises} Sum of a nilpotent and a unit is a unit.
+\begin{proof} If $x^n=0$ then $(1+x)(1-x+x^2-x^3+...+(-1)^{n-1}x^{n-1})=1$, so $1+x$ is a unit. If $a$ is a unit and $x$ is a nilpotent, then $a^{-1}x$ is a nilpotent, hence $a+x=a(1+a^{-1}x)$ is a unit.
+\end{proof}
+\end{exercises}
+
+\begin{exercises} Let $f=a_0+a_1x+\dots+a_nx^n\in A[x]$. Prove:
+\begin{enumerate}
+    \item $f$ is a unit in $A[x]$ $\iff$ $a_0$ is a unit in $A[x]$, and $a_1,\dots,a_n$ are nilpotent.
+    \item $f$ is nilpotent $\iff$ $a_0,\dots,a_n$ are nilpotent.
+    \item $f$ is a zero-divisior $\iff$ there exists $a\neq0\in A$ such that $af=0$.
+    \item $f$ is said \textit{primitive} if $(a_0,a_1,\dots,a_n)=(1)$. Prove that $fg$ is primitive $\iff$ $f$ and $g$ are both primitive.
+\end{enumerate}
+\begin{proof}\hfill
+
+\begin{enumerate}
+    \item $\implies$: Suppose $g=b_0+b_1x+\dots+b_mx^m$ such that $fg=1$, then $a_0b_0=1$ hence $a_0, b_0$ are both units. We Prove $a_n^{r+1}b_{m-r}=0$ for all $0\leq r\leq m$ by induction on r.
+    
+    If this is true for all $r'<r$, consider the $(n+m-r)$-th coefficient of $fg$, we have \(0=\sum_{i=0}^ra_{n-r+i}b_{m-i}\), so $a_nb_{m-r}=\sum_{i=0}^{r-1}a_{n-r+i}b_{m-i}$. Multiply $a_n^r$ to both side, then by induction hypothesis we get $a_n^{r+1}b_{m-r}=0$.
+    
+    In partial, $a_n^{m+1}b_0=0$, hence $a_n$ is nilpotent, and so is $a_nx^n$. By Ex.1.1, $f-a_nx^n$ is a unit, so repeat the proof above we have $a_1,\dots,a_n$ are nilpotent.
+    
+    $\impliedby$: Repeat Ex.1.1 for $n$ times.
+    
+    \item $\implies$ If $f^k=0$, then consider $nk$-th coefficient of $f^k$ we have $a_n^k=0$. Then $f-a_nx^n$ is also nilpotent, hence $a_0,a_1,\dots,a_n$ are all nilpotent.
+    
+    $\impliedby$: $f$ is sums of $n$ nilpotents, also a nilpotent. 
+    
+    \item $\implies$: Choose $g=b_0+b_1x+\dots+b_mx^m$ of least degree $m$ such that $fg=0$, then $a_nb_m=0$, so $a_ng$ is of at most degree $m-1$. But $a_ngf=0$, by the choice of $g$ we have $a_ng=0$. Then we prove $a_{n-r}g=0$ by induction on $r$. For $r=1$ it's proved above, and if it is true for $0,1,\dots,r-1$, then we have $a_{n-r}b_m=0$, so similarly $a_{n-r}g=0$. So we have $b_mf=0$.
+    
+    $\impliedby$: Trivial.
+    
+    \item $\implies$: if all coefficients of $f$ are in an ideal $\ga\neq(1)$, then obviously all coefficients of $fg$ are also in $\ga$, so $fg$ is not primitive.
+    
+    $\impliedby$ Left $f=a_0+a_1x+\dots+a_nx^n$ and $g=b_0+b_1x+\dots+b_mx^m$ both primitive. Suppose $fg=c_0+c_1x+\dots+c_{n+m}x^{n+m}$ is not primitive, that is, $(c_0,c_1,\dots,c_{n+m})=\gc\neq(1)$. Let $\gp$ be a prime ideal contains $\gc$, and let $i,j$ be the least number that $a_i\notin\gp,b_j\notin\gp$ (cause $f,g$ are primitive, these number exist), then $a_ib_j=c_{i+j}-\sum_{k=0}^{i-1}a_ib_{i+j-k}-\sum_{k=0}^{j-1}a_{i+j-k}b_k\in\gp$, contradiction.
+\end{enumerate}
+\end{proof}
+\end{exercises}
+
+\begin{exercises} Generate results in Ex.1.2 to a ring $A[x_1,x_2,\dots,x_n]$ with several indeterminates.
+\begin{proof}
+  Just consider $A[x_1,x_2,\dots,x_n]$ as a polynomial ring over $A[x_1,x_2,\dots,x_{n-1}]$. Repeat the proof above, we have: if $f,g\in A[x_1,x_2,\dots,x_n]$, then
+
+\begin{enumerate}
+    \item $f$ is a unit $\iff$ the constant term of $f$ is a unit, all other coefficients are nilpotent.
+    \item $f$ is nilpotent $\iff$ all coefficients of $f$ are nilpotent.
+    \item $f$ is a zero-divisior $\iff$ there exists $a\neq0\in A$ such that $af=0$
+    \item $fg$ is primitive $\iff$ $f,g$ are both primitive.
+\end{enumerate}
+\end{proof}
+\end{exercises}
+
+\begin{exercises} In the ring $A[x]$, the Jacobson radical is equal to nilradical.
+\begin{proof}
+  Let $f\in A[x]$ belong to Jacobson radical, then for all $g\in A[x]$, $1-fg$ is a unit. In particular, $1-xf$ is a unit, hence any coefficient of $f$ is nilpotent, and $f$ is nilpotent, i.e. $f$ belongs to nilradical of $A[x]$.
+\end{proof}
+\end{exercises}
+
+\begin{exercises} Let $A[[x]]$ be the ring former power series over $A$, and let $f=\sum_{n=0}^\infty a_nx^n\in A[[x]]$. Show that
+\begin{enumerate}
+    \item $f$ is a unit of $A[[x]]$ $\iff$ $a_0$ is a unit of $A$.
+    \item If $f$ is nilpotent, then $a_n$ is nilpotent for all $n\geq0$. {\itshape Is the converse true? (See Chapter 7,Exercise 2.)}
+    \item $f$ belongs to Jacabson radical of $A[[x]]$ $\iff$ $a_0$ belongs to Jacabson radical of $A$.
+    \item The contraction of a maximal ideal $\gm$ of $A[[x]]$ is a maximal ideal of $A$, and $\gm$ is generated by $\gm^c$ and $x$.
+    \item Every prime ideal of $A$ is the contraction of a prime ideal of $A[[x]]$.
+\end{enumerate}
+
+\begin{proof}\hfill
+
+\begin{enumerate}
+    \item $\implies$: Trivial.
+    
+    $\impliedby$: Let $g=\sum_{n=0}^\infty b_nx^n$ where $b_0=a_0^{-1}, b_n=-a_0^{-1}\sum_{i=1}^na_ib_{n-i}$, then $gf=1$, so $f$ is a unit.
+
+    \item Induction on $n$. if $a_0,\dots,a_{n-1}$ is nilpotent, then so is $f_n=\sum_{m=0}^\infty a_{n+m}x^m$ (Cause $f-a_0-a_1x-\dots-a_{n-1}x^{n-1}=x^nf_n$). So there exists $k$ such that $f_n^k=0$, hence $a_n^k=0$.
+    
+    \item Suppose $f$ belongs to Jacabson radical of $A[[x]]$, then for all $g$, $1-fg$ is a unit. In particalur for all $b\in A$, $1-bf$ is a unit, so by i) $1-a_0b$ is a unit, so $a_0$ belongs to Jacabson radical of $A$; and vice versa.
+    
+    \item If $\gm^c\subseteq\ga\neq(1)$, then $\ga+(x)$ is a ideal of $A[[x]]$, which contains all series of constant term $\in\ga$, so $\ga+(x)\supset\gm$, hence $\ga+(x)=\gm$ and $\ga=\gm^c$.
+    
+    \item Let $\gp$ be a prime ideal of $A$, then $\gp$ is the contraction of $\gp+(x)$. So it is sufficient to prove $\gp+(x)$ is a prime ideal of $A[[x]]$.
+    
+    If $f=\sum_{n=0}^\infty a_nx^n,g=\sum_{n=0}^\infty b_nx^n$, and $fg\in\gp+(x)$, i.e. $a_0b_0\in\gp$, then either $a_0$ or $b_0$ belongs to $\gp$. So either $f$ or $g$ belongs to $\gp+(x)$, hence $\gp+(x)$ is a prime ideal of $A[[x]]$.
+\end{enumerate}
+\end{proof}
+\end{exercises}
+
+\begin{exercises}
+  Let $A$ be a ring such that every ideal not contained in the nilradical contains a nonzero idempotent (that is, an element $e$ such that $e^2=e\neq0$). Prove that the nilradical and Jacobson radical of $A$ are equal.
+\begin{proof}
+  If the Jacobson radical is not contained in the nilradical, then there exists a nonzero idempotent $e$ belongs to the Jacobson radical, so $1-e=1-1e$ is a unit. but $e^2=e$, hence $(1-e)e=0$, so $e=0$, contradiction.
+\end{proof}
+\end{exercises}
+
+\begin{exercises}
+  Let $A$ be a ring in which every element $x$ satifies $x^n=x$ for some $n>1$. Show that every prime ideal of $A$ is maximal.
+\begin{proof}
+  Let $\gp$ be a prime ideal, then we have $A/\gp$ is a intergal domain, and for all $\bar{x}$ there exists $n>1$ such that $\bar{x}^n=\bar{x}$, hence $(\bar{x}^{n-1}-1)\bar{x}=0$. If $\bar{x}\neq0$, then $\bar{x}^{n-1}-1=0$, so $\bar{x}$ is a unit. Hence $A/\gp$ is a field, and $\gp$ is maximal.
+\end{proof}
+\end{exercises}
+
+\begin{exercises}
+  Let $A$ be a ring $\neq0$. Show that the set of prime ideals of $A$ has minimal elements with repect to inclusion.
+\begin{proof}
+  Forall chains of prime ideals $\gp_1\supseteq\gp_2\supseteq\dots$, if we let $\gp=\bigcap_{n=1}^\infty\gp_n$, then $\gp$ is an ideal. Suppose $xy\in\gp$, then for all $n$ we have $xy\in\gp_n$, hence either $x$ or $y$ belongs to $\gp_n$, so at least one of them belongs to infinite $\gp_n$, hence belongs to all $\gp_n$, i.e. either $x$ or $y$ belongs to $\gp$. So all chains of prime ideals of $A$ has a lower bound, so by Zorn's Lemma there exists a minimal elements along them.
+\end{proof}
+\end{exercises}
+
+\begin{exercises}
+  Let $\ga$ be an ideal $\neq(1)$ in a ring $A$. Show that $\ga=r(\ga)\iff\ga$ is an intersection of prime ideals.
+\begin{proof}
+  $\implies$: Let $\gb$ be the intersection of all prime ideals containing $\ga$. If $x\in\gb$, then in $A/\ga$, $\bar{x}$ belongs to all prime ideals, so $\bar{x}^n=0$ for some $n>0$, i.e. $x\in r(\ga)=\ga$. so $\ga=\gb$ is a intersection of prime ideals.
+
+  $\impliedby$: If $\ga=\bigcap_\alpha\gp_\alpha$, then $r(\ga)=\bigcap_\alpha r(\gp_\alpha)=\bigcap_\alpha\gp_\alpha=\ga$.
+\end{proof}
+\end{exercises}
+
+\begin{exercises}
+  Let $A$ be a ring, $\gR$ its nilradical. Show that the following are equivalent:
+  \begin{enumerate}
+    \item $A$ has exactly one prime ideal.
+    \item every element of $A$ is either a unit ot nilpotent.
+    \item $A/\gR$ is a field.
+  \end{enumerate}
+\begin{proof}
+  i) $\implies$ ii): If $a\notin\gR$ is not a unit, then there exists a prime ideal $\gp$ containing $a$, so $\gp$ is the onlyprime ideal. But then $\gR=\gp$, contradiction.
+
+  ii) $\implies$ iii): Every elements $\notin\gR$ is a unit, so every elements of $A/\gR$ is a unit, therefore $A/\gR$ is a field.
+
+  iii) $\implies$ i): $\gR$ is a maximal ideal and the intersection of all prime ideals. So the only prime ideal of $A$ is $\gR$ itself.
+\end{proof}
+\end{exercises}
+
+\begin{exercises}
+  A ring $A$ is {\itshape Boolean} if $x^2=x$ for all $x\in A$. In a Boolean ring $A$, show that
+  \begin{enumerate}
+    \item $2x=0$ for all $x\in A$.
+    \item every prime ideal $\gp$ is maximal, and $A/\gp$ is a field with two elements.
+    \item every finitely generated ideal in $A$ is principal.
+  \end{enumerate}
+\begin{proof}
+  \begin{enumerate}
+    \item $x+1=(x+1)^2=x^2+2x+1=3x+1$, so $2x=0$ for all $x\in A$.
+    \item Suppose $x\not\in\gp$. By $x(1-x)=x-x^2=0\in\gp$ we have $1-x\in\gp$. So $A=\gp\cup(1-\gp)$, and $A/\gp$ only contains two elements, hence is a field, and $\gp$ is maximal.
+    \item For any $a_1,a_2,\dots,a_n\in A$, let $a=1-\prod_{i=1}^n(1-a_i)$, then $a_ia=a_i-a_i(1-a_i)\prod=a_i$, so $(a_1,a_2,\dots,a_n)=(a)$.
+  \end{enumerate}
+\end{proof}
+\end{exercises}
+
+\begin{exercises}
+  A local ring contains no idempotent $\neq0,1$.
+\begin{proof}
+  Let $\gm$ be the only maximal ideal of $A$. For any idempotent $e$, if $e$ is a unit then $e=e^{-1}e^2=e^{-1}e=1$. If $e$ is not unit, then $e\in\gm=\gR$ (the Jacabson radical of $A$), so $1-e$ is a unit. but $(1-e)^2=1-2e+e^2=1-e$ is also idempotent, so $1-e=1$, therefore $e=0$.
+\end{proof}
+\end{exercises}
+
+\begin{exercises}
+  $K$ field, $\Sigma$ the set of all irreducible monic polynomials f of one indeterminate with coefficients in $K$. Let $A$ be the polynomial ring over $K$ generated bt indeterminates $x_f$, one for each $f\in\Sigma$. Let $\ga$ be the ideal of $A$ generated by the polynomials $f(x_f)$ for all $f\in\Sigma$. Show that $\ga\neq(1)$.
+
+  Let $\gm$ be a maximal ideal of $A$ containing $\ga$, and let $K_1=A/\gm$. Then $K_1$is an extension field of $K$ in which each $f\in\Sigma$ has a root. Repeat the construction with $K_1$ in place of $K$, obtaining a field $K_2$, and so on. Let $L=\bigcup_{n=1}^\infty K_n$, Then $L$ is a field in which each $f\in\Sigma$ splits completely into linear factors. Let $\bar{K}$ be the set of all elements of $L$ which are algebraic over $K$. Then $\bar{K}$ is an algebraic closure of $K$.
+\begin{proof}
+  Let $1\in\ga$, then $1$ can be written in a finite sum of finite products of $f(x_f)$-s. Choose one form containing least $f$-s, suppose it contains $a_1=f_1(x_{f_1}),a_2=f_2(x_{f_2}),\dots,a_n=f_n(x_{f_n})$. then $(a_1,a_2,\dots,a_{n-1})\neq(1)$ but $(a_1,a_2,\dots,a_{n-1})+(a_n)=(1)$.
+  
+  Hence $(a_1,a_2,\dots,a_{n-1})(a_n)=(a_1,a_2,\dots,a_{n-1})\cap(a_n)$, so $a_n\in(a_1,a_2,\dots,a_{n-1})(a_n)$, i.e. exists $b\in(a_1,a_2,\dots,a_{n-1})$ such that $ba_n=a_n$. Obviously $A$ is an intergal domain, so $b=1$; but then $(a_1,a_2,\dots,a_{n-1})=(1)$, contradiction.
+
+  If $f\in\Sigma$, then $f(x_f)\in\ga$, so $f(\bar{x_f})=0$ in $K_1=A/\gm$, and $f$ can be written as $f(x)=(x-x_f)f_1(x)$. Repeat this progress then in $K_{\deg(f)}$, $f$ splits into linear factors.
+\end{proof}
+\end{exercises}
+
+\begin{exercises}
+  In a ring a, let $\Sigma$ be all ideals in which every element is a zero-divisior. Show that the set $\Sigma$ has maximal elements, and every maximal element of $\Sigma$ is a prime ideal. Hence the set of zero-divisiors in A is a union of prime ideals.
+\begin{proof}
+  For every chain in $\Sigma$ $\{\ga_\alpha\}_\alpha$, it has a upperbound $\bigcup_\alpha \ga_\alpha$. So by Zorn's Lemma $\Sigma$ has maximal elements.
+
+  Suppose $\gm$ is a maximal element of $\Sigma$, and $xy\in\gm$. Consider $\gm+(x)$ and $\gm+(y)$. If neither belongs to $\Sigma$, then there exists $a,b\in\gm,u,v\in A$ such that $a+ux,b+vy$ are both not zero-divisior. But $(a+ux)(b+vy)\in\gm$ is a zero-divisior, contradiction. So at least one of $\gm+(x),\gm+(y)$ belongs to $\Sigma$, i.e. $x\in\gm$ or $y\in\gm$.
+\end{proof}
+\end{exercises}
+
+\begin{exercises}
+  Let $A$ be a ring and let $X$ be the set of all prime ideals of $A$. For eah subset $E$ of $A$, let $V(E)$ denote the set of all prime ideals of $A$ which contain $E$. Prove that
+  \begin{enumerate}
+    \item if $\ga$ is the ideal generated by $E$, then $V(E)=V(\ga)=V(r(\ga))$.
+    \item $V(0)=X,V(1)=\varnothing$.
+    \item if $(E_i)_{i\in I}$ is any family of subsets of $A$, then
+    $$V\left(\bigcup_{i\in I}E_i\right)=\bigcap_{i\in I}V(E_i)$$
+    \item $V(\ga\cap\gb)=V(\ga\gb)=V(\ga)\cup V(\gb)$ for any ideals $\ga,\gb$.
+  \end{enumerate}
+\begin{proof}\hfill
+
+  \begin{enumerate}
+    \item If $E\subseteq\gp$ then also is $\ga=(E)$. If $\ga\subseteq\gp$ and $x^n\in\ga\subseteq\gp$ then by definition    $x\in\gp$, so $r(\ga)\subseteq\gp$. The inverse is trivial.
+    \item Trivial.
+    \item Trivial.
+    \item If $\ga\cap\gb\subseteq\gp$ then $\ga\subseteq\gp$ or $\gb\subseteq\gp$. So $V(\ga\cap\gp)\subseteq V(\ga)\cup V(\gb)$. $\supseteq$-s are triival.
+  \end{enumerate}
+\end{proof}
+\end{exercises}
+
+\begin{exercises}
+  Draw pictures of $\Spec(\Z),\Spec(\R),\Spec(\C[x]),\Spec(\R[x]),\Spec(\Z[x])$.
+\begin{proof}\hfill
+  \begin{enumerate}
+    \item In $\Spec(\Z)$ there is countable infinite closed points $(p_i)$, and a generic point $0$.
+    \item Cause $R$ is a field, it have only one prime ideal $0$. So $\Spec(\R)$ is a trivial topology space with only one point.
+    \item In $\C[x]$ a prime ideal is $0$ or $(x-z)$ with $z\in\C$, it's similar to $\Spec(\Z)$ but with uncountable infinite points.
+    \item In $\R[x]$ a prime ideal is $0, (x-r)$ or $(x^2+px+q)$ with $p^2-4q<0$, actually it's isomorphic to $\Spec(\C[x])$
+    \item In $\Z[x]$ there are three sorts of prime ideals: $0$ or $(p)$; $(F(x))$ where $F$ is a irreducible polynomial over $\Z[x]$  (or equivalentlly irreducible polynomial over $\Q[x]$); $(p,F(x))$ where $F(x)$ is a monic irreducible polynomial over $\Z/p\Z$. For the Zariski topology, there is a closed base of it: $\{(p,F(x)) | F(x)  \text{ irreducible over } \Z_p[x]\}$ for all $p$; $\{(p,G(x)) | G(x) \text{ divides } F(x) \text{ over } \Z_p[x]\} \cup \{(F(x))\}$ for all irreducible $F(x)\in\Z[x]$; $\{(p,F(x))\}$ for all $F(x)$ irreducible over $\Z_p[x]$.
+  \end{enumerate}
+\end{proof}
+\end{exercises}
+
+\begin{exercises}
+  For each $f\in A$, let $X_f$ denote  the complement of $V(f)$ in $X=\Spec(A)$. The sets $X_f$ are open. Show that they form a basis of the Zariski topology, and that
+  \begin{enumerate}
+    \item $X_f\cap X_g=X_{fg}$.
+    \item $X_f=\varnothing\iff f$ is nilpotent.
+    \item $X_f=X\iff f$ is a unit.
+    \item $X_f=X_g\iff r((f))=r((g))$.
+    \item $X$ is quasi-compact (every open covering of $X$ has a finite sub-covering)
+    \item More generating, each $X_f$ is quasi-compact.
+    \item An open subset of $X$ is quasi-compact if and only if it is a finite union of sets $X_f$.
+    
+    The sets $X_f$ are called basic open sets of $X=\Spec(A)$.
+  \end{enumerate}
+\end{exercises}
+
+\end{document}

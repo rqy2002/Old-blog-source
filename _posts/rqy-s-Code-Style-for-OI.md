@@ -2,7 +2,6 @@
 title: _rqy's Code Style for OI
 tags:
   - 代码规范
-top: true
 mathjax: true
 date: 2018-03-14 10:27:47
 ---

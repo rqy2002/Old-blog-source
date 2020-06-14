@@ -56,10 +56,10 @@ $$
 
 ### “伪项”的定义
 
-一个**伪项**（*pseudo-term*）$\cal T$ 定义如下：
+一个**伪项**（*pseudo-term*）$\mathcal{T}$ 定义如下：
 $$
 \begin{aligned}
-{\cal T}&::=V\mid C\mid {\cal TT}\mid\lambda V\!:\!{\cal T}.{\cal T}\mid \Pi V\!:\!{\cal T}.{\cal T}\\
+\mathcal{T}&::=V\mid C\mid \mathcal{TT}\mid\lambda V\!:\!\mathcal{T}.\mathcal{T}\mid \Pi V\!:\!\mathcal{T}.\mathcal{T}\\
 V&::=\text{a variable}\\
 C&::=\text{a constant}
 \end{aligned}
@@ -150,25 +150,25 @@ $$
 一个 PTS 中的一个表达式，或者称为伪项，定义与 $\lambda$-cube 中相同：
 $$
 \begin{aligned}
-{\cal T}&::=V\mid C\mid {\cal TT}\mid\lambda V\!:\!{\cal T}.{\cal T}\mid \Pi V\!:\!{\cal T}.{\cal T}\\
+\mathcal{T}&::=V\mid C\mid \mathcal{TT}\mid\lambda V\!:\!\mathcal{T}.\mathcal{T}\mid \Pi V\!:\!\mathcal{T}.\mathcal{T}\\
 V&::=\text{a variable}\\
 C&::=\text{a constant}
 \end{aligned}
 $$
-区别在于常量中不一定会有 $*,\square$，取而代之的是一个集合 ${\cal S}\subseteq C$，称为 *sorts*。在 $\lambda$-cube 里，$\cal S=\{*,\square\}$。
+区别在于常量中不一定会有 $*,\square$，取而代之的是一个集合 $\mathcal{S}\subseteq C$，称为 *sorts*。在 $\lambda$-cube 里，$\mathcal{S}=\{*,\square\}$。
 
 ### 类型推导规则
 
-对于所有 *sort*，它们之间可能会有一些关系，比如 $\lambda$-cube 里的 $*:\square$。一个 PTS 会包含一个公理集合 $\cal A$，包含若干个形如
+对于所有 *sort*，它们之间可能会有一些关系，比如 $\lambda$-cube 里的 $*:\square$。一个 PTS 会包含一个公理集合 $\mathcal{A}$，包含若干个形如
 $$
 c:s
 $$
-的形式，其中 $c\in C$ 而 $s\in\cal S$。注意 $c$ 不一定是一个 sort，我们也可以钦定一个类型之类的。
+的形式，其中 $c\in C$ 而 $s\in\mathcal{S}$。注意 $c$ 不一定是一个 sort，我们也可以钦定一个类型之类的。
 
 之后是跟 $\lambda$-cube 一样的通用的推导规则：
 $$
 \begin{array}{cl}
-\cfrac{(c:s)\in\cal A}{c:s}{}&\rm(axiom)\\
+\cfrac{(c:s)\in\mathcal{A}}{c:s}{}&\rm(axiom)\\
 \cfrac{\Gamma\vdash A:s\quad x\notin\Gamma}{\Gamma,x:A\vdash x:A}&\rm(start)\\
 \cfrac{\Gamma\vdash A:B\quad\Gamma\vdash C:s\quad x\notin\Gamma}{\Gamma,x:C\vdash A:B}&\rm(weakening)\\
 \cfrac{\Gamma\vdash A:(\Pi x\!:\!U.V)\quad\Gamma\vdash B:U}{\Gamma\vdash (AB):V[x:=B]}&\rm(application)\\
@@ -176,27 +176,27 @@ $$
 \cfrac{\Gamma\vdash A:B\quad\Gamma\vdash B':s\quad B=_\beta B'}{\Gamma\vdash A:B'}&\rm(conversion)
 \end{array}
 $$
-之后还需要有一些规则用来推断 $\Pi$ 类型的 inference。这些规则记在一个集合 $\cal R$ 中。$\cal R$ 包含若干个 sort 的三元组 $(s_1,s_2,s_3)$，表示当 $A:s_1,B:s_2$ 时 $(\Pi x\!:\!A.B):s_3$。
+之后还需要有一些规则用来推断 $\Pi$ 类型的 inference。这些规则记在一个集合 $\mathcal{R}$ 中。$\mathcal{R}$ 包含若干个 sort 的三元组 $(s_1,s_2,s_3)$，表示当 $A:s_1,B:s_2$ 时 $(\Pi x\!:\!A.B):s_3$。
 $$
-\cfrac{\Gamma\vdash A:s_1\quad\Gamma,x:A\vdash B:s_2\quad(s_1,s_2,s_3)\in\cal R}{\Gamma\vdash (\Pi x\!:\!A.B):s_3}\qquad\rm(product)
+\cfrac{\Gamma\vdash A:s_1\quad\Gamma,x:A\vdash B:s_2\quad(s_1,s_2,s_3)\in\mathcal{R}}{\Gamma\vdash (\Pi x\!:\!A.B):s_3}\qquad\rm(product)
 $$
 在 $\lambda$-cube 里 $s_2$ 都和 $s_3$ 相等，这时候我们也用 $(s_1,s_2)$ 来简记 $(s_1,s_2,s_2)$ rule。
 
-一个 PTS 由这样三个集合 $\cal(S,A,R)$ 决定。比如说 $\lambda2$ 表示如下：
+一个 PTS 由这样三个集合 $(\mathcal{S,A,R})$ 决定。比如说 $\lambda2$ 表示如下：
 $$
 \lambda2\quad
 \begin{array}{|ll|}\hline
-\cal S&*,\square\\
-\cal A&*:\square\\
-\cal R&(*,\square),(\square,*)\\\hline\end{array}
+\mathcal{S}&*,\square\\
+\mathcal{A}&*:\square\\
+\mathcal{R}&(*,\square),(\square,*)\\\hline\end{array}
 $$
 PTS 有很多应用，比如一系列 AUTOMATH 的类型系统可以这样表示：
 $$
 \lambda{\rm AUT{-}68}\quad
 \begin{array}{|ll|}\hline
-\cal S&*,\square,\Delta\\
-\cal A&*:\square\\
-\cal R&(*,*),(*,\square,\Delta),(\square,*,\Delta)\\
+\mathcal{S}&*,\square,\Delta\\
+\mathcal{A}&*:\square\\
+\mathcal{R}&(*,*),(*,\square,\Delta),(\square,*,\Delta)\\
 &(\square,\square,\Delta),(*,\Delta,\Delta),(\square,\Delta,\Delta)\\\hline\end{array}
 $$
 
@@ -266,12 +266,12 @@ $$
 $$
 \lambda{\rm PRED}\quad
 \begin{array}{|ll|}\hline
-\cal S&*^s,*^p,*^f,\square^s,\square^p\\
-\cal A&*^s:\square^s,*^p:\square^p\\
-\cal R&(*^p,*^p),(*^s,*^p),(*^s,\square^p)\\
+\mathcal{S}&*^s,*^p,*^f,\square^s,\square^p\\
+\mathcal{A}&*^s:\square^s,*^p:\square^p\\
+\mathcal{R}&(*^p,*^p),(*^s,*^p),(*^s,\square^p)\\
 &(*^s,*^s,*^f),(*^s,*^f)\\\hline\end{array}
 $$
-我们来看 $\cal R$ 里面的规则表示什么： $(*^p,*^p)$ 是用来表示命题的蕴含（箭头类型表示蕴含），如下：
+我们来看 $\mathcal{R}$ 里面的规则表示什么： $(*^p,*^p)$ 是用来表示命题的蕴含（箭头类型表示蕴含），如下：
 $$
 P:*^p,Q:*^p\vdash(P\to Q)\equiv(\Pi x\!:\!P.Q):*^p
 $$
