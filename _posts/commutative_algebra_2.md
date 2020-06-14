@@ -53,11 +53,11 @@ $$\bar u(f)=f\circ u;\qquad\bar v(f)=v\circ f$$
 
 如果 $f:M\to N$ 是 $A$-模同态，那么 $f$ 的**核** *kernel* 定义为 $\Ker f=\{x\in M\mid f(x)=0\}$，它是 $M$ 的一个子模。
 
-$f$ 的**像** *image* 为 $\Im f=\{f(x)\mid x\in M\}$，是 $N$ 的一个子模。其**余核** *cokernel*（有的地方也翻译成“上核”？~~反正就是 co-核就对了~~）定义为 $N/\Im f$。
+$f$ 的**像** *image* 为 $\Image f=\{f(x)\mid x\in M\}$，是 $N$ 的一个子模。其**余核** *cokernel*（有的地方也翻译成“上核”？~~反正就是 co-核就对了~~）定义为 $N/\Image f$。
 
 如果 $M'\subseteq\Ker f$ 是一个子模，那么 $f$ 可以引导出同态 $\bar f:M/M'\to N$，定义为 $\bar f(x+M')=f(x)$，此时 $\bar f$ 的核为 $\Ker f/M'$。特别的，取 $M'=\Ker f$，就得到一个 $A$-模同构
 
-$$M/\Ker f\cong\Im f$$
+$$M/\Ker f\cong\Image f$$
 
 ### 子模上的运算
 
@@ -124,13 +124,13 @@ hmm，终于写到正合列了~~噩梦的开始~~。
 
 $$\cdots\xrightarrow{}M_{i-1}\xrightarrow{f_i}M_i\xrightarrow{f_{i+1}}M_{i+1}\xrightarrow{}\cdots$$
 
-称为**正合** *exact* 的，如果 $\Im f_i=\Ker f_{i+1}$。特别的：
+称为**正合** *exact* 的，如果 $\Image f_i=\Ker f_{i+1}$。特别的：
 
 - $0\xrightarrow{}M'\xrightarrow{f}M$ 正合当且仅当 $f$ 是单射；
 - $M\xrightarrow{g}M'\xrightarrow{}0$ 正合当且仅当 $g$ 是满射；
 - $0\xrightarrow{}M'\xrightarrow{f}M\xrightarrow{g}M''\xrightarrow{}0$ 正合当且仅当 $f$ 是单射、$g$ 是满射，且 $g$ 诱导了 $\Coker(f)$ 到 $M''$ 的同构。
 
-最后这种正合列叫做**短正合列** *short exact sequence*。任意的正合列都可以拆成短正合列：定义 $N_i=\Im f_i=\Ker f_{i+1}$，则 $0\xrightarrow{}N_i\xrightarrow{}M_i\xrightarrow{}N_{i+1}\xrightarrow{}0$ 对于每个 $i$ 都是正合的（反过来也对）。
+最后这种正合列叫做**短正合列** *short exact sequence*。任意的正合列都可以拆成短正合列：定义 $N_i=\Image f_i=\Ker f_{i+1}$，则 $0\xrightarrow{}N_i\xrightarrow{}M_i\xrightarrow{}N_{i+1}\xrightarrow{}0$ 对于每个 $i$ 都是正合的（反过来也对）。
 
 命题：
 
@@ -145,29 +145,29 @@ hm，我好像还没证过，我来试试。
 
 {% fold "此命题的证明" %}
 
-(1.) $\Im plies$: $v$ 是满射 $\Im plies$ $\bar v:f\mapsto f\circ v$ 是单射，显然。
+(1.) $\Image plies$: $v$ 是满射 $\Image plies$ $\bar v:f\mapsto f\circ v$ 是单射，显然。
 
-对于 $\bar u$ 和 $\bar v$，不难证明 $f\in\Ker\bar u\iff\Ker f\supseteq\Im u=\Ker v$。那么 $\Im\bar v\subseteq\Ker\bar u$ 立即成立（$g\circ v$ 的核肯定包含 $v$ 的核）。
+对于 $\bar u$ 和 $\bar v$，不难证明 $f\in\Ker\bar u\iff\Ker f\supseteq\Image u=\Ker v$。那么 $\Image\bar v\subseteq\Ker\bar u$ 立即成立（$g\circ v$ 的核肯定包含 $v$ 的核）。
 
 反过来如果 $\Ker f\supseteq\Ker v$，那么复合映射
 
 $$g:M''\xrightarrow{v^{-1}}M/\Ker v\xrightarrow{}M/\Ker f\xrightarrow{f}N$$
 
-就是满足 $f=g\circ v$ 的同态（*注意这里用到了 $v$ 是满射*）。因此我们有 $\Im\bar v=\Ker\bar u$。
+就是满足 $f=g\circ v$ 的同态（*注意这里用到了 $v$ 是满射*）。因此我们有 $\Image\bar v=\Ker\bar u$。
 
-(1.) $\Im pliedby$: 取 $N=M''/\Im v$，考虑投影同态 $\phi:M''\to N$。显然 $\bar v(\phi)=\phi\circ v=0$，因此由 $\bar v$ 的单射性可知 $\phi=0$，于是 $N$ 为零模，即 $\Im v=M''$，$v$ 是满射。
+(1.) $\Image pliedby$: 取 $N=M''/\Image v$，考虑投影同态 $\phi:M''\to N$。显然 $\bar v(\phi)=\phi\circ v=0$，因此由 $\bar v$ 的单射性可知 $\phi=0$，于是 $N$ 为零模，即 $\Image v=M''$，$v$ 是满射。
 
-取 $N=M''$，那么由于 $\bar u\circ\bar v=0$，也就是说对任意的 $f$ 都有 $v\circ u\circ f=0$，取 $f$ 为恒等映射可知 $v\circ u=0$，即 $\Im u\subseteq\Ker v$。
+取 $N=M''$，那么由于 $\bar u\circ\bar v=0$，也就是说对任意的 $f$ 都有 $v\circ u\circ f=0$，取 $f$ 为恒等映射可知 $v\circ u=0$，即 $\Image u\subseteq\Ker v$。
 
-再取 $N=M/\Im u$，令 $\phi:M\to N$ 为投影同态，则 $\bar u(\phi)=\phi\circ u=0$，即 $\phi\in\Ker\bar u=\Im\bar v$。因此存在 $\psi:M''\to M/\Im u$ 使得 $\phi=\psi\circ v$，所以 $\Im u=\Ker\phi\supseteq\Ker v$。
+再取 $N=M/\Image u$，令 $\phi:M\to N$ 为投影同态，则 $\bar u(\phi)=\phi\circ u=0$，即 $\phi\in\Ker\bar u=\Image\bar v$。因此存在 $\psi:M''\to M/\Image u$ 使得 $\phi=\psi\circ v$，所以 $\Image u=\Ker\phi\supseteq\Ker v$。
 
-(2.) $\Im plies$: 如果 $u$ 是单射，那么显然 $\bar u:f\mapsto u\circ f$ 是单射。
+(2.) $\Image plies$: 如果 $u$ 是单射，那么显然 $\bar u:f\mapsto u\circ f$ 是单射。
 
-接下来有 $f\in\Ker\bar v\iff v\circ f=0\iff\Im f\subseteq\Ker v=\Im u$，因此显然 $\Im\bar u\subseteq\Ker\bar v$（显然 $u\circ f$ 的像包含在 $u$ 的像里）。
+接下来有 $f\in\Ker\bar v\iff v\circ f=0\iff\Image f\subseteq\Ker v=\Image u$，因此显然 $\Image\bar u\subseteq\Ker\bar v$（显然 $u\circ f$ 的像包含在 $u$ 的像里）。
 
-反过来，如果 $\Im f\subseteq\Im u$，那么因为 $u$ 是单射，所以肯定可以把 $f$ 的像都拉回到 $N'$ 中，这样就得到了一个同态 $g$ 使得 $f=u\circ g$。因此 $\Im\bar u\supseteq\Ker v$。
+反过来，如果 $\Image f\subseteq\Image u$，那么因为 $u$ 是单射，所以肯定可以把 $f$ 的像都拉回到 $N'$ 中，这样就得到了一个同态 $g$ 使得 $f=u\circ g$。因此 $\Image\bar u\supseteq\Ker v$。
 
-(2.) $\Im pliedby$: 这个好像很简单的样子。取 $M=A$，然后由 $\Hom(A,N)\cong N$，并且这种同构意义下 $\bar u,\bar v$ 和 $u,v$ 是一模一样的。
+(2.) $\Image pliedby$: 这个好像很简单的样子。取 $M=A$，然后由 $\Hom(A,N)\cong N$，并且这种同构意义下 $\bar u,\bar v$ 和 $u,v$ 是一模一样的。
 
 {% fold_end %}
 
@@ -181,7 +181,7 @@ $$g:M''\xrightarrow{v^{-1}}M/\Ker v\xrightarrow{}M/\Ker f\xrightarrow{f}N$$
 
 $$0\rightarrow\Ker a\xrightarrow{\bar f}\Ker b\xrightarrow{\bar g}\Ker c\xrightarrow{d}\Coker a\xrightarrow{\bar f'}\Coker b\xrightarrow{\bar g'}\Coker c\rightarrow0$$
 
-这里 $\Ker$ 之间的映射是 $f,g$ 的限制（根据交换性易证 $f(\Ker a)\subseteq\Ker b$ etc.），而 $\Coker$ 之间的映射由 $f',g'$ 诱导而出（同样易证 $f'(\Im a)\subseteq\Im b$ etc.）。
+这里 $\Ker$ 之间的映射是 $f,g$ 的限制（根据交换性易证 $f(\Ker a)\subseteq\Ker b$ etc.），而 $\Coker$ 之间的映射由 $f',g'$ 诱导而出（同样易证 $f'(\Image a)\subseteq\Image b$ etc.）。
 
 事实上左上和右下的 $0$ 可以省掉，相应的结果中左右的 $0$ 也会省掉。
 
@@ -189,27 +189,27 @@ $$0\rightarrow\Ker a\xrightarrow{\bar f}\Ker b\xrightarrow{\bar g}\Ker c\xrighta
 
 {% fold "Proof of Snake Lemma" %}
 
-首先来定义 $d$。若 $x\in\Ker c\subseteq C$，那么由于 $g$ 是满射，所以存在 $y\in B$ 使得 $x=g(y)$。此时 $g'(b(y))=c(g(y))=c(x)=0$，即 $b(y)\in\Ker g'=\Im f'$，因此存在 $t\in A$ 使得 $f'(t)=b(y)$。取这样的 $t$ 所在的等价类（即映射到 $\Coker a=A'/\Im a$ 上）作为 $d(x)$ 即可。
+首先来定义 $d$。若 $x\in\Ker c\subseteq C$，那么由于 $g$ 是满射，所以存在 $y\in B$ 使得 $x=g(y)$。此时 $g'(b(y))=c(g(y))=c(x)=0$，即 $b(y)\in\Ker g'=\Image f'$，因此存在 $t\in A$ 使得 $f'(t)=b(y)$。取这样的 $t$ 所在的等价类（即映射到 $\Coker a=A'/\Image a$ 上）作为 $d(x)$ 即可。
 
-这样的话我们其实没有证明 $d$ 是良定义的（注意这里 $f'$ 是单射，因此仅存在 $y$ 的选择这里是不确定的）。我们先简单地证明一下它是良定义的：如果我们选择了两个不同的 $y_1,y_2$ 使得 $g(y_1)=g(y_2)=x$，那么 $y_1-y_2\in\Ker g=\Im f$，因此 $b(y_1)-b(y_2)\in\Im(b\circ f)$。而对应地选取的两个 $t$ 满足 $f'(t_1)=b(y_1),f'(t_2)=b(t_2)$，从而 $f(t_1-t_2)\in\Im(f'\circ a)=f'(\Im a)$；而 $f'$ 是单射，就有 $t_1-t_2\in\Im a$，因此 $t_1$ 和 $t_2$ 会处在 $\Im a$ 的相同陪集里面，从而不影响 $d(x)$ 的取值。
+这样的话我们其实没有证明 $d$ 是良定义的（注意这里 $f'$ 是单射，因此仅存在 $y$ 的选择这里是不确定的）。我们先简单地证明一下它是良定义的：如果我们选择了两个不同的 $y_1,y_2$ 使得 $g(y_1)=g(y_2)=x$，那么 $y_1-y_2\in\Ker g=\Image f$，因此 $b(y_1)-b(y_2)\in\Image(b\circ f)$。而对应地选取的两个 $t$ 满足 $f'(t_1)=b(y_1),f'(t_2)=b(t_2)$，从而 $f(t_1-t_2)\in\Image(f'\circ a)=f'(\Image a)$；而 $f'$ 是单射，就有 $t_1-t_2\in\Image a$，因此 $t_1$ 和 $t_2$ 会处在 $\Image a$ 的相同陪集里面，从而不影响 $d(x)$ 的取值。
 
-接下来要证明结果是正合列。对于 $\bar f$ 是单射、$\Im\bar f=\Ker\bar g$ 以及反过来 $\Coker$ 之间的两个映射，证明都是显然的；其实只需要证明 $\Im\bar g=\Ker d$，以及 $\Im d=\Ker\bar f'$。
+接下来要证明结果是正合列。对于 $\bar f$ 是单射、$\Image\bar f=\Ker\bar g$ 以及反过来 $\Coker$ 之间的两个映射，证明都是显然的；其实只需要证明 $\Image\bar g=\Ker d$，以及 $\Image d=\Ker\bar f'$。
 
 为此我们看看 $d$ 到底做了什么：
 
 1. 首先，对于 $x\in\Ker c$，利用 $g$ 的“逆映射”将其拉回到 $M=(c\circ g)/\Ker g$。这一步是一个同构 $\Ker c\cong M$。
-2. 利用 $b$ 把 $M$ 映射到 $B$ 里面去。由于上一步我们把相差一个 $\Ker g=\Im f$ 的元素都等价起来了，所以这一步我们要把相差一个 $b(\Im f)=\Im(b\circ f)$ 的元素都等价起来。因此我们把 $M=\Ker(g'\circ b)/\Im f$ 映射到了 $N=\Ker g'/\Im(b\circ f)$。这一步不一定是同构。
-3. 将上一步中 $N$ 的元素通过 $f'$ 拉回去。由于 $N$ 只包含若干 $\Ker g'=\Im f'$ 中的等价类，因此是可以拉回去的。并且 $f'$ 是单射，所以拉回去的时候不用考虑额外商掉核什么的。因此我们有 $N=\Im f'/\Im(f'\circ a)\cong A'/\Im a=\Coker  a$。
+2. 利用 $b$ 把 $M$ 映射到 $B$ 里面去。由于上一步我们把相差一个 $\Ker g=\Image f$ 的元素都等价起来了，所以这一步我们要把相差一个 $b(\Image f)=\Image(b\circ f)$ 的元素都等价起来。因此我们把 $M=\Ker(g'\circ b)/\Image f$ 映射到了 $N=\Ker g'/\Image(b\circ f)$。这一步不一定是同构。
+3. 将上一步中 $N$ 的元素通过 $f'$ 拉回去。由于 $N$ 只包含若干 $\Ker g'=\Image f'$ 中的等价类，因此是可以拉回去的。并且 $f'$ 是单射，所以拉回去的时候不用考虑额外商掉核什么的。因此我们有 $N=\Image f'/\Image(f'\circ a)\cong A'/\Image a=\Coker  a$。
 
-接下来为了验证正合性，就要计算 $\Ker d$ 以及 $\Im d$。由于 $d$ 是两边两个同构中间一个同态，所以其实只需要考虑求中间那个由 $b$ 诱导的同态（下面记做
+接下来为了验证正合性，就要计算 $\Ker d$ 以及 $\Image d$。由于 $d$ 是两边两个同构中间一个同态，所以其实只需要考虑求中间那个由 $b$ 诱导的同态（下面记做
 
-$$\bar b:\Ker(g'\circ b)/\Im f\to\Ker g'/\Im(b\circ f)$$
+$$\bar b:\Ker(g'\circ b)/\Image f\to\Ker g'/\Image(b\circ f)$$
 
 ）的像以及核。
 
-$\bar b$ 的核：如果 $\bar b(x+\Im f)=0$，即 $b(x)\in\Im(b\circ f)=b(\Im f)$，那么不难证明 $x\in\Im f+\Ker b$。因此 $\Ker\bar b=(\Im f+\Ker b)/\Im f$，把它用 $g$ 拉过去就可以知道 $\Ker d=g(\Ker b)$，也就正好是正合列中限制了 $g$ 的定义域之后它的像。
+$\bar b$ 的核：如果 $\bar b(x+\Image f)=0$，即 $b(x)\in\Image(b\circ f)=b(\Image f)$，那么不难证明 $x\in\Image f+\Ker b$。因此 $\Ker\bar b=(\Image f+\Ker b)/\Image f$，把它用 $g$ 拉过去就可以知道 $\Ker d=g(\Ker b)$，也就正好是正合列中限制了 $g$ 的定义域之后它的像。
 
-$\bar b$ 的像；$\Ker(g'\circ b)$ 作用一个 $b$ 之后得到的是 $\Im b\cap\Ker g'$，因此 $\bar b(M)=(\Im b\cap\Im f')/\Im(f'\circ a)$。把它用 $f'$ 拉回去可以得到 $\Im d=f^{-1}(\Im b)/\Im a$。而 $\bar x\in\Ker\bar f'\iff f'(x)\in\Im b$，因此即得 $\Im d=\Ker\bar f'$。
+$\bar b$ 的像；$\Ker(g'\circ b)$ 作用一个 $b$ 之后得到的是 $\Image b\cap\Ker g'$，因此 $\bar b(M)=(\Image b\cap\Image f')/\Image(f'\circ a)$。把它用 $f'$ 拉回去可以得到 $\Image d=f^{-1}(\Image b)/\Image a$。而 $\bar x\in\Ker\bar f'\iff f'(x)\in\Image b$，因此即得 $\Image d=\Ker\bar f'$。
 
 {% fold_end %}
 
