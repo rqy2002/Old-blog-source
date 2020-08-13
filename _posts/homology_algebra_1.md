@@ -8,7 +8,7 @@ mathjax: true
 date: 2020-06-16 18:11:53
 ---
 
-看交换代数的时候书里提到了很多可以 generalize 的东西，于是好奇来看了交换代数。目前在看 Weibel 的 *Introduction to Homology Algebra*。
+看交换代数的时候书里提到了很多可以 generalize 的东西，于是好奇来看了交换代数。目前在看 Weibel 的 *An Introduction to Homology Algebra*。
 
 这部分不打算详细写所有的知识点了，写一些过程中不太懂的东西好了。
 
@@ -26,7 +26,7 @@ date: 2020-06-16 18:11:53
 
 一个*加性范畴*首先一个预加性范畴，其次它要有零对象 $0$（同时是始对象和终对象，也就是说对任意 $A$，$\Hom(A,0)$ 和 $\Hom(0,A)$ 都有唯一元素（这里当然就一定是零态射）），并且对任意两个对象 $A,B$ 都要存在它们的乘积 $A\times B$。（这里的乘积既是 product $A\mathbin\Pi B$ 又是 coproduct $A\amalg B$）
 
-在一个加性范畴 $\mathcal{A}$ 里面，态射 $f:B\to C$ 的一个 kernel 是一个态射 $i:A\to B$ 使得 $fi=0$，并且这是 universal 的（也就是说如果有另一个态射 $q:A'\to B,fq=0$，那么一定存在唯一的态射 $q':A'\to A$ 使得 $q=iq'$，也就是这样的交换图（换句话说 $i$ 就是 $0$ 和 $f$ 的余等子）
+在一个加性范畴 $\mathcal{A}$ 里面，态射 $f:B\to C$ 的一个 kernel 是一个态射 $i:A\to B$ 使得 $fi=0$，并且这是 universal 的（也就是说如果有另一个态射 $q:A'\to B,fq=0$，那么一定存在唯一的态射 $q':A'\to A$ 使得 $q=iq'$，也就是这样的交换图（换句话说 $i$ 就是 $0$ 和 $f$ 的等化子）
 
 {% asset_img kernel.svg Kernel %}
 
@@ -72,7 +72,7 @@ date: 2020-06-16 18:11:53
 
 这样，如果 $g:D\to C$ 使得 $i_1g=0$，则 $D\xrightarrow{g}C\xrightarrow{p_2}B\times C\longrightarrow\coker[i,-f]$ 也为 $0$，因此存在 $g':D\to A$ 使得 $p_2g=[i,-f]g'$。再把这个等式投影到 $B$ 上，就有 $0=ig'$，因此 $g'=0$，从而 $g$ 也为 $0$。这样，我们就证明了 $i_1$ 是单态射。（取对偶的话，就是说满态射的拉回还是满态射）
 
-{% end_fold %}
+{% fold_end %}
 
 对于推出与拉回，下面还有一个引理：
 
@@ -86,7 +86,7 @@ date: 2020-06-16 18:11:53
 
 由于 $P$ 是拉回，利用拉回的泛性质，存在一个态射 $t:\ker k\to P$ 使得 $gt=i,ft=0$，因此存在 $u:\ker k\to\ker f$ 使得 $t=iu$，从而 $giue=gte=je=gi$，并且 $fiue=0=fi$，因此（根据拉回的态射的唯一性）$iue=i$，而 $i$ 是单射，从而 $ue=1_{\ker f}$。另一方面，$jeu=giu=gt=j$，$j$ 也是单射，所以 $eu=1_{\ker k}$。从而 $e$ 是同构。
 
-{% end_fold %}
+{% fold_end %}
 
 ## 正合列，一些引理
 
@@ -106,9 +106,9 @@ date: 2020-06-16 18:11:53
 
 充分性。由于 $gi=0$，所以根据假设存在 $l:E\to A$ 以及满的 $k:E\to\ker g$ 使得 $ik=fl$，即 $ijpl=ik$。由于 $i$ 是单的，所以 $jpl=k$ 是满的，从而 $j$ 是满的。所以 $j$ 既单又满，于是是同构，也就是说 $\im f=\ker g$。
 
-{% end_fold %}
+{% fold_end %}
 
-#### 蛇引理
+### 蛇引理
 
 若有如下交换图并且其中上下两行均为正合列，那么存在正合列 $\ker a\to\ker b\to \ker c\xrightarrow{\delta}\coker a\to\coker b\to\coker c$，其中 $\delta:\ker c\to\coker a$ （不严格地）定义为 $\delta=g_1^{-1}bf_2^{-1}$。
 
@@ -144,9 +144,9 @@ date: 2020-06-16 18:11:53
 
 接下来如果 $d:F\to\ker c$ 使得 $\delta d=0$，那么由于 $p\xrightarrow{\pi}\ker c\to 0$ 正合，根据前面正合列的等价定义，存在满同态 $m:G\to F$ 和同态 $n:G\to p$ 使得 $\pi n=dm$。由于 $e_akn=\delta\pi n=\delta dm=0$，所以正合列 $A'\to A\to\coker a$ 又给出满同态 $\epsilon:H\to G$ 和同态 $\zeta:H\to A$ 使得 $kn\epsilon=a\zeta$。因此 $b\pi'n\epsilon=g_1kn\epsilon=g_1a\zeta=bf_1\zeta$，那么考虑 $\eta=\pi'n\epsilon-f_1\zeta:H\to B'$，就有 $b\eta=0$，从而存在一个 $\vartheta:H\to\ker b$ 使得 $\eta=i_b\vartheta$，因而 $i_cp_2\vartheta=f_2i_b\vartheta=f_2(\pi'n\epsilon-f_1\zeta)=i_c\pi n\epsilon=i_cdm\epsilon$。再次由于 $i_c$ 是单射，就有 $p_2\vartheta=dm\epsilon$。由于 $m\epsilon$ 是满的，上面关于正合列的等价定义告诉我们 $\ker b\xrightarrow{p_2}\ker c\xrightarrow{\delta}\coker a$ 是正合的。另外一半由对偶性即得。
 
-{% end_fold %}
+{% fold_end %}
 
-#### 四引理
+### 四引理
 
 若有下列行正合的交换图
 
@@ -165,9 +165,9 @@ date: 2020-06-16 18:11:53
 
 这两个交换图分别应用蛇引理：对第一个交换图应用蛇引理后，由于 $D'\to D$ 是单射而 $C'\to C$ 是满射，所以最后一个 $\ker$ 和第二个 $\coker$ 都是 $0$，从而夹在他们中间的也只能是 $0$，i.e. $\ker(C'\to D')\to\ker(C\to D)$ 是单射。
 
-再对第二个图应用蛇引理，由于三个 $\coker$ 里面两边的都是 $0$，中间的也必定是 $0$，从而 $\beta:B'\to B$ 是满射。
+再对第二个图应用蛇引理（注意到 $\im(B\to C)=\ker(C\to D)$），由于三个 $\coker$ 里面两边的都是 $0$，中间的也必定是 $0$，从而 $\beta:B'\to B$ 是满射。
 
-{% end_fold %}
+{% fold_end %}
 
 **推论（五引理）**： 如果把上面这个图每行变成五个，然后竖着的五个态射中最左边是满的，最右边是单的，第二个和第四个是同构，那么中间那个也是同构。
 

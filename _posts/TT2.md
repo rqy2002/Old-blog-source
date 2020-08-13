@@ -131,7 +131,7 @@ $$
 
 为什么叫做 Lambda-Cube？请看下图：
 
-{% fi /images/lambda_cube.png, Lambda-Cube, Lambda-Cube %}
+{% image /images/lambda_cube.png, Lambda-Cube, Lambda-Cube %}
 
 ## PTS
 
