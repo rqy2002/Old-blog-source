@@ -1,15 +1,44 @@
 .theorem {
   position: relative;
-  padding: 1rem 1rem;
+  padding: 0.1rem .75rem;
   margin-bottom: 2rem;
   border: 1px solid transparent;
   border-style: solid;
   border-width: 0 0 0 4px;
+  display: block;
 }
 
-.theorem-exercise {
-  border-color: #aaeeee;
-  background-color: #faffff;
+.theorem .head {
+  margin: 0 -.75rem;
+  padding: 0 .75rem;
+  font-weight: bold;
 }
 
-div > :last-child { margin-bottom: 0 !important; margin-right: 0 !important; }
+.theorem .head :before {
+  content: "\f303";
+  font-family: 'fa-solid';
+  margin-right: .3rem;
+}
+
+@font-face {
+  font-family: "fa-solid";
+  src: url('/font/fa-solid-900.ttf');
+  font-weight: 900;
+}
+
+.theorem .head p {
+  text-indent: 0;
+}
+
+.exercise {
+  border-color: #c0c0c0;
+  background-color: #fafafa;
+}
+
+.exercise .head {
+  background-color: #f0f0f0;
+}
+
+details.proof {
+  margin-bottom: var(--content-gap);
+}

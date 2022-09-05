@@ -2,3 +2,7 @@ body {
   font-family: 'Noto Sans',Roboto,-apple-system,BlinkMacSystemFont,'Segoe UI','Oxygen','Ubuntu','Cantarell','Helvetica Neue','Microsoft YaHei UI','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans CN',sans-serif;
   letter-spacing: .015em;
 }
+
+div > p {
+  text-indent: 2em;
+}

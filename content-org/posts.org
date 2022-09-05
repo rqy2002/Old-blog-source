@@ -1,6 +1,6 @@
 #+hugo_base_dir: ../
 #+seq_todo: TODO DONE
-#+hugo_paired_shortcodes: %proof %theorem
+#+hugo_paired_shortcodes: %proof
 #+author: rqy
 
 * DONE 第一篇 Hugo 博客 :emacs:@non:
@@ -25,7 +25,7 @@ CLOSED: [2022-09-05 一 00:33]
 :END:
 
 ** LaTeX 头
-#+name: ag_latex_header
+#+name: ag_latex_head
 #+begin_src emacs-lisp :results drawer
 (concat "\\["
         (mapconcat (function (lambda (x) (apply 'format "\\gdef\\%s{%s}" x)))
@@ -52,7 +52,8 @@ CLOSED: [2022-09-05 一 00:33]
                      ("Spec" "\\operatorname{Spec}")
                      ("Proj" "\\operatorname{Proj}")
                      ("Supp" "\\operatorname{Supp}")
-                     ("coker" "\\operatorname{coker}")
+
+                 ("coker" "\\operatorname{coker}")
                      ("im" "\\operatorname{im}")
                      ) "\n") "\\]")
 #+end_src
@@ -65,15 +66,20 @@ CLOSED: [2022-09-05 一 00:33]
 :END:
 
 这里是 Hartshorne 习题, 目前还在更新中.
+
+由于 ox-hugo 似乎不支持, 目前所有列表都是 1. 2. 3. 的格式.
+请您自行把 (a) (b) (c) 等理解成 1. 2. 3. XD.
 #+hugo: more
-#+CALL: ag_latex_header()
+#+CALL: ag_latex_head()
 
 *** 1. 层
 本节习题平凡.
 *** 2. 概形
-#+attr_shortcode: exercise
+#+attr_html: :class exercise
 #+begin_theorem
-*习题 2.1.*
+#+begin_head
+习题 2.1.
+#+end_head
 设 \(A\) 是环, \(X = \Spec A\), \(f \in A\), \(D(f) \subseteq X\) 为 \(V((f))\) 的开补集.
 证明 \((D(f), \cO_X|_{D(f)})\) 同构于 \(\Spec A_f\).
 
@@ -86,9 +92,11 @@ CLOSED: [2022-09-05 一 00:33]
 #+end_proof
 #+end_theorem
 
-#+attr_shortcode: exercise
+#+attr_html: :class exercise
 #+begin_theorem
-*习题 2.2.*
+#+begin_head
+习题 2.2.
+#+end_head
 设 \((X, \cO_X)\) 是概形, \(U \subseteq X\) 是开集. 证明 \((U, \cO_X|_U)\) 是概形.
 我们将其称之为开集 \(U\) 上的_诱导概形结构_,
 并将 \((U, \cO_X|_U)\) 称为 \(X\) 的_开子概形_.
@@ -100,12 +108,14 @@ CLOSED: [2022-09-05 一 00:33]
 #+end_proof
 #+end_theorem
 
-#+attr_shortcode: exercise
+#+attr_html: :class exercise
 #+begin_theorem
-*习题 2.3.*
+#+begin_head
+习题 2.3.
+#+end_head
 设 \((X, \cO_X)\) 是概形. 如果对任意开集 \(U \subseteq X\), \(\cO_X(U)\) 中都没有幂零元素,
 就说 \((X, \cO_X)\) _既约_.
-a) 证明：\((X, \cO_X)\) 既约当且仅当对任意 \(P \in X\), 局部环 \(\cO_{X, P}\) 里都没有幂零元素.
+a) [@a] 证明：\((X, \cO_X)\) 既约当且仅当对任意 \(P \in X\), 局部环 \(\cO_{X, P}\) 里都没有幂零元素.
 b) 令 \((X, \cO_X)\) 为概形. 令 \((\cO_X)_{\red}\) 为预层 \(U \mapsto \cO_X(U)_\red\),
    其中, 对任意环 \(A\), \(A_\red\) 表示 \(A\) 商掉幂零元的理想构成的商环.
    证明 \((X, (\cO_X)_\red)\) 是概形.
@@ -131,9 +141,11 @@ c) 若 \(X\) 既约, 则同态 \(f^\sharp \colon \cO_Y(U) \to f_*(\cO_X)(U)\)
 #+end_proof
 #+end_theorem
 
-#+attr_shortcode: exercise
+#+attr_html: :class exercise
 #+begin_theorem
-*习题 2.4.*
+#+begin_head
+习题 2.4.
+#+end_head
 令 \(A\) 是环, \((X, \cO_X)\) 是概形. 任意给定 \(f \colon X \to \Spec A\),
 考虑整体截面上的映射, 就得到环同态 \(A \to \Gamma(X, \cO_X)\).
 因此存在自然映射
@@ -155,9 +167,11 @@ c) 若 \(X\) 既约, 则同态 \(f^\sharp \colon \cO_Y(U) \to f_*(\cO_X)(U)\)
 #+end_proof
 #+end_theorem
 
-#+attr_shortcode: exercise
+#+attr_html: :class exercise
 #+begin_theorem
-*习题 2.5.*
+#+begin_head
+习题 2.5.
+#+end_head
 描述 \(\Spec \bZ\), 并证明它是概形范畴中的终对象.
 
 #+begin_proof
@@ -170,9 +184,11 @@ c) 若 \(X\) 既约, 则同态 \(f^\sharp \colon \cO_Y(U) \to f_*(\cO_X)(U)\)
 #+end_proof
 #+end_theorem
 
-#+attr_shortcode: exercise
+#+attr_html: :class exercise
 #+begin_theorem
-*习题 2.6.*
+#+begin_head
+习题 2.6.
+#+end_head
 描述零环的谱, 并证明它是概形范畴的始对象.
 
 #+begin_proof
@@ -180,9 +196,11 @@ c) 若 \(X\) 既约, 则同态 \(f^\sharp \colon \cO_Y(U) \to f_*(\cO_X)(U)\)
 #+end_proof
 #+end_theorem
 
-#+attr_shortcode: exercise
+#+attr_html: :class exercise
 #+begin_theorem
-*习题 2.7.*
+#+begin_head
+习题 2.7.
+#+end_head
 令 \(X\) 是概形. 对任意 \(x \in X\), 设 \(\cO_x\) 是 \(x\) 处的局部环,
 \(\gm_x\) 是其极大理想. 定义 \(x\) 处的_剩余域_是 \(k(x) = \cO_x / \gm_x\).
 设 \(K\) 是域. 证明要给出 \(\Spec K \to X\) 的同态, 等价于给出点 \(x \in X\)
@@ -193,9 +211,11 @@ c) 若 \(X\) 既约, 则同态 \(f^\sharp \colon \cO_Y(U) \to f_*(\cO_X)(U)\)
 #+end_proof
 #+end_theorem
 
-#+attr_shortcode: exercise
+#+attr_html: :class exercise
 #+begin_theorem
-*习题 2.8.*
+#+begin_head
+习题 2.8.
+#+end_head
 设 \(X\) 是概形. 对 \(x \in X\), 定义 \(X\) 中 \(x\) 处的_Zariski 切空间_ \(T_x\)
 是 \(k(x)\)-向量空间 \(\gm_x / \gm_x^2\) 的对偶空间.
 假设 \(X\) 是域 \(k\) 上的概形, \(k[\epsilon] / \epsilon^2\) 是 \(k\) 上的_对偶数环_.
@@ -207,9 +227,11 @@ c) 若 \(X\) 既约, 则同态 \(f^\sharp \colon \cO_Y(U) \to f_*(\cO_X)(U)\)
 #+end_proof
 #+end_theorem
 
-#+attr_shortcode: exercise
+#+attr_html: :class exercise
 #+begin_theorem
-*习题 2.9.*
+#+begin_head
+习题 2.9.
+#+end_head
 设 \(X\) 是拓扑空间, \(Z\) 是其不可约闭子集. \(Z\) 的_一般点_就是闭包等于 \(Z\) 的点.
 若 \(X\) 是概形, 证明每个 (非空) 不可约闭子集都有唯一的一般点.
 
@@ -228,9 +250,11 @@ c) 若 \(X\) 既约, 则同态 \(f^\sharp \colon \cO_Y(U) \to f_*(\cO_X)(U)\)
 #+end_proof
 #+end_theorem
 
-#+attr_shortcode: exercise
+#+attr_html: :class exercise
 #+begin_theorem
-*习题 2.10.*
+#+begin_head
+习题 2.10.
+#+end_head
 描述 \(\Spec \bR[x]\). 其底空间与 \(\bR\) 这个集合有何区别？与 \(\bC\) 呢？
 
 #+begin_proof
@@ -243,9 +267,11 @@ c) 若 \(X\) 既约, 则同态 \(f^\sharp \colon \cO_Y(U) \to f_*(\cO_X)(U)\)
 #+end_proof
 #+end_theorem
 
-#+attr_shortcode: exercise
+#+attr_html: :class exercise
 #+begin_theorem
-*习题 2.11.*
+#+begin_head
+习题 2.11.
+#+end_head
 令 \(k = \bF_p\) 是 \(p\) 元有限域, 描述 \(\Spec k[x]\). 其点处的剩余域是什么？
 给定一个域, \(\Spec k[x]\) 中有多少以其为剩余域的点？
 
@@ -264,16 +290,20 @@ c) 若 \(X\) 既约, 则同态 \(f^\sharp \colon \cO_Y(U) \to f_*(\cO_X)(U)\)
 #+end_proof
 #+end_theorem
 
-#+attr_shortcode: exercise
+#+attr_html: :class exercise
 #+begin_theorem
-*习题 2.12 /(粘接引理)/.*
+#+begin_head
+习题 2.12 /(粘接引理)/.
+#+end_head
 结论很有用, 但是证明平凡. 不写了!
 # TODO: 可以把题抄一遍.
 #+end_theorem
 
-#+attr_shortcode: exercise
+#+attr_html: :class exercise
 #+begin_theorem
-*习题 2.13.*
+#+begin_head
+习题 2.13.
+#+end_head
 若拓扑空间 \(X\) 的任意开覆盖都有子覆盖, 就称 \(X\) _拟紧_ (其实就是一般情况下提及的紧).
 a) 证明：拓扑空间 Noether 当且仅当其任意开子集拟紧.
 b) 若 \(X\) 是仿射概形, 证明 \(\spp(X)\) 拟紧, 但是一般并不 Noether.
@@ -297,9 +327,11 @@ d) 设 \(A = k[x_1, x_2, \dots] / (x_1^2, x_2^2, \dots)\).
 #+end_proof
 #+end_theorem
 
-#+attr_shortcode: exercise
+#+attr_html: :class exercise
 #+begin_theorem
-*习题 2.14.*
+#+begin_head
+习题 2.14.
+#+end_head
 a) 设 \(S\) 是分次环. 证明 \(\Proj S = \emptyset\) 当且仅当 \(S_+\) 中仅包含幂零元素.
 b) 设 \(\varphi \colon S \to T\) 是分次环的分次同态 (即保持次数的同态).
    令 \(U = \{ \gp \in \Proj T \mid \gp \not \supseteq \varphi(S_+) \}\).
@@ -331,15 +363,19 @@ d) 不会.
 #+end_proof
 #+end_theorem
 
-#+attr_shortcode: exercise
+#+attr_html: :class exercise
 #+begin_theorem
-*习题 2.15.*
+#+begin_head
+习题 2.15.
+#+end_head
 不会代数簇, 不写了.
 #+end_theorem
 
-#+attr_shortcode: exercise
+#+attr_html: :class exercise
 #+begin_theorem
-*习题 2.16.*
+#+begin_head
+习题 2.16.
+#+end_head
 令 \(X\) 是概形, \(f \in \Gamma(X, \cO_X)\), 定义
 \[
 X_f = \{ x \in X \mid f_x \notin \gm_x \}.
@@ -378,9 +414,11 @@ d) 显然 \(f\) 在 \(\Gamma(X_f, \cO_{X_f})\) 上可逆. 从而由 (b) (c) 易�
 #+end_proof
 #+end_theorem
 
-#+attr_shortcode: exercise
+#+attr_html: :class exercise
 #+begin_theorem
-*习题 2.17 /(仿射性的判别条件)/.*
+#+begin_head
+习题 2.17 /(仿射性的判别条件)/.
+#+end_head
 a) 设 \(f \colon X \to Y\) 是概形同态, 且 \(Y\) 可以由若干开集 \(U_i\) 覆盖,
    使得每个限制映射 \(f^{-1}(U_i) \to U_i\) 是同构. 证明 \(f\) 也是同构.
 b) 概形 \(X\) 仿射当且仅当存在有限个元素 \(f_1, \dots, f_r \in A = \Gamma(X, \cO_X)\),
@@ -399,9 +437,11 @@ b) 由习题 2.16d 知道 \(X_{f_i} \cong \Spec A_{f_i}\).
 #+end_proof
 #+end_theorem
 
-#+attr_shortcode: exercise
+#+attr_html: :class exercise
 #+begin_theorem
-*习题 2.18.*
+#+begin_head
+习题 2.18.
+#+end_head
 本习题中, 我们将比较环同态的若干性质和其诱导的谱的同态的性质.
 a) 设 \(A\) 是环, \(X = \Spec A, f \in A\). 证明 \(f\) 幂零当且仅当 \(D(f)\) 为空.
 b) 令 \(\varphi \colon A \to B\) 是环同态, \(f \colon Y = \Spec B \to X = \Spec A\)
@@ -449,9 +489,11 @@ d) 定义 \(X' = \Spec(A / \ker \varphi)\),
 #+end_proof
 #+end_theorem
 
-#+attr_shortcode: exercise
+#+attr_html: :class exercise
 #+begin_theorem
-*习题 2.19.*
+#+begin_head
+习题 2.19.
+#+end_head
 令 \(A\) 是环, 证明下列条件彼此等价：
 1) \(\Spec A\) 不连通.
 2) 存在非零元素 \(e_1, e_2 \in A\) 使得 \(e_1e_2 = 0, e_1^2 = e_1, e_2^2 = e_2, e_1 + e_2 = 1\)
