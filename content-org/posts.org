@@ -1,0 +1,80 @@
+#+hugo_base_dir: ../
+#+seq_todo: TODO DONE
+#+hugo_paired_shortcodes: %proof %theorem
+#+author: rqy
+
+* DONE 第一篇 Hugo 博客 :emacs:@non:
+CLOSED: [2022-09-05 一 00:33]
+:PROPERTIES:
+:EXPORT_FILE_NAME: my-first-post
+:END:
+好耶! 换到了强大的 Hugo!
+#+hugo: more
+
+主要是这个东西跑的真的很快, 比我原本使用的 Hexo 快了不知道多少倍.
+
+而且最近换用了 Doom Emacs + Evil, 并且发现用 org 写博客也比用 markdown 写博客要方便一些 (大概?).
+
+所以正好也就选用了这个有轮子 (ox-hugo) 的静态网站生成器. 挺不错的.
+
+
+* 代数几何
+:PROPERTIES:
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :math true
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :mathdefs true
+:END:
+
+** LaTeX 头
+#+name: ag_latex_header
+#+begin_src emacs-lisp :results drawer
+(concat "$$"
+    (mapconcat (function (lambda (x) (apply 'format "\\gdef\\%s{%s}" x)))
+        '(
+            ("ga" "\\mathfrak{a}")
+            ("gp" "\\mathfrak{p}")
+            ("gq" "\\mathfrak{q}")
+            ("gm" "\\mathfrak{m}")
+            ("gn" "\\mathfrak{n}")
+            ("uA" "\\mathbf{A}")
+            ("bZ" "\\mathbb{Z}")
+            ("bF" "\\mathbb{F}")
+            ("bQ" "\\mathbb{Q}")
+            ("bR" "\\mathbb{R}")
+            ("bC" "\\mathbb{C}")
+            ("id" "\\mathrm{id}")
+            ("cO" "\\mathcal{O}")
+            ("Sch" "\\mathfrak{Sch}")
+            ("Rings" "\\mathfrak{Rings}")
+            ("spto" "\\rightsquigarrow")
+            ("red" "\\mathrm{red}")
+            ("spp" "\\operatorname{sp}")
+            ("Hom" "\\operatorname{Hom}")
+            ("Spec" "\\operatorname{Spec}")
+            ("Proj" "\\operatorname{Proj}")
+            ("Supp" "\\operatorname{Supp}")
+            ("coker" "\\operatorname{coker}")
+            ("im" "\\operatorname{im}")
+        ) "\n") "$$")
+#+end_src
+
+#+macro: stacks [[https://stacks.math.columbia.edu/tag/$1][Stacks $1]]
+** TODO 习题 2
+:PROPERTIES:
+:EXPORT_TITLE: Hartshorne 第二章习题
+:EXPORT_FILE_NAME: hartshorne-exercise2
+:END:
+
+这里是 Hartshorne 习题, 目前还在更新中.
+#+hugo: more
+#+CALL: ag_latex_header()
+
+*** 1. 层
+本节习题平凡.
+*** 2. 概形
+#+attr_shortcode: exercise
+#+begin_theorem
+*习题 2.1.* blahblah
+#+begin_proof
+    设 $E=mc^2.$ qwq
+#+end_proof
+#+end_theorem

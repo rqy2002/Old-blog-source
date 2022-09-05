@@ -1,0 +1,7 @@
+{{ if (.Get 0) }}
+<div class="theorem theorem-{{ .Get 0 }}">
+{{ else }}
+<div class="theorem">
+{{ end }}
+  {{ .Inner }}
+</div>

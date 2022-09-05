@@ -1,0 +1,6 @@
+.hugo_build.lock
+/static/ltximg
+/static
+/public
+/content
+*.elc

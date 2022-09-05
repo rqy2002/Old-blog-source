@@ -1,0 +1,14 @@
+.theorem {
+  position: relative;
+  padding: 1rem 1rem;
+  border: 1px solid transparent;
+  border-style: solid;
+  border-width: 0 0 0 4px;
+}
+
+.theorem-exercise {
+  border-color: #aaeeee;
+  background-color: #faffff;
+}
+
+* > :last-child { margin-bottom: 0 !important; margin-right: 0 !important; }
