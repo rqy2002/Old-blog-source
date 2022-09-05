@@ -1,6 +1,7 @@
 .theorem {
   position: relative;
   padding: 1rem 1rem;
+  margin-bottom: 2rem;
   border: 1px solid transparent;
   border-style: solid;
   border-width: 0 0 0 4px;
@@ -11,4 +12,4 @@
   background-color: #faffff;
 }
 
-* > :last-child { margin-bottom: 0 !important; margin-right: 0 !important; }
+div > :last-child { margin-bottom: 0 !important; margin-right: 0 !important; }

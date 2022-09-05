@@ -27,37 +27,37 @@ CLOSED: [2022-09-05 一 00:33]
 ** LaTeX 头
 #+name: ag_latex_header
 #+begin_src emacs-lisp :results drawer
-(concat "$$"
-    (mapconcat (function (lambda (x) (apply 'format "\\gdef\\%s{%s}" x)))
-        '(
-            ("ga" "\\mathfrak{a}")
-            ("gp" "\\mathfrak{p}")
-            ("gq" "\\mathfrak{q}")
-            ("gm" "\\mathfrak{m}")
-            ("gn" "\\mathfrak{n}")
-            ("uA" "\\mathbf{A}")
-            ("bZ" "\\mathbb{Z}")
-            ("bF" "\\mathbb{F}")
-            ("bQ" "\\mathbb{Q}")
-            ("bR" "\\mathbb{R}")
-            ("bC" "\\mathbb{C}")
-            ("id" "\\mathrm{id}")
-            ("cO" "\\mathcal{O}")
-            ("Sch" "\\mathfrak{Sch}")
-            ("Rings" "\\mathfrak{Rings}")
-            ("spto" "\\rightsquigarrow")
-            ("red" "\\mathrm{red}")
-            ("spp" "\\operatorname{sp}")
-            ("Hom" "\\operatorname{Hom}")
-            ("Spec" "\\operatorname{Spec}")
-            ("Proj" "\\operatorname{Proj}")
-            ("Supp" "\\operatorname{Supp}")
-            ("coker" "\\operatorname{coker}")
-            ("im" "\\operatorname{im}")
-        ) "\n") "$$")
+(concat "\\["
+        (mapconcat (function (lambda (x) (apply 'format "\\gdef\\%s{%s}" x)))
+                   '(
+                     ("ga" "\\mathfrak{a}")
+                     ("gp" "\\mathfrak{p}")
+                     ("gq" "\\mathfrak{q}")
+                     ("gm" "\\mathfrak{m}")
+                     ("gn" "\\mathfrak{n}")
+                     ("uA" "\\mathbf{A}")
+                     ("bZ" "\\mathbb{Z}")
+                     ("bF" "\\mathbb{F}")
+                     ("bQ" "\\mathbb{Q}")
+                     ("bR" "\\mathbb{R}")
+                     ("bC" "\\mathbb{C}")
+                     ("id" "\\mathrm{id}")
+                     ("cO" "\\mathcal{O}")
+                     ("Sch" "\\mathfrak{Sch}")
+                     ("Rings" "\\mathfrak{Rings}")
+                     ("spto" "\\rightsquigarrow")
+                     ("red" "\\mathrm{red}")
+                     ("spp" "\\operatorname{sp}")
+                     ("Hom" "\\operatorname{Hom}")
+                     ("Spec" "\\operatorname{Spec}")
+                     ("Proj" "\\operatorname{Proj}")
+                     ("Supp" "\\operatorname{Supp}")
+                     ("coker" "\\operatorname{coker}")
+                     ("im" "\\operatorname{im}")
+                     ) "\n") "\\]")
 #+end_src
 
-#+macro: stacks [[https://stacks.math.columbia.edu/tag/$1][Stacks $1]]
+#+macro: stacks [[https://stacks.math.columbia.edu/tag/\(1][Stacks \)1]]
 ** TODO 习题 2
 :PROPERTIES:
 :EXPORT_TITLE: Hartshorne 第二章习题
@@ -73,8 +73,412 @@ CLOSED: [2022-09-05 一 00:33]
 *** 2. 概形
 #+attr_shortcode: exercise
 #+begin_theorem
-*习题 2.1.* blahblah
+*习题 2.1.*
+设 \(A\) 是环, \(X = \Spec A\), \(f \in A\), \(D(f) \subseteq X\) 为 \(V((f))\) 的开补集.
+证明 \((D(f), \cO_X|_{D(f)})\) 同构于 \(\Spec A_f\).
+
 #+begin_proof
-    设 $E=mc^2.$ qwq
+构造同构映射 \(\phi \colon D(f) \to \Spec X\) 如下.
+若 \(\gp \in D(f)\), 则 \(f \notin \gp\), 从而 \(\gp_f \subseteq A_f\).
+定义 \(\phi(\gp) = \gp_f\), 则 \(\phi\) 作为集合的映射是双射.
+此外, 还有自然的同构 \(A_\gp \cong (A_f)_{\gp_f}\),
+因此容易定义并验证同构 \((\phi, \phi^\sharp) \colon (D(f), \cO_X|_{D(f)}) \cong \Spec A_f\).
+#+end_proof
+#+end_theorem
+
+#+attr_shortcode: exercise
+#+begin_theorem
+*习题 2.2.*
+设 \((X, \cO_X)\) 是概形, \(U \subseteq X\) 是开集. 证明 \((U, \cO_X|_U)\) 是概形.
+我们将其称之为开集 \(U\) 上的_诱导概形结构_,
+并将 \((U, \cO_X|_U)\) 称为 \(X\) 的_开子概形_.
+
+#+begin_proof
+注意到任意仿射概形中存在一组由同构于仿射概形的开集构成的基,
+即 \((D(f), \cO|_{D(f)})\). 因此仿射性是局部性质.
+从而概形的开子集仍然局部仿射, 因此也是概形.
+#+end_proof
+#+end_theorem
+
+#+attr_shortcode: exercise
+#+begin_theorem
+*习题 2.3.*
+设 \((X, \cO_X)\) 是概形. 如果对任意开集 \(U \subseteq X\), \(\cO_X(U)\) 中都没有幂零元素,
+就说 \((X, \cO_X)\) _既约_.
+a) 证明：\((X, \cO_X)\) 既约当且仅当对任意 \(P \in X\), 局部环 \(\cO_{X, P}\) 里都没有幂零元素.
+b) 令 \((X, \cO_X)\) 为概形. 令 \((\cO_X)_{\red}\) 为预层 \(U \mapsto \cO_X(U)_\red\),
+   其中, 对任意环 \(A\), \(A_\red\) 表示 \(A\) 商掉幂零元的理想构成的商环.
+   证明 \((X, (\cO_X)_\red)\) 是概形.
+   我们称之为 \(X\) 的_既约化概形_, 记作 \(X_\red\).
+   # TODO: 译名
+   证明存在同态 \(X_\red \to X\), 其限制在底空间上是同胚.
+c) 设 \(f \colon X \to Y\) 是概形同态, 且 \(X\) 既约. 证明 \(f\) 穿过 \(Y_\red\).
+
+#+begin_proof
+a) 若 \(U\) 是开集, \(s \in \cO_X(U)\) 幂零, 则对任意 \(P \in U\), \(s_P\) 幂零.
+    因此若 \(\cO_{X, P}\) 中都无幂零元素, 即知 \(s_P = 0 \forall P \in U\), 因此 \(s = 0\).
+    充分性即证.
+    反之, 若 \(X\) 既约, 则对任意 \(P \in X\),
+    \(\cO_{X, P} = \varinjlim_{P \in U} \cO_X(U)\) 是既约环的直极限, 因此也既约.
+
+b) 只需注意到 \((A_f)_\red \cong (A_\red)_f\),
+    因此 \((\Spec A)_\red \cong \Spec A_\red\).
+    \(X_\red \to X\) 的映射容易构造, 即在每个截面上对应商同态.
+
+c) 若 \(X\) 既约, 则同态 \(f^\sharp \colon \cO_Y(U) \to f_*(\cO_X)(U)\)
+    必定将幂零元映射到 \(0\), 因此穿过 \(\cO_Y(U)_\red\).
+    从而易知 \(f\) 穿过 \(Y_\red\).
+#+end_proof
+#+end_theorem
+
+#+attr_shortcode: exercise
+#+begin_theorem
+*习题 2.4.*
+令 \(A\) 是环, \((X, \cO_X)\) 是概形. 任意给定 \(f \colon X \to \Spec A\),
+考虑整体截面上的映射, 就得到环同态 \(A \to \Gamma(X, \cO_X)\).
+因此存在自然映射
+\[
+\alpha \colon \Hom_\Sch(X, \Spec A) \to \Hom_\Rings(A, \Gamma(X, \cO_X)).
+\]
+证明 \(\alpha\) 是双射.
+
+#+begin_proof
+设 \(g \colon A \to \Gamma(X, \cO_X)\), 定义映射 \(f \colon X \to \Spec A\) 如下.
+对于 \(P \in X\), 考虑复合映射 \(A \to \Gamma(X, \cO_X) \to \cO_{X, P}\),
+则 \(\cO_{X, P}\) 的极大理想的原像也是 \(A\) 中的素理想, 即为 \(f(P)\).
+由定义, 自然有映射 \(f^\sharp_\gp \colon A_\gp \to f_*(\cO_X)_\gp\).
+因此容易定义概形同态 \((f, f^\sharp) \colon X \to \Spec A\).
+
+若记以上构造为自然映射
+\(\beta \colon \Hom_\Rings(A, \Gamma(X, \cO_X)) \to \Hom_\Sch(X, \Spec A)\),
+不难验证 \(\alpha\) 与 \(\beta\) 互为逆映射. 从而 \(\alpha\) 必定是双射.
+#+end_proof
+#+end_theorem
+
+#+attr_shortcode: exercise
+#+begin_theorem
+*习题 2.5.*
+描述 \(\Spec \bZ\), 并证明它是概形范畴中的终对象.
+
+#+begin_proof
+\(\Spec \bZ\) 的底空间是以所有素数为点的有限补空间.
+对一个开集 \(U\), 设 \(U\) 不包含的素数为 \(p_1, \dots, p_k\),
+则 \(\Gamma(U, \Spec \bZ)\) 是所有分母仅有 \(p_1, \dots, p_k\) 这些素因子的有理数构成的环.
+
+由习题 2.4 即知 \(\Spec \bZ\) 是概形范畴的终对象,
+因为 \(\bZ\) 是环范畴的始对象.
+#+end_proof
+#+end_theorem
+
+#+attr_shortcode: exercise
+#+begin_theorem
+*习题 2.6.*
+描述零环的谱, 并证明它是概形范畴的始对象.
+
+#+begin_proof
+零环的谱是空集. 显然是始对象.
+#+end_proof
+#+end_theorem
+
+#+attr_shortcode: exercise
+#+begin_theorem
+*习题 2.7.*
+令 \(X\) 是概形. 对任意 \(x \in X\), 设 \(\cO_x\) 是 \(x\) 处的局部环,
+\(\gm_x\) 是其极大理想. 定义 \(x\) 处的_剩余域_是 \(k(x) = \cO_x / \gm_x\).
+设 \(K\) 是域. 证明要给出 \(\Spec K \to X\) 的同态, 等价于给出点 \(x \in X\)
+及域嵌入 \(k(x) \to K\).
+
+#+begin_proof
+\(\Spec K\) 是单点空间, 因此由定义立证.
+#+end_proof
+#+end_theorem
+
+#+attr_shortcode: exercise
+#+begin_theorem
+*习题 2.8.*
+设 \(X\) 是概形. 对 \(x \in X\), 定义 \(X\) 中 \(x\) 处的_Zariski 切空间_ \(T_x\)
+是 \(k(x)\)-向量空间 \(\gm_x / \gm_x^2\) 的对偶空间.
+假设 \(X\) 是域 \(k\) 上的概形, \(k[\epsilon] / \epsilon^2\) 是 \(k\) 上的_对偶数环_.
+证明要给出从 \(\Spec k[\epsilon]/\epsilon^2\) 到 \(X\) 的同态,
+等价于给出一个 _\(k\)-有理点_ \(x \in X\) (即 \(k(x) = k\)) 和 \(T_x\) 的一个元素.
+
+#+begin_proof
+\(\Spec k[\epsilon] / \epsilon^2\) 也是单点空间. 因此由定义易证.
+#+end_proof
+#+end_theorem
+
+#+attr_shortcode: exercise
+#+begin_theorem
+*习题 2.9.*
+设 \(X\) 是拓扑空间, \(Z\) 是其不可约闭子集. \(Z\) 的_一般点_就是闭包等于 \(Z\) 的点.
+若 \(X\) 是概形, 证明每个 (非空) 不可约闭子集都有唯一的一般点.
+
+#+begin_proof
+在一般情况下, 对任意与 \(Z\) 相交的仿射开子集 \(U\), 由上述推导即知
+存在唯一的 \(\xi_U \in Z \cap U\) 使得 \(\{ \xi_U \}^- \cap U = Z \cap U\).
+若 \(U, V\) 是两个这样的开集, 则由不可约性质知 \(U \cap V \cap Z\) 非空.
+取仿射开集 \(W \subseteq U \cap V\) 使得 \(W \cap Z\) 非空.
+由上述推导, \(\xi_U\) 和 \(\xi_V\) 也同时属于 \(W\), 并且是 \(W\) 中 \(W \cap Z\) 的唯一一般点.
+因此所有 \(\xi_U\) 全部相等, 也就是 \(Z\) 的一般点.
+
+若 \(X \cong \Spec A\) 是仿射概形, 则其非空不可约闭子集必定形如 \(V(\gp)\),
+从而有唯一的一般点 \(\gp\).
+进一步地, 若 \(D(f)\) 是与 \(V(\gp)\) 相交的仿射开集, 则 \(\gp \in D(f)\),
+因此 \(\gp\) 也是 \(D(f) \cap V(\gp)\) 的一般点.
+#+end_proof
+#+end_theorem
+
+#+attr_shortcode: exercise
+#+begin_theorem
+*习题 2.10.*
+描述 \(\Spec \bR[x]\). 其底空间与 \(\bR\) 这个集合有何区别？与 \(\bC\) 呢？
+
+#+begin_proof
+\(\Spec \bR[x]\) 中有一般点 \((0)\), 还有若干闭点；闭点与 \(\bR[x]\) 中的不可约多项式一一对应：
+即对每个 \(r \in \bR\), 有闭点 \((x - r)\)；对任意 \(b^2 - 4c < 0\), 有闭点 \((x^2 + bx + c)\).
+截面则与习题 2.5} 类似.
+
+其底空间比集合 \(\bR\) 多出一般点以及二次多项式对应的闭点.
+而与 \(\bC\) 相比, 每个复数都与其复共轭等同起来了 (此外当然也多出了一般点).
+#+end_proof
+#+end_theorem
+
+#+attr_shortcode: exercise
+#+begin_theorem
+*习题 2.11.*
+令 \(k = \bF_p\) 是 \(p\) 元有限域, 描述 \(\Spec k[x]\). 其点处的剩余域是什么？
+给定一个域, \(\Spec k[x]\) 中有多少以其为剩余域的点？
+
+#+begin_proof
+\(\Spec k[x]\) 的点有一个一般点 \((0)\), 以及若干闭点, 与首一不可约多项式一一对应.
+\((0)\) 处的剩余域是分式域 \(k(x)\).
+若 \(f\) 是不可约多项式, 则 \((f)\) 处的多项式是 \(k[x] / (f) \cong \bF_q\),
+其中 \(q = p^{\deg f}\).
+
+若给定 \(k\) 的有限扩域 \(\bF_q, q = p^n\),
+则以其为剩余域的点的个数即为 \(k[x]\) 中 \(n\) 次首一不可约多项式的个数,
+由高斯公式即为
+\[
+\frac{1}{n} \sum_{d \mid n} \mu\bigl(\frac{n}{d}\bigr) q^d.
+\]
+#+end_proof
+#+end_theorem
+
+#+attr_shortcode: exercise
+#+begin_theorem
+*习题 2.12 /(粘接引理)/.*
+结论很有用, 但是证明平凡. 不写了!
+# TODO: 可以把题抄一遍.
+#+end_theorem
+
+#+attr_shortcode: exercise
+#+begin_theorem
+*习题 2.13.*
+若拓扑空间 \(X\) 的任意开覆盖都有子覆盖, 就称 \(X\) _拟紧_ (其实就是一般情况下提及的紧).
+a) 证明：拓扑空间 Noether 当且仅当其任意开子集拟紧.
+b) 若 \(X\) 是仿射概形, 证明 \(\spp(X)\) 拟紧, 但是一般并不 Noether.
+   如果 \(\spp(X)\) Noether, 就说 \(X\) Noether.
+c) 若 \(A\) 是 Noether 环, 证明 \(\spp(\Spec A)\) 是 Noether 空间.
+d) 给出上一条的逆命题的一个反例, 即 \(\spp(\Spec A)\) 是 Noether 空间, 但 \(A\) 不 Noether.
+
+#+begin_proof
+a) 由定义平凡.
+b) 若 \(\spp(\Spec A) \subseteq \bigcup_i U_i\),
+    不妨设每个 \(U_i\) 都是基本开集 \(D(f_i)\).
+    那么作为理想, \(1 = \sum_i (f_i)\), 即存在有限个 \(f_i\) 可以生成 \(A\).
+    因此对应的有限个 \(D(f_i)\) 覆盖 \(\Spec A\), 从而覆盖 \(\spp(\Spec A)\).
+c) 若 \(A\) 是 Noether 环, 则其理想满足升链条件,
+    对应在 \(\Spec A\) 中就说明其闭集满足降链条件.
+    因此 \(\Spec A\) 是 Noether 空间, \(\spp(\Spec A)\) 作为其子空间也是 Noether 空间.
+d) 设 \(A = k[x_1, x_2, \dots] / (x_1^2, x_2^2, \dots)\).
+    记 \(\gp = (x_1, x_2, \dots) \subseteq A\), 则 \(A / \gp \cong k\),
+    且 \(\gp\) 中元素都幂零. 因此 \(A\) 只有 \(\gp\) 一个素理想, 从而 \(\Spec A\) Noether.
+    但是 \(A\) 显然不 Noether.
+#+end_proof
+#+end_theorem
+
+#+attr_shortcode: exercise
+#+begin_theorem
+*习题 2.14.*
+a) 设 \(S\) 是分次环. 证明 \(\Proj S = \emptyset\) 当且仅当 \(S_+\) 中仅包含幂零元素.
+b) 设 \(\varphi \colon S \to T\) 是分次环的分次同态 (即保持次数的同态).
+   令 \(U = \{ \gp \in \Proj T \mid \gp \not \supseteq \varphi(S_+) \}\).
+   证明 \(U\) 是 \(\Proj T\) 的开子集,
+   且 \(\varphi\) 决定了一个自然同态 \(f \colon U \to \Proj S\).
+c) 即使 \(\varphi\) 不是同构, \(f\) 也可能是.
+   比如说, 设 \(\varphi_d \colon S_d \to T_d\) 在 \(d \geq d_0\) 的情况下都是同构,
+   其中 \(d_0\) 是非负整数. 证明 \(U = \Proj T\) 并且 \(f \colon \Proj T \to \Proj S\) 是同构.
+d) 设 \(V\) 是射影簇, 其分次坐标环是 \(S\). 证明 \(t(V) \cong \Proj S\).
+
+#+begin_proof
+a) 若 \(S_+\) 中不仅包含幂零元素,
+    则考虑不包含某个非幂零元素及其幂的极大真齐次理想,
+    不难证明其是齐次素理想.
+
+    反之, 设 \(S_+\) 中仅包含幂零元素, 则若 \(\gp \subseteq S\) 是齐次素理想,
+    则 \(\gp \supseteq \sqrt{(0)} \supseteq S_+\).
+    因此一切齐次素理想都包含 \(S_+\), 从而 \(\Proj S = \emptyset\).
+b) \(U = \Proj T - V(\varphi(S_+))\) 当然是 \(\Proj T\) 中的开集.
+    若 \(\gp \in U\), 可以定义 \(f(\gp) = \ker (S \to T \to T / \gp) = \varphi^{-1}(\gp)\).
+    而 \(f^\sharp\) 可以由 \(\varphi\) 诱导的局部环同态 \(S_{(f(\gp))} \to T_{(\gp)}\) 定义.
+c) 若 \(\varphi_d\) 在 \(d \geq d_0\) 的情况下都是同构,
+    则 \(T / \varphi(S)\) 中次数大于 \(0\) 的齐次元素都是幂零元.
+    因此易知 \(U = \Proj T\).
+
+    为证明 \(f\) 是同构, 只需证明 \(\varphi\) 诱导的局部环同态
+    \(S_{(\varphi^{-1}\gp)} \to T_{(\gp)}\) 都是同构. 取元素验证其既单又满即可.
+d) 不会.
+#+end_proof
+#+end_theorem
+
+#+attr_shortcode: exercise
+#+begin_theorem
+*习题 2.15.*
+不会代数簇, 不写了.
+#+end_theorem
+
+#+attr_shortcode: exercise
+#+begin_theorem
+*习题 2.16.*
+令 \(X\) 是概形, \(f \in \Gamma(X, \cO_X)\), 定义
+\[
+X_f = \{ x \in X \mid f_x \notin \gm_x \}.
+\]
+其中 \(f_x \in \cO_x\) 是 \(f\) 在 \(x\) 处的茎, \(\gm_x\) 是 \(\cO_x\) 的极大理想.
+a) 设 \(U = \Spec B\) 是 \(X\) 中的仿射开集, \(\bar{f} \in \Gamma(U, \cO_X|_U)\) 是 \(f\) 的限制,
+   证明 \(U \cap X_f = D(\bar{f})\). 由此说明 \(X_f\) 是开集.
+b) 假设 \(X\) 拟紧. 令 \(A = \Gamma(X, \cO_X)\),  \(a \in A\) 且 \(a\) 限制在 \(X_f\) 上消失.
+   证明存在 \(n > 0\), 使得 \(f^n a = 0\) [提示：用仿射开集覆盖 \(X\)].
+c) 现在假设 \(X\) 可以由有限个仿射开集 \(U_i\) 覆盖, 且交集 \(U_i \cap U_j\) 全都拟紧
+   (比如说, \(\spp(X)\) 是 Noether 空间时即满足此条件).
+   令 \(b \in \Gamma(X_f, \cO_{X_f})\). 证明对某个 \(n > 0\), \(f^n b\) 是 \(A\) 中元素的限制.
+d) 沿用 (c) 中的假设, 证明 \(\Gamma(X_f, \cO_{X_f}) \cong A_f\).
+
+#+begin_proof
+a) 若 \(x \in U\), 则 \(f_x = \bar{f}_x\). 因此显然.
+b) 先设 \(X = \Spec A\) 是仿射开集. 则 \(X_f = D(f), \cO_X|_{X_f} \cong \Spec A_f\).
+    因此 \(a\) 限制在 \(X_f\) 上消失等价于存在 \(n > 0\) 使得 \(f^n a = 0\).
+
+    在一般情况下, 由于 \(X\) 可以由仿射开集覆盖, 而其拟紧, 从而其可以由有限个仿射开集覆盖,
+    设为 \(U_1, \dots, U_k\), 其中 \(U_i \cong \Spec B_i\).
+    记 \(f, a\) 在 \(U_i\) 上的限制为 \(\bar{f}_i, \bar{a}_i \in B_i\).
+    由上述推导, 对每个 \(i\), 存在 \(n_i\) 使得 \(\bar{f}_i^{n_i} \bar{a}_i = 0\).
+    取 \(n\) 为 \(n_i\) 中的最大值, 则由层的唯一性公理即知 \(f^n a = 0\).
+c) 先设 \(X = \Spec A\) 是仿射开集, 则 \(b \in \Gamma(X_f, \cO_{X_f}) \cong A_f\),
+    从而存在 \(n\) 使得 \(f^n b\) 是 \(A\) 中元素的限制.
+
+    一般情况下, 同 (b), 设 \(X\) 可以由 \(U_1, \dots, U_k\) 覆盖, \(U_i \cong \Spec B_i\).
+    同理定义 \(\bar{f}_i \in \Gamma(U_i, \cO_X), \bar{b}_i \in \Gamma(U_i \cap X_f, \cO_X)\).
+    则存在 \(n\), 使得每个 \(\bar{f}_i^n \bar{b}_i\) 是 \(a_i \in A\) 的限制.
+    此时对每一对 \(i \neq j\), \(a_i - a_j\) 在 \(U_i \cap U_j \cap X_f\) 上的限制为 \(0\).
+    因此由 (b), 存在 \(m_{ij}\) 使得 \(f^{n_{ij}} (a_i - a_j)\) 在 \(U_i \cap U_j\) 上限制为 \(0\).
+    取 \(m\) 为 \(m_{ij}\) 的最大值, 则 \(\{ f^m a_i \}\) 彼此兼容,
+    从而可以粘贴成 \(t \in A\), 其在 \(X_f\) 上的限制即是 \(f^{n + m} b\).
+d) 显然 \(f\) 在 \(\Gamma(X_f, \cO_{X_f})\) 上可逆. 从而由 (b) (c) 易证.
+#+end_proof
+#+end_theorem
+
+#+attr_shortcode: exercise
+#+begin_theorem
+*习题 2.17 /(仿射性的判别条件)/.*
+a) 设 \(f \colon X \to Y\) 是概形同态, 且 \(Y\) 可以由若干开集 \(U_i\) 覆盖,
+   使得每个限制映射 \(f^{-1}(U_i) \to U_i\) 是同构. 证明 \(f\) 也是同构.
+b) 概形 \(X\) 仿射当且仅当存在有限个元素 \(f_1, \dots, f_r \in A = \Gamma(X, \cO_X)\),
+   使得每个开集 \(X_{f_i}\) 都仿射, 且 \((f_1, \dots, f_r) = A\)
+   [提示：使用前面的习题 2.4 和习题 2.16d].
+
+#+begin_proof
+a) 容易知道 \(f\) 在底空间上是同胚. 且 \(f\) 在茎上都是同构, 从而 \(f\) 是同构.
+
+b) 由习题 2.16d 知道 \(X_{f_i} \cong \Spec A_{f_i}\).
+    用习题 2.4 的方法构造映射 \(g \colon X \to \Spec A\).
+    不难发现 \(g\) 将 \(X_{f_i}\) 映射到 \(D(f_i)\),
+    且映射 \(g(X_{f_i}) \colon \cO_X(X_{f_i}) \to A_{f_i}\) 是同构.
+    因此再由习题 2.4 就知道 \(g|_{X_{f_i}}\) 即是同构 \(X_{f_i} \cong \Spec A_{f_i}\).
+    由 \((f_1, \dots, f_r) = A\) 即知 \(D(f_i)\) 覆盖 \(\Spec A\). 因此由 (a) 即证.
+#+end_proof
+#+end_theorem
+
+#+attr_shortcode: exercise
+#+begin_theorem
+*习题 2.18.*
+本习题中, 我们将比较环同态的若干性质和其诱导的谱的同态的性质.
+a) 设 \(A\) 是环, \(X = \Spec A, f \in A\). 证明 \(f\) 幂零当且仅当 \(D(f)\) 为空.
+b) 令 \(\varphi \colon A \to B\) 是环同态, \(f \colon Y = \Spec B \to X = \Spec A\)
+   是诱导的仿射概形同态.
+   证明 \(\varphi\) 是单射当且仅当对应的层映射 \(f^\sharp \colon \cO_X \to f_* \cO_Y\) 是单射.
+   更进一步地, 证明这种情况下 \(f\) 是_支配_的, 即 \(f(Y)\) 在 \(X\) 中稠密.
+c) 在同样的假设下, 证明：若 \(\varphi\) 是满射, 则 \(f\) 将 \(Y\) 同胚到 \(X\) 的闭子集,
+   且 \(f^\sharp\) 是满射.
+d) 证明 (c) 的逆命题, 即如果 \(f\) 将 \(Y\) 同胚到 \(X\) 的闭子集,
+   且 \(f^\sharp\) 是满射, 则 \(\varphi\) 是满射
+   [提示：考虑 \(X' = \Spec(A / \ker \varphi)\), 并使用 (b) 和 (c)].
+
+#+begin_proof
+a) 平凡.
+b) 若 \(f^\sharp\) 是单射, 则 \(f^\sharp(X) \colon \cO_X(X) = A \to f_*\cO_Y(X) = B\)
+    是单射, 即 \(\varphi\) 是单射.
+
+    反之, 若 \(\varphi\) 是单射, 则对任意 \(a \in A\),
+    \(A_a \to B_{\varphi(a)}\) 也是单射；即 \(f^\sharp(D(a))\) 是单射.
+    若 \(U\) 是开集, \(s \in \cO_X(U), f^\sharp(U)(s) = 0\),
+    则 \(s\) 限制在每个 \(D(a) \subseteq U\) 上为 \(0\).
+    由于 \(D(a)\) 构成一组基, 由层的唯一性公理即知 \(s = 0\). 因此 \(f^\sharp\) 是单射.
+
+    并且若 \(\varphi\) 是单射, 则对任意 \(a \in A\), \(a\) 不幂零, \(\varphi(a)\) 也不幂零.
+    因此 \(B_{\varphi(a)}\) 非 \(0\) 环, 即 \(f^{-1}(D(a)) \neq \emptyset\).
+    因此 \(f(Y)\) 与所有开集相交非空, 即稠密.
+c) 设 \(\varphi\) 是满射, 则 \(B \cong A / \ker \varphi\),
+    从而 \(B\) 的素理想通过 \(f\) 和 \(A\) 中所有包含 \(\ker \varphi\) 的素理想一一对应.
+    因此 \(f\) 将 \(Y\) 同胚到 \(V(\ker \varphi) \subseteq A\).
+    且类似 (b), 若 \(a \in A\), 则 \(A_a \to B_{\varphi(a)}\) 是满射.
+    从而 \(f^\sharp\) 在一组开集基上的映射都为满射, 因此 \(f^\sharp\) 是满射
+    (因为茎上的映射都是满射).
+d) 定义 \(X' = \Spec(A / \ker \varphi)\),
+    则 \(\varphi\) 分解为 \(\pi \colon A \to A / \ker \varphi\)
+    和 \(\varphi' \colon A / \ker \varphi \to B\).
+    因此 \(f\) 也分解为 \(f' \colon Y \to X'\) 和 \(p \colon X' \to X\).
+    由于 \(\varphi'\) 是单射, \(f'(Y)\) 在 \(X'\) 中稠密.
+    然而 \(X'\)  (拓扑上) 可以看作 \(X\) 的子空间,
+    从而 \(f'(Y)\) 是 \(X'\) 的闭集, 因此 \(f'(Y) = X'\).
+
+    而 \(f^\sharp \colon \cO_X \to p_*\cO_{X'} \to f_* \cO_Y\) 是满射,
+    因此由 \(p\) 是单射即知 \(f^{\prime\sharp} \colon \cO_{X'} \to f'_*\cO_Y\) 是满射.
+    而 \(f^\sharp\) 又是单射, 因此是同构.
+    \(f'\) 也是同胚, 所以 \(X' \cong Y\), 因此 \(A / \ker \varphi \cong B\), 即 \(\varphi\) 是满射.
+#+end_proof
+#+end_theorem
+
+#+attr_shortcode: exercise
+#+begin_theorem
+*习题 2.19.*
+令 \(A\) 是环, 证明下列条件彼此等价：
+1) \(\Spec A\) 不连通.
+2) 存在非零元素 \(e_1, e_2 \in A\) 使得 \(e_1e_2 = 0, e_1^2 = e_1, e_2^2 = e_2, e_1 + e_2 = 1\)
+   (这样的元素称为_正交幂等元_).
+3) \(A\) 同构于两个非零环的直积.
+
+#+begin_proof
+若 (2) 成立,
+则 \(\Spec A = D(e_1) \cup D(e_2), D(e_1) \cap D(e_2) = \emptyset\), 因此 (1) 成立.
+
+若 (3) 成立, 则两个直积因子中的单位元即是正交幂等元, 从而 (2) 成立.
+
+若 (1) 成立, 记 \(\Spec A = U_1 \cup U_2, U_1 \cap U_2 = \emptyset\).
+设 \(U_1 = V(\ga_1), U_2 = V(\ga_2)\), 其中 \(\ga_1, \ga_2\) 是根理想.
+则 \(\ga_1 \cap \ga_2 = 0, \ga_1 + \ga_2 = A\). 因此 \(A = \ga_1 \times \ga_2\).
+从而 (3) 成立.
+#+end_proof
+#+end_theorem
+
+* Test
+:PROPERTIES:
+:EXPORT_FILE_NAME: test
+:END:
+#+begin_theorem
+#+begin_proof
+1. qwq
+2. qwq
+3. qwq
 #+end_proof
 #+end_theorem
