@@ -1,6 +1,7 @@
 #+hugo_base_dir: ../
 #+seq_todo: TODO DONE
 #+hugo_paired_shortcodes: %proof
+#+macro: stacks [[https://stacks.math.columbia.edu/tag/$2][Stacks $1 $2]]
 #+author: rqy
 
 * DONE 第一篇 Hugo 博客 :emacs:@non:
@@ -53,13 +54,14 @@ CLOSED: [2022-09-05 一 00:33]
                      ("Proj" "\\operatorname{Proj}")
                      ("Supp" "\\operatorname{Supp}")
 
-                 ("coker" "\\operatorname{coker}")
+                     ("coker" "\\operatorname{coker}")
                      ("im" "\\operatorname{im}")
                      ) "\n") "\\]")
 #+end_src
 
 #+macro: stacks [[https://stacks.math.columbia.edu/tag/\(1][Stacks \)1]]
-** 习题 2
+** DONE 习题 2
+CLOSED: [2022-09-06 二 00:55]
 :PROPERTIES:
 :EXPORT_TITLE: Hartshorne 第二章习题
 :EXPORT_FILE_NAME: hartshorne-exercise2
@@ -98,8 +100,8 @@ CLOSED: [2022-09-05 一 00:33]
 习题 2.2.
 #+end_head
 设 \((X, \cO_X)\) 是概形, \(U \subseteq X\) 是开集. 证明 \((U, \cO_X|_U)\) 是概形.
-我们将其称之为开集 \(U\) 上的_诱导概形结构_,
-并将 \((U, \cO_X|_U)\) 称为 \(X\) 的_开子概形_.
+我们将其称之为开集 \(U\) 上的 /诱导概形结构/,
+并将 \((U, \cO_X|_U)\) 称为 \(X\) 的 /开子概形/.
 
 #+begin_proof
 注意到任意仿射概形中存在一组由同构于仿射概形的开集构成的基,
@@ -114,30 +116,30 @@ CLOSED: [2022-09-05 一 00:33]
 习题 2.3.
 #+end_head
 设 \((X, \cO_X)\) 是概形. 如果对任意开集 \(U \subseteq X\), \(\cO_X(U)\) 中都没有幂零元素,
-就说 \((X, \cO_X)\) _既约_.
+就说 \((X, \cO_X)\) /既约/.
 a) [@a] 证明：\((X, \cO_X)\) 既约当且仅当对任意 \(P \in X\), 局部环 \(\cO_{X, P}\) 里都没有幂零元素.
 b) 令 \((X, \cO_X)\) 为概形. 令 \((\cO_X)_{\red}\) 为预层 \(U \mapsto \cO_X(U)_\red\),
    其中, 对任意环 \(A\), \(A_\red\) 表示 \(A\) 商掉幂零元的理想构成的商环.
    证明 \((X, (\cO_X)_\red)\) 是概形.
-   我们称之为 \(X\) 的_既约化概形_, 记作 \(X_\red\).
+   我们称之为 \(X\) 的 /既约化概形/, 记作 \(X_\red\).
    # TODO: 译名
    证明存在同态 \(X_\red \to X\), 其限制在底空间上是同胚.
 c) 设 \(f \colon X \to Y\) 是概形同态, 且 \(X\) 既约. 证明 \(f\) 穿过 \(Y_\red\).
 
 #+begin_proof
 a) 若 \(U\) 是开集, \(s \in \cO_X(U)\) 幂零, 则对任意 \(P \in U\), \(s_P\) 幂零.
-    因此若 \(\cO_{X, P}\) 中都无幂零元素, 即知 \(s_P = 0 \forall P \in U\), 因此 \(s = 0\).
-    充分性即证.
-    反之, 若 \(X\) 既约, 则对任意 \(P \in X\),
-    \(\cO_{X, P} = \varinjlim_{P \in U} \cO_X(U)\) 是既约环的直极限, 因此也既约.
+   因此若 \(\cO_{X, P}\) 中都无幂零元素, 即知 \(s_P = 0 \forall P \in U\), 因此 \(s = 0\).
+   充分性即证.
+   反之, 若 \(X\) 既约, 则对任意 \(P \in X\),
+   \(\cO_{X, P} = \varinjlim_{P \in U} \cO_X(U)\) 是既约环的直极限, 因此也既约.
 
 b) 只需注意到 \((A_f)_\red \cong (A_\red)_f\),
-    因此 \((\Spec A)_\red \cong \Spec A_\red\).
-    \(X_\red \to X\) 的映射容易构造, 即在每个截面上对应商同态.
+   因此 \((\Spec A)_\red \cong \Spec A_\red\).
+   \(X_\red \to X\) 的映射容易构造, 即在每个截面上对应商同态.
 
 c) 若 \(X\) 既约, 则同态 \(f^\sharp \colon \cO_Y(U) \to f_*(\cO_X)(U)\)
-    必定将幂零元映射到 \(0\), 因此穿过 \(\cO_Y(U)_\red\).
-    从而易知 \(f\) 穿过 \(Y_\red\).
+   必定将幂零元映射到 \(0\), 因此穿过 \(\cO_Y(U)_\red\).
+   从而易知 \(f\) 穿过 \(Y_\red\).
 #+end_proof
 #+end_theorem
 
@@ -202,7 +204,7 @@ c) 若 \(X\) 既约, 则同态 \(f^\sharp \colon \cO_Y(U) \to f_*(\cO_X)(U)\)
 习题 2.7.
 #+end_head
 令 \(X\) 是概形. 对任意 \(x \in X\), 设 \(\cO_x\) 是 \(x\) 处的局部环,
-\(\gm_x\) 是其极大理想. 定义 \(x\) 处的_剩余域_是 \(k(x) = \cO_x / \gm_x\).
+\(\gm_x\) 是其极大理想. 定义 \(x\) 处的 /剩余域/ 是 \(k(x) = \cO_x / \gm_x\).
 设 \(K\) 是域. 证明要给出 \(\Spec K \to X\) 的同态, 等价于给出点 \(x \in X\)
 及域嵌入 \(k(x) \to K\).
 
@@ -216,9 +218,9 @@ c) 若 \(X\) 既约, 则同态 \(f^\sharp \colon \cO_Y(U) \to f_*(\cO_X)(U)\)
 #+begin_head
 习题 2.8.
 #+end_head
-设 \(X\) 是概形. 对 \(x \in X\), 定义 \(X\) 中 \(x\) 处的_Zariski 切空间_ \(T_x\)
+设 \(X\) 是概形. 对 \(x \in X\), 定义 \(X\) 中 \(x\) 处的 /Zariski 切空间/   \(T_x\)
 是 \(k(x)\)-向量空间 \(\gm_x / \gm_x^2\) 的对偶空间.
-假设 \(X\) 是域 \(k\) 上的概形, \(k[\epsilon] / \epsilon^2\) 是 \(k\) 上的_对偶数环_.
+假设 \(X\) 是域 \(k\) 上的概形, \(k[\epsilon] / \epsilon^2\) 是 \(k\) 上的 /对偶数环/.
 证明要给出从 \(\Spec k[\epsilon]/\epsilon^2\) 到 \(X\) 的同态,
 等价于给出一个 _\(k\)-有理点_ \(x \in X\) (即 \(k(x) = k\)) 和 \(T_x\) 的一个元素.
 
@@ -232,7 +234,7 @@ c) 若 \(X\) 既约, 则同态 \(f^\sharp \colon \cO_Y(U) \to f_*(\cO_X)(U)\)
 #+begin_head
 习题 2.9.
 #+end_head
-设 \(X\) 是拓扑空间, \(Z\) 是其不可约闭子集. \(Z\) 的_一般点_就是闭包等于 \(Z\) 的点.
+设 \(X\) 是拓扑空间, \(Z\) 是其不可约闭子集. \(Z\) 的 /一般点/ 就是闭包等于 \(Z\) 的点.
 若 \(X\) 是概形, 证明每个 (非空) 不可约闭子集都有唯一的一般点.
 
 #+begin_proof
@@ -304,7 +306,7 @@ c) 若 \(X\) 既约, 则同态 \(f^\sharp \colon \cO_Y(U) \to f_*(\cO_X)(U)\)
 #+begin_head
 习题 2.13.
 #+end_head
-若拓扑空间 \(X\) 的任意开覆盖都有子覆盖, 就称 \(X\) _拟紧_ (其实就是一般情况下提及的紧).
+若拓扑空间 \(X\) 的任意开覆盖都有子覆盖, 就称 \(X\) /拟紧/ (其实就是一般情况下提及的紧).
 a) 证明：拓扑空间 Noether 当且仅当其任意开子集拟紧.
 b) 若 \(X\) 是仿射概形, 证明 \(\spp(X)\) 拟紧, 但是一般并不 Noether.
    如果 \(\spp(X)\) Noether, 就说 \(X\) Noether.
@@ -314,16 +316,16 @@ d) 给出上一条的逆命题的一个反例, 即 \(\spp(\Spec A)\) 是 Noether
 #+begin_proof
 a) 由定义平凡.
 b) 若 \(\spp(\Spec A) \subseteq \bigcup_i U_i\),
-    不妨设每个 \(U_i\) 都是基本开集 \(D(f_i)\).
-    那么作为理想, \(1 = \sum_i (f_i)\), 即存在有限个 \(f_i\) 可以生成 \(A\).
-    因此对应的有限个 \(D(f_i)\) 覆盖 \(\Spec A\), 从而覆盖 \(\spp(\Spec A)\).
+   不妨设每个 \(U_i\) 都是基本开集 \(D(f_i)\).
+   那么作为理想, \(1 = \sum_i (f_i)\), 即存在有限个 \(f_i\) 可以生成 \(A\).
+   因此对应的有限个 \(D(f_i)\) 覆盖 \(\Spec A\), 从而覆盖 \(\spp(\Spec A)\).
 c) 若 \(A\) 是 Noether 环, 则其理想满足升链条件,
-    对应在 \(\Spec A\) 中就说明其闭集满足降链条件.
-    因此 \(\Spec A\) 是 Noether 空间, \(\spp(\Spec A)\) 作为其子空间也是 Noether 空间.
+   对应在 \(\Spec A\) 中就说明其闭集满足降链条件.
+   因此 \(\Spec A\) 是 Noether 空间, \(\spp(\Spec A)\) 作为其子空间也是 Noether 空间.
 d) 设 \(A = k[x_1, x_2, \dots] / (x_1^2, x_2^2, \dots)\).
-    记 \(\gp = (x_1, x_2, \dots) \subseteq A\), 则 \(A / \gp \cong k\),
-    且 \(\gp\) 中元素都幂零. 因此 \(A\) 只有 \(\gp\) 一个素理想, 从而 \(\Spec A\) Noether.
-    但是 \(A\) 显然不 Noether.
+   记 \(\gp = (x_1, x_2, \dots) \subseteq A\), 则 \(A / \gp \cong k\),
+   且 \(\gp\) 中元素都幂零. 因此 \(A\) 只有 \(\gp\) 一个素理想, 从而 \(\Spec A\) Noether.
+   但是 \(A\) 显然不 Noether.
 #+end_proof
 #+end_theorem
 
@@ -344,21 +346,21 @@ d) 设 \(V\) 是射影簇, 其分次坐标环是 \(S\). 证明 \(t(V) \cong \Pro
 
 #+begin_proof
 a) 若 \(S_+\) 中不仅包含幂零元素,
-    则考虑不包含某个非幂零元素及其幂的极大真齐次理想,
-    不难证明其是齐次素理想.
+   则考虑不包含某个非幂零元素及其幂的极大真齐次理想,
+   不难证明其是齐次素理想.
 
-    反之, 设 \(S_+\) 中仅包含幂零元素, 则若 \(\gp \subseteq S\) 是齐次素理想,
-    则 \(\gp \supseteq \sqrt{(0)} \supseteq S_+\).
-    因此一切齐次素理想都包含 \(S_+\), 从而 \(\Proj S = \emptyset\).
+   反之, 设 \(S_+\) 中仅包含幂零元素, 则若 \(\gp \subseteq S\) 是齐次素理想,
+   则 \(\gp \supseteq \sqrt{(0)} \supseteq S_+\).
+   因此一切齐次素理想都包含 \(S_+\), 从而 \(\Proj S = \emptyset\).
 b) \(U = \Proj T - V(\varphi(S_+))\) 当然是 \(\Proj T\) 中的开集.
-    若 \(\gp \in U\), 可以定义 \(f(\gp) = \ker (S \to T \to T / \gp) = \varphi^{-1}(\gp)\).
-    而 \(f^\sharp\) 可以由 \(\varphi\) 诱导的局部环同态 \(S_{(f(\gp))} \to T_{(\gp)}\) 定义.
+   若 \(\gp \in U\), 可以定义 \(f(\gp) = \ker (S \to T \to T / \gp) = \varphi^{-1}(\gp)\).
+   而 \(f^\sharp\) 可以由 \(\varphi\) 诱导的局部环同态 \(S_{(f(\gp))} \to T_{(\gp)}\) 定义.
 c) 若 \(\varphi_d\) 在 \(d \geq d_0\) 的情况下都是同构,
-    则 \(T / \varphi(S)\) 中次数大于 \(0\) 的齐次元素都是幂零元.
-    因此易知 \(U = \Proj T\).
+   则 \(T / \varphi(S)\) 中次数大于 \(0\) 的齐次元素都是幂零元.
+   因此易知 \(U = \Proj T\).
 
-    为证明 \(f\) 是同构, 只需证明 \(\varphi\) 诱导的局部环同态
-    \(S_{(\varphi^{-1}\gp)} \to T_{(\gp)}\) 都是同构. 取元素验证其既单又满即可.
+   为证明 \(f\) 是同构, 只需证明 \(\varphi\) 诱导的局部环同态
+   \(S_{(\varphi^{-1}\gp)} \to T_{(\gp)}\) 都是同构. 取元素验证其既单又满即可.
 d) 不会.
 #+end_proof
 #+end_theorem
@@ -393,23 +395,23 @@ d) 沿用 (c) 中的假设, 证明 \(\Gamma(X_f, \cO_{X_f}) \cong A_f\).
 #+begin_proof
 a) 若 \(x \in U\), 则 \(f_x = \bar{f}_x\). 因此显然.
 b) 先设 \(X = \Spec A\) 是仿射开集. 则 \(X_f = D(f), \cO_X|_{X_f} \cong \Spec A_f\).
-    因此 \(a\) 限制在 \(X_f\) 上消失等价于存在 \(n > 0\) 使得 \(f^n a = 0\).
+   因此 \(a\) 限制在 \(X_f\) 上消失等价于存在 \(n > 0\) 使得 \(f^n a = 0\).
 
-    在一般情况下, 由于 \(X\) 可以由仿射开集覆盖, 而其拟紧, 从而其可以由有限个仿射开集覆盖,
-    设为 \(U_1, \dots, U_k\), 其中 \(U_i \cong \Spec B_i\).
-    记 \(f, a\) 在 \(U_i\) 上的限制为 \(\bar{f}_i, \bar{a}_i \in B_i\).
-    由上述推导, 对每个 \(i\), 存在 \(n_i\) 使得 \(\bar{f}_i^{n_i} \bar{a}_i = 0\).
-    取 \(n\) 为 \(n_i\) 中的最大值, 则由层的唯一性公理即知 \(f^n a = 0\).
+   在一般情况下, 由于 \(X\) 可以由仿射开集覆盖, 而其拟紧, 从而其可以由有限个仿射开集覆盖,
+   设为 \(U_1, \dots, U_k\), 其中 \(U_i \cong \Spec B_i\).
+   记 \(f, a\) 在 \(U_i\) 上的限制为 \(\bar{f}_i, \bar{a}_i \in B_i\).
+   由上述推导, 对每个 \(i\), 存在 \(n_i\) 使得 \(\bar{f}_i^{n_i} \bar{a}_i = 0\).
+   取 \(n\) 为 \(n_i\) 中的最大值, 则由层的唯一性公理即知 \(f^n a = 0\).
 c) 先设 \(X = \Spec A\) 是仿射开集, 则 \(b \in \Gamma(X_f, \cO_{X_f}) \cong A_f\),
-    从而存在 \(n\) 使得 \(f^n b\) 是 \(A\) 中元素的限制.
+   从而存在 \(n\) 使得 \(f^n b\) 是 \(A\) 中元素的限制.
 
-    一般情况下, 同 (b), 设 \(X\) 可以由 \(U_1, \dots, U_k\) 覆盖, \(U_i \cong \Spec B_i\).
-    同理定义 \(\bar{f}_i \in \Gamma(U_i, \cO_X), \bar{b}_i \in \Gamma(U_i \cap X_f, \cO_X)\).
-    则存在 \(n\), 使得每个 \(\bar{f}_i^n \bar{b}_i\) 是 \(a_i \in A\) 的限制.
-    此时对每一对 \(i \neq j\), \(a_i - a_j\) 在 \(U_i \cap U_j \cap X_f\) 上的限制为 \(0\).
-    因此由 (b), 存在 \(m_{ij}\) 使得 \(f^{n_{ij}} (a_i - a_j)\) 在 \(U_i \cap U_j\) 上限制为 \(0\).
-    取 \(m\) 为 \(m_{ij}\) 的最大值, 则 \(\{ f^m a_i \}\) 彼此兼容,
-    从而可以粘贴成 \(t \in A\), 其在 \(X_f\) 上的限制即是 \(f^{n + m} b\).
+   一般情况下, 同 (b), 设 \(X\) 可以由 \(U_1, \dots, U_k\) 覆盖, \(U_i \cong \Spec B_i\).
+   同理定义 \(\bar{f}_i \in \Gamma(U_i, \cO_X), \bar{b}_i \in \Gamma(U_i \cap X_f, \cO_X)\).
+   则存在 \(n\), 使得每个 \(\bar{f}_i^n \bar{b}_i\) 是 \(a_i \in A\) 的限制.
+   此时对每一对 \(i \neq j\), \(a_i - a_j\) 在 \(U_i \cap U_j \cap X_f\) 上的限制为 \(0\).
+   因此由 (b), 存在 \(m_{ij}\) 使得 \(f^{n_{ij}} (a_i - a_j)\) 在 \(U_i \cap U_j\) 上限制为 \(0\).
+   取 \(m\) 为 \(m_{ij}\) 的最大值, 则 \(\{ f^m a_i \}\) 彼此兼容,
+   从而可以粘贴成 \(t \in A\), 其在 \(X_f\) 上的限制即是 \(f^{n + m} b\).
 d) 显然 \(f\) 在 \(\Gamma(X_f, \cO_{X_f})\) 上可逆. 从而由 (b) (c) 易证.
 #+end_proof
 #+end_theorem
@@ -429,11 +431,11 @@ b) 概形 \(X\) 仿射当且仅当存在有限个元素 \(f_1, \dots, f_r \in A 
 a) 容易知道 \(f\) 在底空间上是同胚. 且 \(f\) 在茎上都是同构, 从而 \(f\) 是同构.
 
 b) 由习题 2.16d 知道 \(X_{f_i} \cong \Spec A_{f_i}\).
-    用习题 2.4 的方法构造映射 \(g \colon X \to \Spec A\).
-    不难发现 \(g\) 将 \(X_{f_i}\) 映射到 \(D(f_i)\),
-    且映射 \(g(X_{f_i}) \colon \cO_X(X_{f_i}) \to A_{f_i}\) 是同构.
-    因此再由习题 2.4 就知道 \(g|_{X_{f_i}}\) 即是同构 \(X_{f_i} \cong \Spec A_{f_i}\).
-    由 \((f_1, \dots, f_r) = A\) 即知 \(D(f_i)\) 覆盖 \(\Spec A\). 因此由 (a) 即证.
+   用习题 2.4 的方法构造映射 \(g \colon X \to \Spec A\).
+   不难发现 \(g\) 将 \(X_{f_i}\) 映射到 \(D(f_i)\),
+   且映射 \(g(X_{f_i}) \colon \cO_X(X_{f_i}) \to A_{f_i}\) 是同构.
+   因此再由习题 2.4 就知道 \(g|_{X_{f_i}}\) 即是同构 \(X_{f_i} \cong \Spec A_{f_i}\).
+   由 \((f_1, \dots, f_r) = A\) 即知 \(D(f_i)\) 覆盖 \(\Spec A\). 因此由 (a) 即证.
 #+end_proof
 #+end_theorem
 
@@ -447,7 +449,7 @@ a) 设 \(A\) 是环, \(X = \Spec A, f \in A\). 证明 \(f\) 幂零当且仅当 \
 b) 令 \(\varphi \colon A \to B\) 是环同态, \(f \colon Y = \Spec B \to X = \Spec A\)
    是诱导的仿射概形同态.
    证明 \(\varphi\) 是单射当且仅当对应的层映射 \(f^\sharp \colon \cO_X \to f_* \cO_Y\) 是单射.
-   更进一步地, 证明这种情况下 \(f\) 是_支配_的, 即 \(f(Y)\) 在 \(X\) 中稠密.
+   更进一步地, 证明这种情况下 \(f\) 是 /支配/ 的, 即 \(f(Y)\) 在 \(X\) 中稠密.
 c) 在同样的假设下, 证明：若 \(\varphi\) 是满射, 则 \(f\) 将 \(Y\) 同胚到 \(X\) 的闭子集,
    且 \(f^\sharp\) 是满射.
 d) 证明 (c) 的逆命题, 即如果 \(f\) 将 \(Y\) 同胚到 \(X\) 的闭子集,
@@ -457,35 +459,35 @@ d) 证明 (c) 的逆命题, 即如果 \(f\) 将 \(Y\) 同胚到 \(X\) 的闭子�
 #+begin_proof
 a) 平凡.
 b) 若 \(f^\sharp\) 是单射, 则 \(f^\sharp(X) \colon \cO_X(X) = A \to f_*\cO_Y(X) = B\)
-    是单射, 即 \(\varphi\) 是单射.
+   是单射, 即 \(\varphi\) 是单射.
 
-    反之, 若 \(\varphi\) 是单射, 则对任意 \(a \in A\),
-    \(A_a \to B_{\varphi(a)}\) 也是单射；即 \(f^\sharp(D(a))\) 是单射.
-    若 \(U\) 是开集, \(s \in \cO_X(U), f^\sharp(U)(s) = 0\),
-    则 \(s\) 限制在每个 \(D(a) \subseteq U\) 上为 \(0\).
-    由于 \(D(a)\) 构成一组基, 由层的唯一性公理即知 \(s = 0\). 因此 \(f^\sharp\) 是单射.
+   反之, 若 \(\varphi\) 是单射, 则对任意 \(a \in A\),
+   \(A_a \to B_{\varphi(a)}\) 也是单射；即 \(f^\sharp(D(a))\) 是单射.
+   若 \(U\) 是开集, \(s \in \cO_X(U), f^\sharp(U)(s) = 0\),
+   则 \(s\) 限制在每个 \(D(a) \subseteq U\) 上为 \(0\).
+   由于 \(D(a)\) 构成一组基, 由层的唯一性公理即知 \(s = 0\). 因此 \(f^\sharp\) 是单射.
 
-    并且若 \(\varphi\) 是单射, 则对任意 \(a \in A\), \(a\) 不幂零, \(\varphi(a)\) 也不幂零.
-    因此 \(B_{\varphi(a)}\) 非 \(0\) 环, 即 \(f^{-1}(D(a)) \neq \emptyset\).
-    因此 \(f(Y)\) 与所有开集相交非空, 即稠密.
+   并且若 \(\varphi\) 是单射, 则对任意 \(a \in A\), \(a\) 不幂零, \(\varphi(a)\) 也不幂零.
+   因此 \(B_{\varphi(a)}\) 非 \(0\) 环, 即 \(f^{-1}(D(a)) \neq \emptyset\).
+   因此 \(f(Y)\) 与所有开集相交非空, 即稠密.
 c) 设 \(\varphi\) 是满射, 则 \(B \cong A / \ker \varphi\),
-    从而 \(B\) 的素理想通过 \(f\) 和 \(A\) 中所有包含 \(\ker \varphi\) 的素理想一一对应.
-    因此 \(f\) 将 \(Y\) 同胚到 \(V(\ker \varphi) \subseteq A\).
-    且类似 (b), 若 \(a \in A\), 则 \(A_a \to B_{\varphi(a)}\) 是满射.
-    从而 \(f^\sharp\) 在一组开集基上的映射都为满射, 因此 \(f^\sharp\) 是满射
-    (因为茎上的映射都是满射).
+   从而 \(B\) 的素理想通过 \(f\) 和 \(A\) 中所有包含 \(\ker \varphi\) 的素理想一一对应.
+   因此 \(f\) 将 \(Y\) 同胚到 \(V(\ker \varphi) \subseteq A\).
+   且类似 (b), 若 \(a \in A\), 则 \(A_a \to B_{\varphi(a)}\) 是满射.
+   从而 \(f^\sharp\) 在一组开集基上的映射都为满射, 因此 \(f^\sharp\) 是满射
+   (因为茎上的映射都是满射).
 d) 定义 \(X' = \Spec(A / \ker \varphi)\),
-    则 \(\varphi\) 分解为 \(\pi \colon A \to A / \ker \varphi\)
-    和 \(\varphi' \colon A / \ker \varphi \to B\).
-    因此 \(f\) 也分解为 \(f' \colon Y \to X'\) 和 \(p \colon X' \to X\).
-    由于 \(\varphi'\) 是单射, \(f'(Y)\) 在 \(X'\) 中稠密.
-    然而 \(X'\)  (拓扑上) 可以看作 \(X\) 的子空间,
-    从而 \(f'(Y)\) 是 \(X'\) 的闭集, 因此 \(f'(Y) = X'\).
+   则 \(\varphi\) 分解为 \(\pi \colon A \to A / \ker \varphi\)
+   和 \(\varphi' \colon A / \ker \varphi \to B\).
+   因此 \(f\) 也分解为 \(f' \colon Y \to X'\) 和 \(p \colon X' \to X\).
+   由于 \(\varphi'\) 是单射, \(f'(Y)\) 在 \(X'\) 中稠密.
+   然而 \(X'\)  (拓扑上) 可以看作 \(X\) 的子空间,
+   从而 \(f'(Y)\) 是 \(X'\) 的闭集, 因此 \(f'(Y) = X'\).
 
-    而 \(f^\sharp \colon \cO_X \to p_*\cO_{X'} \to f_* \cO_Y\) 是满射,
-    因此由 \(p\) 是单射即知 \(f^{\prime\sharp} \colon \cO_{X'} \to f'_*\cO_Y\) 是满射.
-    而 \(f^\sharp\) 又是单射, 因此是同构.
-    \(f'\) 也是同胚, 所以 \(X' \cong Y\), 因此 \(A / \ker \varphi \cong B\), 即 \(\varphi\) 是满射.
+   而 \(f^\sharp \colon \cO_X \to p_*\cO_{X'} \to f_* \cO_Y\) 是满射,
+   因此由 \(p\) 是单射即知 \(f^{\prime\sharp} \colon \cO_{X'} \to f'_*\cO_Y\) 是满射.
+   而 \(f^\sharp\) 又是单射, 因此是同构.
+   \(f'\) 也是同胚, 所以 \(X' \cong Y\), 因此 \(A / \ker \varphi \cong B\), 即 \(\varphi\) 是满射.
 #+end_proof
 #+end_theorem
 
@@ -497,7 +499,7 @@ d) 定义 \(X' = \Spec(A / \ker \varphi)\),
 令 \(A\) 是环, 证明下列条件彼此等价：
 1) \(\Spec A\) 不连通.
 2) 存在非零元素 \(e_1, e_2 \in A\) 使得 \(e_1e_2 = 0, e_1^2 = e_1, e_2^2 = e_2, e_1 + e_2 = 1\)
-   (这样的元素称为_正交幂等元_).
+   (这样的元素称为 /正交幂等元/).
 3) \(A\) 同构于两个非零环的直积.
 
 #+begin_proof
@@ -510,5 +512,708 @@ d) 定义 \(X' = \Spec(A / \ker \varphi)\),
 设 \(U_1 = V(\ga_1), U_2 = V(\ga_2)\), 其中 \(\ga_1, \ga_2\) 是根理想.
 则 \(\ga_1 \cap \ga_2 = 0, \ga_1 + \ga_2 = A\). 因此 \(A = \ga_1 \times \ga_2\).
 从而 (3) 成立.
+#+end_proof
+#+end_theorem
+*** TODO 3. 概形的基本性质
+#+attr_html: :class exercise
+#+begin_theorem
+#+begin_head
+习题 3.1.
+#+end_head
+证明概形同态 \(f \colon X \to Y\) 局部有限型当且仅当对 \(Y\) 中 *任意* 仿射开集 \(V = \Spec B\),
+\(f^{-1}(V)\) 都可以由若干仿射开集 \(U_j = \Spec A_j\) 覆盖, 其中 \(A_j\) 都是有限生成 \(B\)-代数.
+
+#+begin_proof
+充分性显然, 只需证明必要性.
+首先要证明：
+若 \(Y\) 中仿射开集 \(V = \Spec B\) 满足条件, \(b \in B\),
+则 \(D(b) = \Spec B_b \subseteq V\) 也满足条件.
+这是因为对每个 \(U_j = \Spec A_j\), 都有 \(U_j \cap f^{-1}(D(b)) = \Spec (A_j)_{\bar{b}}\),
+且 \((A_j)_{\bar{b}}\) 是有限生成 \(B_b\)-代数 (\(\bar{b}\) 是 \(b\) 的像).
+因此满足条件的仿射开集 \(V \subseteq Y\) 构成 \(Y\) 的一组基.
+
+再设 \(V = \Spec B\) 是 \(Y\) 中任意的仿射开集.
+则 \(V\) 可以由有限个基本开集 \(D(b_i)\) 覆盖, 且每个 \(D(b_i)\) 都满足条件,
+即存在若干 \(U_{ij} = \Spec A_{ij}\) 覆盖 \(f^{-1}(D(b_i))\),
+使得 \(A_{ij}\) 是有限生成 \(B_{b_i}\)-代数.
+因此它们也都是有限生成 \(B\)-代数, 并且覆盖 \(f^{-1}(V)\). 因此 \(V\) 也满足条件.
+#+end_proof
+#+end_theorem
+
+#+attr_html: :class exercise
+#+begin_theorem
+#+begin_head
+习题 3.2.
+#+end_head
+设 \(f \colon X \to Y\) 是概形同态. 若 \(Y\) 可以由若干仿射开集 \(V_i\) 覆盖,
+且其中每个 \(f^{-1}(V_i)\) 都拟紧, 就称 \(f\)  _拟紧_ .
+证明 \(f\) 拟紧当且仅当对 *任意}仿射开集 \(V \subset Y\), \(f^{-1* (V)\) 都拟紧.
+
+#+begin_proof
+充分性显然, 只需证明必要性.
+显然, 概形中的开集拟紧当且仅当其可以被有限个仿射开集覆盖.
+
+设 \(V = \Spec B\) 满足 \(f^{-1}(V)\) 拟紧, 记其被 \(U_1, \dots, U_k\) 覆盖,
+其中 \(U_i = \Spec A_i\).  则对任意 \(b \in B\),
+\(f^{-1}(D(b))\) 可以被 \(U_i \cap f^{-1}(D(b)) = \Spec (A_i)_{\bar{b}}\) 覆盖.
+因此满足条件的开集构成基.
+
+再设 \(V = \Spec B\) 是 \(Y\) 中任意仿射开集, 则其可以有有限个基本开集 \(D(b_i)\) 覆盖,
+其中每个 \(f^{-1}(D(b_i))\) 拟紧. 因此 \(f^{-1}(V) = \bigcup f^{-1}(D(b_i))\) 拟紧.
+#+end_proof
+#+end_theorem
+
+#+attr_html: :class exercise
+#+begin_theorem
+#+begin_head
+习题 3.3.
+#+end_head
+1. 证明概形同态 \(f \colon X \to Y\) 有限型当且仅当其局部有限型且拟紧.
+2. 由此说明 \(f\) 有限型当且仅当对 \(Y\) 中 *任意* 仿射开集 \(V = \Spec B\),
+  \(f^{-1}(V)\) 都可以被有限个仿射开集 \(U_j = \Spec A_j\) 覆盖,
+  其中每个 \(A_j\) 都是有限生成 \(B\)-代数.
+3. 证明如果 \(f\) 有限型, 则对 \(Y\) 中 *任意* 仿射开集 \(V = \Spec B\),
+  以及 \(X\) 中任意仿射开集 \(U = \Spec A \subseteq f^{-1}(V)\),
+  \(A\) 都是有限生成 \(B\)-代数.
+
+#+begin_proof
+1. 若 \(f\) 有限型, 则其当然局部有限型.
+  且若 \(Y\) 中的仿射开集 \(V = \Spec B\) 使得 \(f^{-1}(V)\) 可以被有限个仿射开集覆盖,
+  则 \(f^{-1}(V)\) 当然拟紧. 因此 \(f\) 拟紧.
+
+  反之, 若 \(f\) 局部有限型且拟紧, 则由前两习题知：
+  对 \(Y\) 中任意仿射开集 \(V = \Spec B\),
+  \(f^{-1}(V)\) 可以被若干仿射开集 \(U_i = \Spec A_i\) 覆盖,
+  每个 \(A_i\) 都是有限生成 \(B\)-代数. 而 \(f^{-1}(V)\) 又拟紧, 从而可以被这其中有限个所覆盖.
+  因此 \(f\) 有限型.
+2. 由前两习题及 (a) 即证.
+3. 固定 \(V = \Spec B\). 若 \(U = \Spec A \subset f^{-1}(V)\) 满足 \(A\) 是有限生成 \(B\)-代数,
+  则对任意 \(a \in A\), \(A_a\) 也是有限生成 \(B\)-代数.
+  因此 \(f^{-1}(V)\) 中所有满足 \(U = \Spec A\) 且 \(A\) 是有限生成 \(B\)-代数的仿射开集构成一组基.
+
+  现在任取 \(f^{-1}(V)\) 中的仿射开集 \(U = \Spec A\).
+  则存在有限个 \(a_i \in A\), 它们生成 \(A\), 且每个 \(A_{a_i}\) 都是有限生成 \(B\)-代数.
+  设 \(n\) 是足够大的正整数, 使得每个 \(A_{a_i}\) 都可以通过 \(a_i^{-n} x_{ij}\) 在 \(B\) 上生成.
+  由于所有 \(a_i\) 生成 \(A\), 所有 \(a_i^n\) 也生成 \(A\).
+  不妨设 \(1 = \sum_i y_i a_i^n\). 则对任意 \(a \in A\), \(a = \sum_i y_i (a_i^n a)\).
+  因此易知 \(A\) 可以由 \(\{ x_{ij} \} \cup \{ y_i \}\) 在 \(B\) 上生成, 从而是有限生成 \(B\)-代数.
+#+end_proof
+#+end_theorem
+
+#+attr_html: :class exercise
+#+begin_theorem
+#+begin_head
+习题 3.4.
+#+end_head
+证明：概形同态 \(f \colon X \to Y\) 有限当且仅当对 \(Y\) 中 *任意* 仿射开集 \(V = \Spec B\),
+\(f^{-1}(V)\) 都是仿射开集, 且若记 \(f^{-1}(V) = \Spec A\), 则 \(A\) 在 \(B\) 上有限.
+
+#+begin_proof
+充分性显然.
+
+设 \(f\) 有限, \(V = \Spec B \subseteq Y, U = f^{-1}(V) = \Spec A\),
+且 \(A\) 是有限 \(B\)-模. 记 \(A \to B\) 的环同态是 \(\varphi\),
+则对任意 \(b \in B\), \(f^{-1}(D(b)) = \Spec A_{\varphi(b)}\) 是有限 \(B_b\)-模.
+再设 \(V = \Spec B \subseteq Y\) 是任意仿射开集, \(U = f^{-1}(V)\).
+则由上可知存在有限个 \(b_i \in B\), 它们生成 \(B\),
+且每个 \(f^{-1}(D(b_i)) = \Spec A_i\), 对应的 \(A_i\) 是有限 \(B_{b_i}\)-模.
+设 \(a_i = f^\sharp(V)(b_i) \in \cO_X(U)\).
+则 \(a_i\) 也生成 \(\cO_X(U)\), 且每个 \(U_{a_i} = f^{-1}(D(b_i))\) 仿射.
+因此由习题 2.17 即知 \(U\) 也仿射. 记 \(U = \Spec A\).
+则每个 \(A_{a_i}\) 是有限 \(B_{b_i}\) 模.
+接下来类似前一习题中的 (c) 易证 \(A\) 是有限 \(B\) 模.
+#+end_proof
+#+end_theorem
+
+#+attr_html: :class exercise
+#+begin_theorem
+#+begin_head
+习题 3.5.
+#+end_head
+设 \(f \colon X \to Y\) 是概形态射. 若对每个 \(y \in Y\), \(f^{-1}(y)\) 都是有限集,
+就称 \(f\)  _拟有限_ .
+1. 证明有限态射也拟有限.
+2. 证明有限态射是 _闭映射_ , 即其将任意闭子集映射到闭子集.
+3. 给出反例以证明有限型、拟有限、闭的满概形态射不一定是有限态射.
+
+#+begin_proof
+1. 若 \(y \in Y\), 取包含 \(y\) 的仿射开集 \(V = \Spec B\).
+  记 \(f^{-1}(V) = \Spec A\), \(y\) 对应 \(B\) 中的素理想 \(\gp\).
+  则 \(f^{-1}(y)\) (至少作为拓扑空间) 同胚于 \(\Spec (B \otimes_A k(\gp))\),
+  其中 \(k(\gp) = A_\gp / \gp\) 是 \(\gp\) 的剩余域.
+
+  而 \(B \otimes_A k(\gp)\) 作为模是有限维 \(k(\gp)\)-线性空间, 从而只包含有限个素理想.
+2. 在任意仿射开集上, 这就是上行性质. 由于概形被仿射开集覆盖, 命题即证. % TODO: 译名
+3. 取“两个原点的直线”到直线的映射即可.
+  显然其有限型, 拟有限, 满且闭.  % TODO: 没验证.
+  但双原点的直线并不仿射, 因此这个映射并不有限.
+
+  又或者令 \(X = \Spec \bZ[i]_{(1+2i)}\), 其中 \(i^2 = -1\).
+  则 \(X \to \Spec \bZ\) 有限型, 拟有限, 满且闭. 然而其不有限.
+#+end_proof
+#+end_theorem
+
+#+attr_html: :class exercise
+#+begin_theorem
+#+begin_head
+习题 3.6.
+#+end_head
+设 \(X\) 是整概形. 证明一般点 \(\xi\) 处的局部环 \(\cO_\xi\) 是域.
+其被称作 \(X\) 的 _函数域_ , 记作 \(K(X)\).
+证明如果 \(U = \Spec A\) 是 \(X\) 的任意仿射开集, 则 \(K(X)\) 同构于 \(A\) 的分式域.
+
+#+begin_proof
+设 \(U = \Spec A\) 是任意仿射开集, 则 \(\xi \in U\), 且 \(\xi\) 也是 \(U\) 的一般点.
+因此 \(\xi\) 对应 \(A\) 中的零理想, 从而 \(\cO_\xi\) 同构于 \(A\) 的分式域.
+#+end_proof
+#+end_theorem
+
+#+attr_html: :class exercise
+#+begin_theorem
+#+begin_head
+习题 3.7.
+#+end_head
+设 \(f \colon X \to Y\) 是概形同态, \(Y\) 不可约,
+如果对 \(Y\) 的一般点 \(\eta\), \(f^{-1}(\eta)\) 是有限集,  就称 \(f\)  _一般有限_ .
+如果概形同态 \(f \colon X \to Y\) 的像集 \(f(X)\) 在 \(Y\) 中稠密, 就称 \(f\)  _支配_ .
+现设 \(f \colon X \to Y\) 是整概形之间的支配、一般有限、有限型同态.
+证明存在稠密开集 \(U \subseteq Y\) 使得诱导映射 \(f^{-1}(U) \to U\) 有限
+[提示：先证明 \(X\) 的函数域是 \(Y\) 的函数域的有限扩张].
+
+#+begin_proof
+设 \(\xi, \eta\) 分别是 \(X, Y\) 的一般点, \(K, L\) 分别为 \(X, Y\) 的函数域.
+任取 \(Y\) 中的仿射开集 \(V = \Spec A\),
+以及 \(f^{-1}(V)\) 中的仿射开集 \(U = \Spec A \subseteq f^{-1}(V)\).
+由于 \(f\) 支配且 \(X\) 不可约, \(f(U)\) 在 \(V\) 中稠密,
+因此 \(A \otimes_B L\) 非零.
+又因为 \(f\) 有限型、一般有限, \(A \otimes_B L\) 在 \(L\) 上有限生成,
+且仅包含有限个素理想 (与 \(f^{-1}(\eta)\) 一一对应).
+
+由 Noether 正规化定理, 存在 \(A \otimes_B L\) 的子环 \(C \cong L[y_1, \dots, y_k]\) 使得
+\(A \otimes_B L\) 在 \(C\) 上整. 那么由上述一般有限性即知 \(k = 0\),
+从而 \(A \otimes_B L\) 在 \(L\) 上整 (因此有限), 所以其分式域 \(K\) 是 \(L\) 的有限扩张.
+
+更进一步地, 设 \(f^{-1}(V)\) 可以由有限个仿射开集 \(U_i = \Spec A_i\) 覆盖,
+设 \(A_i \otimes_B L\) 作为 \(L\)-代数可以由 \(x_{ij} \in A_i\) 生成.
+由于它们在 \(L\) 上整, 即满足 \(L\) 系数首一多项式.
+令 \(f \in B\) 为这些多项式系数的分母的乘积, 则 \(x_{ij}\) 在 \(B_f\) 上整；
+因此 \((A_i)_f\) 在 \(B_f\) 上整.
+
+用 \(D(f) = \Spec B_f\) 代替 \(Y\), 用 \(f^{-1}(D(f))\) 代替 \(X\),
+则问题归约为：
+若 \(f \colon X \to Y\) 是整概形同态, \(Y = \Spec B\),
+且 \(X\) 可以被有限个仿射开集 \(U_i = \Spec A_i\), 其中每个 \(A_i\) 都是有限 \(B\)-模,
+就存在稠密开集 \(V \subseteq Y\) 使得 \(f^{-1}(V) \to V\) 有限.
+
+记 \(W = \bigcap_i U_i\). 对每个 \(i\), 设 \(U_i - W = V(\ga_i), \ga_i \subseteq A_i\).
+由于 \(A_i\) 在 \(B\) 上整, 存在 \(b_i \in B \cap \ga_i\).
+设 \(V = \bigcap_i D(b_i) \subseteq Y\), 显然 \(V \cong \Spec B[\{ b_i^{-1} \}_i]\).
+且由于 \(f^{-1}(V) \subseteq W\),
+即知 \(f^{-1}(V) \cong \bigcap_i D(b_i) \cap U_j \cong \Spec A_j[\{ b_i^{-1} \}_i]\)
+仿射, 且 \(f \colon f^{-1}(V) \to V\) 有限.
+由于 \(Y\) 不可约, \(V\) 是开集, 从而稠密.
+#+end_proof
+#+end_theorem
+
+#+attr_html: :class exercise
+#+begin_theorem
+#+begin_head
+习题 3.8 /(正规化)/.
+#+end_head
+若一概形的所有局部环都整闭, 就称其 _正规_ .
+令 \(X\) 为整概形. 对每个仿射开集 \(U = \Spec A\), 设 \(\tilde{A}\) 是 \(A\) 在其分式域中的整闭包,
+令 \(\tilde{U} = \Spec \tilde{A}\). 证明这些 \(\tilde{U}\) 可以粘接成一个正规概形 \(\tilde{X}\),
+称为 \(X\) 的 _正规化_ .
+再证明存在同态 \(\tilde{X} \to X\) 满足如下泛性质：
+对任意正规概形 \(Z\) 和同态 \(f \colon Z \to X\), \(f\) 都唯一地穿过 \(\tilde{X}\).
+若 \(X\) 在域 \(k\) 上有限型, 则同态 \(\tilde{X} \to X\) 有限.
+这推广了第一章习题 3.17.
+
+#+begin_proof
+仿照构造纤维积的办法, 可以如下证明：
+
+第一步, 若 \(X = \Spec A\), 则 \(\tilde{X} = \Spec \tilde{A}\)
+配备自然的同态 \(\tilde{X} \to X\) 必定满足上述泛性质.
+这可以由习题 2.4 自然得到.
+
+第二步, 若 \(g \colon \tilde{X} \to X\) 满足泛性质,
+\(U\) 是 \(X\) 的开子概形, 则 \(g\) 在 \(g^{-1}(U)\) 上的限制 \(g^{-1}(U) \to U\) 也满足泛性质.
+若 \(Z\) 正规, \(f \colon Z \to U\), 则复合嵌入映射得到 \(i \circ f \colon Z \to X\).
+由泛性质, \(i \colon f\) 唯一地穿过 \(\tilde{X}\)；显然其像集必定包含在 \(g^{-1}(U)\) 中.
+
+第三步, 若 \(U, V\) 都是 \(X\) 中的仿射开集, 则 \(U \cap V\) 在 \(\tilde{U}\) 和 \(\tilde{V}\)
+中的原像都具有上述泛性质, 因此可以自然地等同.
+这样就给出了将所有 \(\tilde{U}\) 粘接为 \(\tilde{X}\) 的办法.
+且每个同态 \(\tilde{U} \to U \to X\) 也可粘接成 \(\tilde{X} \to X\),
+不难验证其满足泛性质.
+
+接下来设 \(X\) 在 \(k\) 上有限型. 则 \(X\) 可以由有限个仿射开集 \(U_i = \Spec A_i\) 覆盖,
+且每个 \(A_i\) 都是有限生成 \(k\)-代数；因此 \(\tilde{A}_i\) 在 \(A_i\) 上有限.
+所以 \(\tilde{X} \to X\) 有限.
+#+end_proof
+#+end_theorem
+
+#+attr_html: :class exercise
+#+begin_theorem
+#+begin_head
+习题 3.9. /(乘积概形的底空间)/.
+#+end_head
+回忆在代数簇范畴中, 两个代数簇的乘积的 Zariski 拓扑并不是乘积拓扑 (第一章习题 1.4).
+我们将会看到, 在概形范畴中, 乘积概形的底集合甚至都不是乘积集合.
+1. 令 \(k\) 是域, \(\uA_k^1 = \Spec k[x]\) 是 \(k\) 上的仿射直线.
+  证明 \(\uA_k^1 \times_{\Spec k} \uA_k^1 \cong \uA_k^2\),
+  并证明其底集合并不是两个因子的底集合的乘积 (即使 \(k\) 代数闭也一样).
+2. 令 \(k\) 是域, \(s, t\) 是不定元, 则 \(\Spec k, \Spec k(s), \Spec k(t)\)
+  都是单点空间.
+
+  描述 \(\Spec k(s) \times_{\Spec k} \Spec k(t)\).
+
+#+begin_proof
+1. 由定义, \(\uA_k^1 \times_{\Spec k} \uA_k^1 = \Spec (k[x] \otimes_k k[x]) = \Spec k[x, y] = \uA_k^2\).
+  其中任意显含两个变量的不可约多项式生成的素理想
+  (如 \((x - y)\)) 都不属于两个因子底集合的乘积.
+2. \(k, k(s), k(t)\) 都是域, 因此其谱当然是单点空间.
+
+  然而 \(\Spec k(s) \times_{\Spec k} \Spec k(t) = \Spec (k(s) \otimes_k k(t))\).
+  而 \(k(s) \otimes_k k(t) = S^{-1} k[s, t]\),
+  其中 \(S = \{ f(s) g(t) \mid f, g \in k[x] \setminus \{ 0 \} \}\).
+  其素理想为 \((0)\) 以及 \((h(s, t))\), 其中 \(h\) 是同时显含 \(s\) 和 \(t\) 的不可约多项式.
+#+end_proof
+#+end_theorem
+
+#+attr_html: :class exercise
+#+begin_theorem
+#+begin_head
+习题 3.10 /(同态的纤维)/.
+#+end_head
+1. 若 \(f \colon X \to Y\) 是同态, \(y \in Y\),
+  证明 \(\spp(X_y)\) 同胚于装备子空间拓扑的 \(f^{-1}(y)\).
+2. 令 \(X = \Spec k[s, t] / (s - t^2)\), \(Y = \Spec k[s]\),
+  \(f \colon X \to Y\) 是由 \(s \mapsto s\) 决定的同态.
+  若 \(y \in Y\) 是 \(a \in k\) 对应的点且 \(a \neq 0\),
+  证明纤维 \(X_y\) 恰好包含两个点, 剩余域都是 \(k\).
+  若 \(y \in Y\) 对应 \(0 \in k\), 则 \(X_y\) 是非既约的单点概形.
+  若 \(\eta \in Y\) 是一般点, 则 \(X_\eta\) 是单点概形,
+  其剩余域是 \(\eta\) 处剩余域的二次扩张 (假设 \(k\) 代数闭).
+
+#+begin_proof
+1. 记同态 \(g \colon X_y = X \otimes_Y \Spec k(y) \to X\),
+   任取 \(Y\) 中包含 \(y\) 的仿射开集 \(V = \Spec B\).
+   只需证明：对 \(f^{-1}(V)\) 中任意仿射开集 \(U\), \(g \colon g^{-1}(U) \to U\)
+   在底空间上诱导了 \(g^{-1}(U)\) 和 \(U \cap f^{-1}(y)\) 的同胚.
+   而这种情况下, 设 \(U = \Spec A\), \(y\) 对应 \(B\) 中的素理想 \(\gp\),
+   则
+   \[
+   g^{-1}(U) = U \otimes_V \Spec k(y) = \Spec (A \otimes_B k(\gp))
+   = \Spec (A_\gp / \gp A_\gp).
+   \]
+   因此显然.
+2.  若 \(y\) 对应 \(a \neq 0 \in k\), 则
+   \[
+   X_y = \Spec \Bigl(k[s, t] / (s - t^2)) \otimes_{k[s]} (k[s] / (s - a)\Bigr)
+   = \Spec (k[t] / (t^2 - a)).
+   \]
+   其包含 \(\bigl(t \pm \sqrt{a}\bigr)\) 两个素理想.
+
+   若 \(y\) 对应 \(0 \in k\), 则同理, \(X_y = \Spec (k[t] / (t^2))\)
+   是非既约的单点概形.
+
+   若 \(\eta\) 是一般点, 则 \(X_\eta = \Spec (k[s, t] / (s - t^2))_s = \Spec k(\sqrt{s})\),
+   而 \(k(\sqrt{s})\) 是 \(\eta\) 处的剩余域 \(k(s)\) 的二次扩张.
+#+end_proof
+#+end_theorem
+
+#+attr_html: :class exercise
+#+begin_theorem
+#+begin_head
+习题 3.11 /(闭子概形)/.
+#+end_head
+1. 闭浸入在基扩张下不变：即若 \(f \colon Y \to X\) 是闭浸入, \(X' \to X\) 是任意同态,
+  则 \(f' \colon Y \times_X X' \to X'\) 也是闭浸入.
+2. 若 \(Y\) 是仿射概形 \(X = \Spec A\) 的闭子概形, 则 \(Y\) 仿射；
+  事实上 \(Y\) 一定是某个闭浸入 \(\Spec A / \ga \to \Spec A\) 的像, \(\ga\) 是合适的理想.
+  [提示：先证明 \(Y\) 可以被有限个形如 \(D(f_i) \cap Y\) 的仿射开集覆盖,
+  其中 \(f_i \in A\). 通过添加一些 \(D(f_i) \cap Y = \emptyset\) 的 \(f_i\),
+  可以假设这些 \(D(f_i)\) 覆盖 \(X\). 接下来证明 \(f_i\) 生成 \(A\),
+  因此由习题 2.17b 证明 \(Y\) 仿射,
+  然后用习题 2.18d 证明 \(Y\) 可以由某个理想 \(\ga \subseteq A\) 得来. ]
+3. 令 \(Y\) 是 \(X\) 的闭子集, 并为其装备既约诱导闭子集概形结构.
+  若 \(Y'\) 是 \(X\) 中此闭子集上的另一个闭子概形,
+  证明闭浸入 \(Y \to X\) 穿过 \(Y'\).
+  我们可以将此性质表达为: 既约诱导闭子概形结构是闭子集上最小的闭子概形结构.
+4. 令 \(f \colon Z \to X\) 是概形同态. 则 \(X\) 中存在唯一的闭子概形 \(Y\) 使得:
+  \(f\) 穿过 \(Y\); 且若 \(f\) 也穿过另一个闭子概形 \(Y'\), 则 \(Y \to X\) 也穿过 \(Y'\).
+  我们将 \(Y\) 称为 \(Z\) 的 _概形论像_ .
+  若 \(Z\) 既约, 证明 \(Y\) 就是 \(f(Z)\) 的闭包上的既约诱导闭子概形.
+
+#+begin_proof
+我们先证明 (b).
+- (b) 设 \(Y\) 可以由仿射开集 \(V_i = \Spec B_i\) 覆盖,
+  而 \(f(V_i) = \bigl(\bigcup_j U_{ij}\bigr) \cap f(Y)\),
+  其中 \(U_{ij}\) 是基本开集 \(D(f_{ij})\).
+  则对每个 \(i, j\), \(f^{-1}(U_{ij}) = \Spec (B_i)_{f_{ij}} \subseteq V_i\) 也仿射.
+  并且由于 \(f(Y)\) 是 \(X\) 中的闭集，因此也拟紧，从而可以选出有限个 \(U_{ij}\) 覆盖 \(f(Y)\),
+  设为 \(\{ D(g_i) \}_i\).
+
+  通过添加一些 \(D(g_i) \cap Y = \emptyset\) 的 \(g_i\),
+  不妨设这些 \(D(g_i)\) 覆盖了 \(X\)；即 \(g_i\) 生成了 \(A\).
+  设 \(\varphi \colon A \to \Gamma(Y, \cO_Y)\) 是 \(f\) 诱导的整体截面上的映射,
+  则 \(\varphi(g_i)\) 生成了 \(\Gamma(Y, \cO_Y)\).
+  且 \(Y_{\varphi(g_i)} = f^{-1}(D(g_i))\) 均仿射.
+  因此由习题 2.17b 即知 \(Y\) 是仿射概形.
+  再由习题 2.18d 即知 \(Y \cong \Spec A / \ga\).
+
+- (a) 若 \(X, Y, X'\) 都是仿射概形, 设为 \(X = \Spec A, Y = \Spec A / \ga, X' = \Spec B\)
+  (由习题 2.18d, \(Y\) 一定形如 \(\Spec A / \ga\)).
+  则 \(Y \times_X X' = \Spec B / (B \ga)\) 到 \(X'\) 是闭浸入.
+
+  进一步地, 设 \(X, Y\) 仍然仿射, \(X'\) 为任意概形.
+  设 \(X'\) 可以由若干仿射开集 \(U_i = \Spec B_i\) 覆盖.
+  则对每个 \(U_i\), \(f^{\prime {-1}}(U_i) \cong Y \times_X U_i\) 到 \(U_i\) 是闭浸入.
+  因此 \(Y \times_X X'\) 在 \(X'\) 中的像是闭集.
+  且由于层上的映射 \(f^{\prime\sharp}\) 在每个开集上都是满射, 因此整体上也是满射.
+  因此 \(Y \times_X X' \to X'\) 也是闭浸入.
+
+  若 \(X, Y\) 未必仿射, 则设 \(X\) 可以由仿射开集 \(X_i = \Spec A_i\) 覆盖.
+  设 \(X_i\) 在 \(Y, X'\) 中的原像分别是 \(Y_i, X'_i\).
+  显然, \(Y_i \to X'_i\) 也仍然是闭浸入, 因此由 (b) 即知 \(Y_i\) 仿射.
+  由上述论证, 每个 \(Y_i \times_{X_i} X'_i \to X'_i\) 都是闭浸入,
+  即 \(Y \times_X X'_i \to X'_i\) 是闭浸入.
+  类似于上述推理即知 \(Y \times_X X' \to X'\) 也是闭浸入.
+- (c) 由于可以将映射做粘接, 只需考虑 \(X = \Spec A\) 仿射的情况.
+  设 \(Y = \Spec \ga\). 由 (b) 可知 \(Y'\) 也仿射, 设为 \(\Spec A / \ga'\),
+  则 \(\ga = \sqrt{\ga'} \supseteq \ga'\), 因此 \(Y \to X\) 穿过 \(Y'\).
+- (d) 若 \(X = \Spec A\) 仿射, 则可以定义 \(\ga = \ker (A \to \Gamma(Z, \cO_Z))\),
+  并定义 \(Y = \Spec A / \ga\), 显然其满足泛性质.
+  此时, \(Y\) 在底空间上就是 \(f(Z)\) 的闭包.
+  且若 \(Z\) 既约, 则 \(A / \ga\) 也既约, 因此此时 \(Y\) 就是既约诱导闭子概形.
+  若 \(X\) 任意, 则对每个仿射开集定义 \(Y\) 之后粘接起来即可.
+#+end_proof
+#+end_theorem
+
+#+attr_html: :class exercise
+#+begin_theorem
+#+begin_head
+习题 3.12 /(\(\Proj S\) 的闭子概形)/.
+#+end_head
+1. 设 \(\varphi \colon S \to T\) 是分次环之间保持次数的满射.
+  证明习题 2.14 中的开集 \(U\) 就等于 \(\Proj T\),
+  且同态 \(\Proj T \to \Proj S\) 是闭浸入.
+2. 若 \(I \subseteq S\) 是齐次理想, \(T = S / I\),
+  令 \(Y\) 为由 \(\Proj S / I \to \Proj S\) 定义的 \(X = \Proj X\) 的闭子概形.
+  证明不同的齐次理想可以给出相同的闭子概形.
+  例如说, 设 \(d_0\) 为整数, \(I' = \bigoplus_{d \geq d_0} I_d\),
+  则 \(I\) 和 \(I'\) 决定相同的闭子概形.
+
+  我们之后将会看到 \(X\) 的任意闭子概形 (至少在 \(S\) 是 \(S_0\) 上的多项式环的时候)
+  都可以从 \(S\) 某个齐次理想得来.
+
+#+begin_proof
+1.  回忆 \(U = \{ \gp \in \Proj T \mid \gp \not\supseteq \varphi(S_+) \}\).
+   若 \(S \to T\) 是满射, 则 \(S_+ \to T_+\) 也是满射. 因此 \(U\) 必然是全空间 \(\Proj T\).
+
+   记同态 \(f \colon \Proj T \to \Proj S\),
+   则 \(f^\sharp\) 在茎上的映射是 \(S_{(\varphi^{-1}(\gp))} \to T_{(\gp)}\) 都是满射.
+   因此 \(f^\sharp\) 是满射.
+   而 \(f(\Proj T) = V(\ker \varphi)\) 是 \(\Proj S\) 中的闭集.
+   因此 \(f\) 是闭浸入.
+2.  若 \(I' = \bigoplus_{d \geq d_0} I_d\),
+    则 \(S / I \to S / I'\) 的映射在不小于 \(d_0\) 的次数上都是同构.
+    因此由习题 2.14c 即知 \(\Proj S / I\) 和 \(\Proj S / I'\) 同构.
+#+end_proof
+#+end_theorem
+
+#+attr_html: :class exercise
+#+begin_theorem
+#+begin_head
+习题 3.13 /(有限型同态的性质)/.
+#+end_head
+1. 闭浸入有限型.
+2. 拟紧的开浸入 (习题 \ref{ex2.3.2}) 有限型.
+3. 有限型同态的复合有限型.
+4. 有限型同态的基扩张仍然有限型.
+5. 若 \(X, Y\) 都在 \(S\) 上有限型, 则 \(X \times_S Y\) 也在 \(S\) 上有限型.
+6. 若 \(X \xrightarrow{f} Y \xrightarrow{g} Z\) 是概形同态,
+  \(f\) 拟紧, \(g \circ f\) 有限型, 则 \(f\) 也有限型.
+7. 若 \(f \colon X \to Y\) 有限型, \(Y\) Noether, 则 \(X\) 也 Noether.
+
+#+begin_proof
+1.  若 \(f \colon X \to Y\) 是闭浸入,
+   由习题 \ref{ex2.3.11} 即知对 \(Y\) 中任意仿射开集 \(V = \Spec A\),
+   其原像都形如 \(\Spec A / \ga\). 因此 \(f\) 有限型 (甚至有限).
+2.  若 \(f \colon X \to Y\) 是开浸入,
+    则对 \(Y\) 中任意仿射开集 \(U\), \(f^{-1}(U) \cong f(X) \cap U\)
+    可以由 \(U\) 的若干个仿射开集覆盖, 因此局部有限型.
+    若 \(f\) 拟紧, 则其有限型.
+3.  显然.
+4.  设 \(f \colon X \to S\) 有限型, \(g \colon S' \to S\).
+    若 \(S = \Spec A\) 仿射, 则对 \(S'\) 中任意仿射开集 \(U = \Spec A'\),
+    其在 \(X \times_S S'\) 中的原像是 \(X \times_S U\).
+    因此若 \(X\) 可以由有限个仿射开集 \(V_i = \Spec B_i\) 覆盖,
+    每个 \(B_i\) 都是有限生成 \(A\)-代数,
+    则对应地, \(X \times_S U\) 也可以由 \(\Spec (B_i \otimes_A A')\) 覆盖,
+    且 \(B_i \otimes_A A'\) 是有限生成 \(A'\)-代数.
+    因此 \(f\) 有限型.
+
+    一般情况下, 设 \(S\) 可以由若干个仿射开集 \(U_i = \Spec A_i\) 覆盖.
+    记 \(X_i, U_i'\) 为 \(U_i\) 在 \(X, S'\) 中的原像,
+    则 \(X \times_S S'\) 可以由 \(X_i \times_{U_i} U_i'\) 粘接而成.
+    而每个 \(X_i \times_{U_i} U_i'\) 在 \(U_i'\) 上有限型,
+    因此 \(X \times_S S'\) 在 \(S'\) 上有限型.
+5.  若 \(U = \Spec A\) 是 \(S\) 中的仿射开集.
+    设其在 \(X, Y\) 中的原像分别是 \(X_0, Y_0\),
+    则其在 \(X \times_S Y\) 中的原像就是 \(X_0 \times_U Y_0\).
+    因此若 \(X_0, Y_0\) 分别有若干个在 \(A\) 上有限型的环对应的仿射开集覆盖,
+    则 \(X_0 \times_U Y_0\) 就由这些环的张量积对应的仿射开集覆盖,
+    从而 \(X \times_S Y\) 在 \(S\) 上有限型.
+6.  对 \(Z\) 中任意仿射开集 \(U = \Spec A\),
+    若 \(V = \Spec B \subseteq g^{-1}(U), W = \Spec A = \subseteq f^{-1}(V)\)
+    分别是 \(Y, X\) 中的仿射开集,
+    则由 \(g \circ f\) 有限型即知 \(C\) 在 \(A\) 上有限生成.
+    而 \(A \to C\) 穿过 \(B\), 因此 \(C\) 在 \(B\) 上有限生成.
+    而 \(Y\) 中满足这样条件的 \(V\) 可以覆盖 \(Y\), 因此 \(f\) 局部有限型.
+    \(f\) 又拟紧, 从而有限型.
+7.  若 \(Y\) 可以由有限个仿射开集 \(V_i = \Spec A_i\) 覆盖,
+    其中每个 \(A_i\) Noether, 则由于 \(f\) 有限型,
+    每个 \(f^{-1}(V_i)\) 又可以由有限个仿射开集 \(U_{ij} = \Spec B_{ij}\) 覆盖,
+    其中 \(B_{ij}\) 在 \(A_i\) 上有限生成. 由 Hilbert 基定理, \(B_{ij}\) Noether.
+    因此 \(X\) Noether.
+#+end_proof
+#+end_theorem
+
+#+attr_html: :class exercise
+#+begin_theorem
+#+begin_head
+习题 3.14.
+#+end_head
+若 \(X\) 是域上的有限型概形, 证明 \(X\) 的闭点稠密.
+给出反例说明这个结论对一般的概形并不成立.
+
+#+begin_proof
+我们断言: 若 \(X\) 是域 \(k\) 上的有限型概形,
+则点 \(p \in X\) 是闭点当且仅当其剩余域是 \(k\) 的有限扩张.
+
+事实上, 若 \(k(p)\) 是 \(k\) 的有限扩张,
+则对 \(X\) 中任意包含 \(p\) 的仿射开集 \(U = \Spec A\),
+若 \(p\) 对应 \(\gp \subseteq A\),
+则 \(A / \gp\) 的分式域同构于 \(k(p)\).
+但 \(A / \gp \to k(p)\) 又是 \(k\)-同态, 因此 \(A / \gp\) 在 \(k\) 上有限,
+从而必定是域. 也就是说, \(p\) 在 \(X\) 的任意仿射子集中闭, 从而在 \(X\) 中闭.
+
+反之, 若 \(p \in X\) 是闭点, 则任取包含 \(p\) 的仿射开集 \(\Spec A\),
+设 \(p\) 对应 \(\gp \subseteq A\), 则由 Hilbert 零点定理即知
+\(k(p) = A / \gp\) 是 \(k\) 的有限扩张.
+
+因此, 若 \(X\) 是域 \(k\) 上的有限型概形,
+由于每个仿射开集中有(相对的)闭点, 而由上述断言可知若 \(p \in X\) 在某个开集中闭,
+就一定是闭点; 因此 \(X\) 中的闭点稠密.
+
+若去除 \(X\) 的有限型条件, 则任取离散赋值环 \(A\),
+那么 \(\Spec A\) 即不满足条件 (因为存在非幂零但属于所有极大理想的元素).
+#+end_proof
+#+end_theorem
+
+#+attr_html: :class exercise
+#+begin_theorem
+#+begin_head
+习题 3.15.
+#+end_head
+令 \(X\) 为域 \(k\) (不一定代数闭) 上有限型概形.
+1. 证明以下三个条件等价 (若它们成立, 则称 \(X\)  _几何不可约_ ):
+   1. \(X \times_k \bar{k}\) 不可约, 其中 \(\bar{k}\) 表示 \(k\) 的代数闭包.
+   2. \(X \times_k k_s\) 不可约, 其中 \(k_s\) 表示 \(k\) 的可分闭包.
+   3. 对 \(k\) 的任意扩域 \(K\), \(X \times_k K\) 都不可约.
+2. 证明一下三个条件等价 (若它们成立, 则成 \(X\)  _几何既约_ ):
+   1. \(X \times_k \bar{k}\) 既约, 其中 \(\bar{k}\) 表示 \(k\) 的代数闭包.
+   2. \(X \times_k k_p\) 既约, 其中 \(k_p\) 表示 \(k\) 的完美闭包.
+   3. 对 \(k\) 的任意扩域 \(K\), \(X \times_k K\) 都既约.
+3. 如果 \(X \times_k \bar{k}\) 整, 就说 \(X\)  _几何整_ .
+  给出一个既不几何不可约也不几何既约的整概形. #TODO: 不几何不可约?
+
+#+begin_proof
+1.  我们使用 Stacks 项目中的{{{stacks(引理, O37K)}}}:
+    对于 \(k\) 上的环 \(R\), 若 \(S \otimes_k k_p\) 的素谱不可约,
+    则对任意扩域 \(K / k\), \(S \otimes_k K\) 的素谱不可约.
+    也就是说 \(X = \Spec R\) 时命题成立.
+
+    对于任意的 \(X\), 设其可以被仿射开集 \(\{ U_i \}\) 覆盖,
+    则对任意的 \(K\), \(X \times_k K\) 都可以被 \(V_i = \pi^{-1}(U_i) \cong U_i \times_k K\) 覆盖.
+    且对任意 \(i, j\), 易知 \(V_i \cap V_j \cong (U_i \cap U_j) \times_k K\)
+    非空当且仅当 \(U_i \cap U_j\) 非空.
+
+    而 \(X \times_k K\) 不可约当且仅当每个 \(V_i\) 都不可约并且 \(V_i \cap V_j\) 都非空.
+    因此即证.
+2.  类似(a): 我们使用{{{stacks(引理, O3OV)}}}:
+   对于 \(k\) 上的环 \(S\), 若 \(S \otimes_k k_s\) 既约,
+   则对任意扩域 \(K / k\), 都有 \(S \otimes_k K\) 既约.
+   换言之, 当 \(X\) 仿射时, 命题成立.
+
+   当 \(X\) 是任意概形时, 类似于 (a), 并且此时 \(X\) 既约当且仅当其可以被既约开子概形覆盖.
+   因此即证.
+3.  设 \(k = \bF_p(x), A = \bF_q(x^{1/p}), X = \Spec A\),
+   其中 \(p\) 是素数, \(q = p^2\).
+   则 \(A\) 是整环, 因此 \(X\) 是整概形.
+
+   那么 \(X \times_k \bF_p(x^{1/p}) = \Spec (A \otimes_k \bF_p(x^{1/p}))\),
+   而
+
+   \[
+   A \otimes_k \bF_p(x^{1/p}) \cong \bF_q(y, z) / (y^p - z^p)
+   \cong \bF_q(y, z) / ((y - z)^p)
+   \]
+   不既约, 因此 \(X\) 不既约.
+
+   而 \(X \times_k \bF_q = \Spec (A \otimes_k \bF_q)\),
+   其中 \(A \otimes_k \bF_q \cong (\bF_q \otimes_k \bF_q)(x) \cong (\bF_q \oplus \bF_q)(x)\) 并非不可约,
+   因此 \(X\) 并不几何不可约.
+#+end_proof
+#+end_theorem
+
+#+attr_html: :class exercise
+#+begin_theorem
+#+begin_head
+习题 3.16 (Noether 归纳法).
+#+end_head
+设 \(X\) 为 Noether 拓扑空间, 并令 \(\mathcal{P}\) 是对 \(X\) 的闭集定义的性质.
+假设对 \(X\) 的任意闭子集 \(Y\), 若 \(Y\) 的所有真闭子集都满足 \(\mathcal{P}\),
+
+则 \(Y\) 也满足 \(\mathcal{P}\). (特别地, 空集必定满足 \(\mathcal{P}\))
+那么 \(X\) 的所有闭子集都满足 \(\mathcal{P}\).
+
+#+begin_proof
+反证. 若不然, 则由于 \(X\) Noether, 存在极小的不满足 \(\mathcal{P}\) 的闭子集, 矛盾.
+#+end_proof
+#+end_theorem
+
+#+attr_html: :class exercise
+#+begin_theorem
+#+begin_head
+习题 3.17 /(Zariski 空间)/.
+#+end_head
+若拓扑空间 \(X\) 是 Noether 空间, 且其任意非空不可约闭集都有唯一的一般点,
+则称其为  _Zariski 空间_ .
+
+例如说, 令 \(R\) 是离散赋值环, \(T = \spp(\Spec R)\).
+则 \(T\) 包含两个点 \(t_0 = \) 极大理想, \(t_1 = \) 零理想.
+其开集有 \(\emptyset, \{ t_1 \}, T\).
+其是不可约 Zariski 空间, 具有一般点 \(t_1\).
+
+1. 证明若 \(X\) 是 Noether 概形, 则 \(\spp(X)\) 是 Zariski 空间.
+2. 证明 Zariski 空间的每个极小的非空闭子集都是单点集. 我们将这些点称之为闭点.
+3. 证明 Zariski 空间满足 \(T_0\) 公理: 任意两个点都可以用开集区分.
+4. 若 \(X\) 是不可约 Zariski 空间, 则其一般点包含在任意非空开集中.
+5. 若 \(x_0, x_1\) 是拓扑空间 \(X\) 中的点, \(x_0 \in \{x_1\}^-\),
+  就称 \(x_0\) 是 \(x_1\) 的 _特殊化_ , 记作 \(x_1 \specializeto x_0\).
+  我们也说 \(x_1\)  _特殊化为_  \(x_0\), 以及 \(x_1\) 是 \(x_0\) 的  _一般化_ .
+  现设 \(X\) 是 Zariski 空间.
+  证明由特殊化定义的偏序 (\(x_1 > x_0\) 当且仅当 \(x_1 \specializeto x_0\))
+  中的极小点就是 \(X\) 的不可约分支的一般点.
+  证明闭集包含其所有点的特殊化 (即 _对特殊化稳定_ ).
+  同理, 开集 _对一般化稳定_ .
+6. 令 \(t\) 是命题 (2.6) 中定义的拓扑空间的函子.%
+  \footnote{若 \(X\) 是任意拓扑空间, 则 \(t(X)\) 是 \(X\) 的所有不可约闭集构成的集合,
+  \(t(X)\) 中的闭集形如 \(t(Y)\), 其中 \(Y\) 是 \(X\) 的闭集.}
+  若 \(X\) 是 Noether 空间, 证明 \(t(X)\) 是 Zariski 空间.
+  进一步地, \(X\) 是 Zariski 空间当且仅当 \(\alpha \colon X \to t(X)\) 是同胚.
+
+#+begin_proof
+1. 概形的不可约闭集都有一般点, 因此是 Zariski 空间.
+2. 设 \(X\) 是 Zariski 空间, \(Z\) 是其极小非空闭子集.
+  则 \(Z\) 中所有点都是 \(Z\) 的一般点, 因此由一般点的唯一性即知 \(Z\) 是单点集.
+3. 若 \(x, y\) 不能被区分, 则他们有一样的闭包, 这个闭包以这两个点为一般点, 矛盾.
+4. 平凡.
+5. 平凡.
+6. \(t\) 给出了 \(X\) 的闭集到 \(t(X)\) 的闭集的双射,
+   因此若 \(X\) Noether, 则 \(t(X)\) 也 Noether,
+   此时 \(t(X)\) 按定义当然是 Zariski 空间.
+
+   若 \(X\) 是 Zariski 空间, 则 \(\alpha\) 是闭的连续双射, 所以是同胚.
+   反过来若 \(\alpha\) 是同胚, 则 \(X\) 当然是 Zariski 空间.
+#+end_proof
+#+end_theorem
+
+#+attr_html: :class exercise
+#+begin_theorem
+#+begin_head
+习题 3.18 /(可构造集)/.
+#+end_head
+令 \(X\) 为 Zariski 空间.
+记 \(\mathcal{F}\) 是包含 \(X\) 的所有闭集且在有限交和取补集下封闭的最小集族.
+我们将 \(\mathcal{F}\) 中的集合称为 \(X\) 的 _可构造子集_ .
+
+1. \(X\) 中的开集与闭集的交集称为 _局部闭集_ .
+  证明 \(X\) 的一个子集可构造当且仅当它可以写成局部闭集的有限不交并.
+2. 证明 \(X\) 中的某个可构造集稠密当且仅当它包含一般点.
+  进一步地, 此时它一定包含某个非空开集.
+3. \(X\) 的子集 \(S\) 是闭集当且仅当它可构造并且对特殊化封闭.
+  类似地, 子集 \(T\) 是开集当且仅当它可构造并且对一般化封闭.
+4. 若 \(f \colon X \to Y\) 是 Zariski 空间之间的连续映射,
+  则 \(Y\) 的任意可构造子集的原像也是 \(X\) 的可构造子集.
+
+#+begin_proof
+1. 集合 \(S \subseteq X\) 可以写成局部闭集的有限不交并,
+   当且仅当它可以写成局部闭集的有限并,
+   当且仅当它可以由开集和闭集做有限次交和并操作得到,
+   当且仅当它属于 \(\mathcal{F}\).
+2. 若 \(S \subseteq X\) 是可构造的稠密集,
+   由 (a), \(S = \bigcup_{i = 1}^n U_i \cap Z_i\),
+   其中 \(U_i\) 是开集, \(Z_i\) 是闭集.
+   那么 \(X = \bar{S} = \bigcup_{i = 1}^n \overline{U_i} \cap Z_i\).
+   因此存在 \(i\) 使得 \(\overline{U_i} \cap Z_i = X\), 即 \(Z_i = X\) 且 \(U_i\) 在 \(X\) 中稠密.
+   因此 \(X\) 的一般点 \(\in U_i \subseteq S\).
+   此时 \(S\) 包含非空开集 \(U_i\).
+
+   反过来若 \(S\) 包含一般点, 则 \(S\) 稠密.
+3. 设 \(S\) 可构造并且对特殊化封闭.
+   设 \(Z\) 是 \(\bar{S}\) 中的不可约闭集.
+   由 (b), \(S\) 包含 \(Z\) 中的一般点, 因此由其对特殊化封闭即知 \(Z \subseteq S\).
+   所以 \(\bar{S} \subseteq S\), 从而 \(S\) 是闭集.
+
+   反过来, 闭集当然可构造且对特殊化封闭.
+4. 平凡. 因为连续映射的原像保持闭集, 有限交和补集.
+#+end_proof
+#+end_theorem
+
+#+attr_html: :class exercise
+#+begin_theorem
+#+begin_head
+习题 3.19.
+#+end_head
+可构造集的重要性由下述的 Chevally 定理给出:
+设 \(f \colon X \to Y\) 是 Noether 概形之间的有限型同态.
+那么 \(X\) 的任意构造集的像仍是构造集.
+特别地, \(f(X)\) 不一定是开集或者闭集, 但是一定是构造集.
+请按如下步骤证明该定理.
+1. 归约到在 \(X, Y\) 都是整的 Noether 仿射概形且 \(f\) 支配的情况下,
+  证明 \(f(X)\) 本身可构造.
+2. 这种情况下, 通过如下交换代数结果证明 \(f(X)\) 包含 \(Y\) 的非空开子集.
+
+  若 \(A \subseteq B\) 分别是 Noether 整环, 且 \(B\) 是有限生成 \(A\)-代数.
+  那么对任意 \(b \neq 0 \in B\), 存在 \(a \in A\), 满足:
+  对任意将 \(A\) 映射到某个代数闭域 \(K\) 中的同态 \(\varphi \colon A \to K\),
+  只要 \(\varphi(a) \neq 0\), 就可以将其延拓为 \(\varphi' \colon B \to K\),
+  使得 \(\varphi'(b) \neq 0\).
+  [提示: 通过对 \(B\) 的生成元个数做归纳来证明这个代数结果.
+  然后使用 \(b = 1\) 的情况.]
+3. 通过对 \(Y\) 做 Noether 归纳来完成证明.
+4. 给出一个如下的例子: \(f \colon X \to Y\) 是代数闭域上的代数簇之间的态射,
+  而 \(f(X)\) 不开也不闭.
+
+#+begin_proof
+1.  设 \(S \subseteq X\) 是构造集,
+    不妨设 \(S = \bigcup U_i \cap Z_i\), 其中 \(U_i\) 是开集, \(Z_i\) 是闭集.
+    则只需要对每个 \(i\), 证明 \(f(U_i \cap Z_i)\) 可构造.
+    由于 \(X\) Noether, \(U_i\) 可以写作有限多个仿射开集 \(V_{ij}\) 的并.
+    只需证明 \(f(V_{ij} \cap Z_i)\) 可构造.
+    而 \(V_{ij} \cap Z_i\) 可以看作仿射概形 \(V_{ij}\) 的闭子概形.
+
+    这样, 我们就归约到了 \(X\) 本身是仿射概形, 且只需证明 \(f(X)\) 可构造的情况.
+    同理也可以归约到 \(X, Y\) 都仿射的情况.
+    再通过把 \(X, Y\) 替换为 \(X_\red, Y_\red\) 并取不可约分支, 即可假设 \(X, Y\) 整.
+2.  先证明这个代数结论.
+    通过对 \(B\) 在 \(A\) 上的生成元个数归纳,
+    只需要考虑 \(B = A[ x ]\) 或者 \(B = A[ x ] / (f(x))\) 的情况,
+    其中 \(f\) 是 \(A\) 系数首一不可约多项式.
+    对任意 \(b = b(x) \in B\), 考虑 一二三
 #+end_proof
 #+end_theorem
