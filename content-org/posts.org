@@ -59,7 +59,7 @@ CLOSED: [2022-09-05 一 00:33]
 #+end_src
 
 #+macro: stacks [[https://stacks.math.columbia.edu/tag/\(1][Stacks \)1]]
-** TODO 习题 2
+** 习题 2
 :PROPERTIES:
 :EXPORT_TITLE: Hartshorne 第二章习题
 :EXPORT_FILE_NAME: hartshorne-exercise2
@@ -67,14 +67,14 @@ CLOSED: [2022-09-05 一 00:33]
 
 这里是 Hartshorne 习题, 目前还在更新中.
 
+*** 1. 层
+本节习题平凡.
+*** 2. 概形
 由于 ox-hugo 似乎不支持, 目前所有列表都是 1. 2. 3. 的格式.
 请您自行把 (a) (b) (c) 等理解成 1. 2. 3. XD.
 #+hugo: more
 #+CALL: ag_latex_head()
 
-*** 1. 层
-本节习题平凡.
-*** 2. 概形
 #+attr_html: :class exercise
 #+begin_theorem
 #+begin_head
@@ -510,17 +510,5 @@ d) 定义 \(X' = \Spec(A / \ker \varphi)\),
 设 \(U_1 = V(\ga_1), U_2 = V(\ga_2)\), 其中 \(\ga_1, \ga_2\) 是根理想.
 则 \(\ga_1 \cap \ga_2 = 0, \ga_1 + \ga_2 = A\). 因此 \(A = \ga_1 \times \ga_2\).
 从而 (3) 成立.
-#+end_proof
-#+end_theorem
-
-* Test
-:PROPERTIES:
-:EXPORT_FILE_NAME: test
-:END:
-#+begin_theorem
-#+begin_proof
-1. qwq
-2. qwq
-3. qwq
 #+end_proof
 #+end_theorem

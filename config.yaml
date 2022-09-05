@@ -1,11 +1,9 @@
 baseURL: http://example.org/
 languageCode: zh-cn
+defaultContentLanguage: zh
 title: _rqy 的博客
 newContentEditor: emacs
-
-module:
-  imports:
-    - path: github.com/adityatelange/hugo-PaperMod
+theme: hugo-PaperModX
 
 security:
   exec:
@@ -19,21 +17,22 @@ markup:
 params:
     homeInfoParams:
       Title: _rqy 的博客!
-      Content: 喵喵喵
+      # Content: 喵喵喵
 
     socialIcons: # optional
-      - name: "email"
-        url: "mailto:renqy20@qq.com"
-      - name: "github"
-        url: "https://github.com/rqy1458814497"
-      - name: "bilibili"
-        url: "https://space.bilibili.com/76936471"
-      - name: "stackoverflow"
-        url: "https://stackoverflow.com/users/19916817/rqy"
+      - name: email
+        url: mailto:renqy20@qq.com
+      - name: github-simple
+        url: https://github.com/rqy1458814497
+      - name: bilibili
+        url: https://space.bilibili.com/76936471
+      - name: stackoverflow
+        url: https://stackoverflow.com/users/19916817/rqy
 
     DateFormat: 2006 年 1 月 2 日
     defaultTheme: auto
     ShowToc: true
+    TocSide: right
     ShowBreadCrumbs: true
     ShowPostNavLinks: true
     ShowCodeCopyButtons: true

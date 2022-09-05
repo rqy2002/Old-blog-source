@@ -4,20 +4,21 @@
   margin-bottom: 2rem;
   border: 1px solid transparent;
   border-style: solid;
-  border-width: 0 0 0 4px;
+  border-width: 0 0 0 6px;
   display: block;
+  border-color: var(--border);
+  background-color: var(--code-bg);
 }
 
 .theorem .head {
   margin: 0 -.75rem;
-  padding: 0 .75rem;
+  padding: 0 .3rem;
   font-weight: bold;
+  background-color: var(--border);
 }
 
-.theorem .head :before {
-  content: "\f303";
-  font-family: 'fa-solid';
-  margin-right: .3rem;
+.theorem .head p {
+  text-indent: 0;
 }
 
 @font-face {
@@ -26,17 +27,15 @@
   font-weight: 900;
 }
 
-.theorem .head p {
-  text-indent: 0;
+.theorem .head p::before {
+  content: "\f303";
+  font-family: 'fa-solid';
+  margin-right: .5rem;
 }
 
-.exercise {
-  border-color: #c0c0c0;
-  background-color: #fafafa;
-}
-
-.exercise .head {
-  background-color: #f0f0f0;
+.exercise .head p::before {
+  content: "\f303";
+  font-family: 'fa-solid';
 }
 
 details.proof {

@@ -6,3 +6,13 @@ body {
 div > p {
   text-indent: 2em;
 }
+
+
+.first-entry {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 320px;
+    margin: var(--gap)0 calc(var(--gap) * 2);
+}
