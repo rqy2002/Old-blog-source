@@ -9,10 +9,14 @@ div > p {
 
 
 .first-entry {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 320px;
-    margin: var(--gap)0 calc(var(--gap) * 2);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 320px;
+  margin: var(--gap)0 calc(var(--gap) * 2);
+}
+
+.entry-content {
+  -webkit-line-clamp: 3;
 }

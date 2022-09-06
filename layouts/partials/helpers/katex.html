@@ -12,9 +12,15 @@
           // customised options
           // • auto-render specific keys, e.g.:
           delimiters: [
+              {{ if .IsHome }}
+              {left: '$$', right: '$$', display: false},
+              {left: '\\[', right: '\\]', display: false},
+              {{ else }}
+              {left: '$$', right: '$$', display: true},
+              {left: '\\[', right: '\\]', display: true},
+              {{ end }}
               {left: '$', right: '$', display: false},
-              {left: '\\(', right: '\\)', display: false},
-              {left: '\\[', right: '\\]', display: true}
+              {left: '\\(', right: '\\)', display: false}
           ],
           // • rendering keys, e.g.:
           throwOnError : false,

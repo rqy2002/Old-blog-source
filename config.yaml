@@ -13,6 +13,8 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+  highlight:
+    style: algol
 
 params:
     homeInfoParams:
@@ -53,9 +55,9 @@ menu:
       name: 标签
       url: /tags/
       weight: 20
-    - identifier: archive
+    - identifier: archives
       name: 归档
-      url: /archive/
+      url: /archives/
       weight: 30
     - identifier: search
       name: 搜索

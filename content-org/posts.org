@@ -4,7 +4,7 @@
 #+macro: stacks [[https://stacks.math.columbia.edu/tag/$2][Stacks $1 $2]]
 #+author: rqy
 
-* DONE 第一篇 Hugo 博客 :emacs:@non:
+* DONE 第一篇 Hugo 博客 :emacs:@其他:
 CLOSED: [2022-09-05 一 00:33]
 :PROPERTIES:
 :EXPORT_FILE_NAME: my-first-post
@@ -68,14 +68,14 @@ CLOSED: [2022-09-06 二 00:55]
 :END:
 
 这里是 Hartshorne 习题, 目前还在更新中.
+#+hugo: more
+#+CALL: ag_latex_head()
 
 *** 1. 层
 本节习题平凡.
 *** 2. 概形
 由于 ox-hugo 似乎不支持, 目前所有列表都是 1. 2. 3. 的格式.
 请您自行把 (a) (b) (c) 等理解成 1. 2. 3. XD.
-#+hugo: more
-#+CALL: ag_latex_head()
 
 #+attr_html: :class exercise
 #+begin_theorem
