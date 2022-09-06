@@ -6,7 +6,6 @@ tags = ["代数几何"]
 categories = ["数学"]
 draft = false
 math = true
-mathdefs = true
 +++
 
 这里是 Hartshorne 习题, 目前还在更新中.
@@ -41,22 +40,19 @@ mathdefs = true
 
 ## 1. 层 {#1-dot-层}
 
+{{< newsection >}}
+
 本节习题平凡.
 
 
 ## 2. 概形 {#2-dot-概形}
 
+{{< newsection >}}
+
 由于 ox-hugo 似乎不支持, 目前所有列表都是 1. 2. 3. 的格式.
 请您自行把 (a) (b) (c) 等理解成 1. 2. 3. XD.
 
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 2.1.
-
-</div>
-
+{{% exercise %}}
 设 \\(A\\) 是环, \\(X = \Spec A\\), \\(f \in A\\), \\(D(f) \subseteq X\\) 为 \\(V((f))\\) 的开补集.
 证明 \\((D(f), \cO\_X|\_{D(f)})\\) 同构于 \\(\Spec A\_f\\).
 
@@ -67,17 +63,9 @@ mathdefs = true
 此外, 还有自然的同构 \\(A\_\gp \cong (A\_f)\_{\gp\_f}\\),
 因此容易定义并验证同构 \\((\phi, \phi^\sharp) \colon (D(f), \cO\_X|\_{D(f)}) \cong \Spec A\_f\\).
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 2.2.
-
-</div>
-
+{{% exercise %}}
 设 \\((X, \cO\_X)\\) 是概形, \\(U \subseteq X\\) 是开集. 证明 \\((U, \cO\_X|\_U)\\) 是概形.
 我们将其称之为开集 \\(U\\) 上的 _诱导概形结构_,
 并将 \\((U, \cO\_X|\_U)\\) 称为 \\(X\\) 的 _开子概形_.
@@ -87,17 +75,9 @@ mathdefs = true
 即 \\((D(f), \cO|\_{D(f)})\\). 因此仿射性是局部性质.
 从而概形的开子集仍然局部仿射, 因此也是概形.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 2.3.
-
-</div>
-
+{{% exercise %}}
 设 \\((X, \cO\_X)\\) 是概形. 如果对任意开集 \\(U \subseteq X\\), \\(\cO\_X(U)\\) 中都没有幂零元素,
 就说 \\((X, \cO\_X)\\) _既约_.
 
@@ -107,8 +87,9 @@ mathdefs = true
     证明 \\((X, (\cO\_X)\_\red)\\) 是概形.
     我们称之为 \\(X\\) 的 _既约化概形_, 记作 \\(X\_\red\\).
 
-    证明存在同态 \\(X\_\red \to X\\), 其限制在底空间上是同胚.
-3.  设 \\(f \colon X \to Y\\) 是概形同态, 且 \\(X\\) 既约. 证明 \\(f\\) 穿过 \\(Y\_\red\\).
+证明存在同态 \\(X\_\red \to X\\), 其限制在底空间上是同胚.
+
+1.  设 \\(f \colon X \to Y\\) 是概形同态, 且 \\(X\\) 既约. 证明 \\(f\\) 穿过 \\(Y\_\red\\).
 
 {{% proof %}}
 1.  若 \\(U\\) 是开集, \\(s \in \cO\_X(U)\\) 幂零, 则对任意 \\(P \in U\\), \\(s\_P\\) 幂零.
@@ -125,17 +106,9 @@ mathdefs = true
     必定将幂零元映射到 \\(0\\), 因此穿过 \\(\cO\_Y(U)\_\red\\).
     从而易知 \\(f\\) 穿过 \\(Y\_\red\\).
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 2.4.
-
-</div>
-
+{{% exercise %}}
 令 \\(A\\) 是环, \\((X, \cO\_X)\\) 是概形. 任意给定 \\(f \colon X \to \Spec A\\),
 考虑整体截面上的映射, 就得到环同态 \\(A \to \Gamma(X, \cO\_X)\\).
 因此存在自然映射
@@ -155,17 +128,9 @@ mathdefs = true
 \\(\beta \colon \Hom\_\Rings(A, \Gamma(X, \cO\_X)) \to \Hom\_\Sch(X, \Spec A)\\),
 不难验证 \\(\alpha\\) 与 \\(\beta\\) 互为逆映射. 从而 \\(\alpha\\) 必定是双射.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 2.5.
-
-</div>
-
+{{% exercise %}}
 描述 \\(\Spec \bZ\\), 并证明它是概形范畴中的终对象.
 
 {{% proof %}}
@@ -176,33 +141,17 @@ mathdefs = true
 由习题 2.4 即知 \\(\Spec \bZ\\) 是概形范畴的终对象,
 因为 \\(\bZ\\) 是环范畴的始对象.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 2.6.
-
-</div>
-
+{{% exercise %}}
 描述零环的谱, 并证明它是概形范畴的始对象.
 
 {{% proof %}}
 零环的谱是空集. 显然是始对象.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 2.7.
-
-</div>
-
+{{% exercise %}}
 令 \\(X\\) 是概形. 对任意 \\(x \in X\\), 设 \\(\cO\_x\\) 是 \\(x\\) 处的局部环,
 \\(\gm\_x\\) 是其极大理想. 定义 \\(x\\) 处的 _剩余域_ 是 \\(k(x) = \cO\_x / \gm\_x\\).
 设 \\(K\\) 是域. 证明要给出 \\(\Spec K \to X\\) 的同态, 等价于给出点 \\(x \in X\\)
@@ -211,17 +160,9 @@ mathdefs = true
 {{% proof %}}
 \\(\Spec K\\) 是单点空间, 因此由定义立证.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 2.8.
-
-</div>
-
+{{% exercise %}}
 设 \\(X\\) 是概形. 对 \\(x \in X\\), 定义 \\(X\\) 中 \\(x\\) 处的 _Zariski 切空间_   \\(T\_x\\)
 是 \\(k(x)\\)-向量空间 \\(\gm\_x / \gm\_x^2\\) 的对偶空间.
 假设 \\(X\\) 是域 \\(k\\) 上的概形, \\(k[\epsilon] / \epsilon^2\\) 是 \\(k\\) 上的 _对偶数环_.
@@ -231,17 +172,9 @@ mathdefs = true
 {{% proof %}}
 \\(\Spec k[\epsilon] / \epsilon^2\\) 也是单点空间. 因此由定义易证.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 2.9.
-
-</div>
-
+{{% exercise %}}
 设 \\(X\\) 是拓扑空间, \\(Z\\) 是其不可约闭子集. \\(Z\\) 的 _一般点_ 就是闭包等于 \\(Z\\) 的点.
 若 \\(X\\) 是概形, 证明每个 (非空) 不可约闭子集都有唯一的一般点.
 
@@ -257,75 +190,43 @@ mathdefs = true
 进一步地, 若 \\(D(f)\\) 是与 \\(V(\gp)\\) 相交的仿射开集, 则 \\(\gp \in D(f)\\),
 因此 \\(\gp\\) 也是 \\(D(f) \cap V(\gp)\\) 的一般点.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 2.10.
-
-</div>
-
-描述 \\(\Spec \bR[x]\\). 其底空间与 \\(\bR\\) 这个集合有何区别？与 \\(\bC\\) 呢？
+{{% exercise %}}
+描述 \\(\Spec \bR[ x ]\\). 其底空间与 \\(\bR\\) 这个集合有何区别？与 \\(\bC\\) 呢？
 
 {{% proof %}}
-\\(\Spec \bR[x]\\) 中有一般点 \\((0)\\), 还有若干闭点；闭点与 \\(\bR[x]\\) 中的不可约多项式一一对应：即对每个 \\(r \in \bR\\), 有闭点 \\((x - r)\\)；对任意 \\(b^2 - 4c < 0\\), 有闭点 \\((x^2 + bx + c)\\).
+\\(\Spec \bR[ x ]\\) 中有一般点 \\((0)\\), 还有若干闭点；闭点与 \\(\bR[ x ]\\) 中的不可约多项式一一对应：即对每个 \\(r \in \bR\\), 有闭点 \\((x - r)\\)；对任意 \\(b^2 - 4c < 0\\), 有闭点 \\((x^2 + bx + c)\\).
 截面则与习题 2.5} 类似.
 
 其底空间比集合 \\(\bR\\) 多出一般点以及二次多项式对应的闭点.
 而与 \\(\bC\\) 相比, 每个复数都与其复共轭等同起来了 (此外当然也多出了一般点).
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 2.11.
-
-</div>
-
-令 \\(k = \bF\_p\\) 是 \\(p\\) 元有限域, 描述 \\(\Spec k[x]\\). 其点处的剩余域是什么？给定一个域, \\(\Spec k[x]\\) 中有多少以其为剩余域的点？
+{{% exercise %}}
+令 \\(k = \bF\_p\\) 是 \\(p\\) 元有限域, 描述 \\(\Spec k[ x ]\\). 其点处的剩余域是什么？给定一个域, \\(\Spec k[ x ]\\) 中有多少以其为剩余域的点？
 
 {{% proof %}}
-\\(\Spec k[x]\\) 的点有一个一般点 \\((0)\\), 以及若干闭点, 与首一不可约多项式一一对应.
+\\(\Spec k[ x ]\\) 的点有一个一般点 \\((0)\\), 以及若干闭点, 与首一不可约多项式一一对应.
 \\((0)\\) 处的剩余域是分式域 \\(k(x)\\).
-若 \\(f\\) 是不可约多项式, 则 \\((f)\\) 处的多项式是 \\(k[x] / (f) \cong \bF\_q\\),
+若 \\(f\\) 是不可约多项式, 则 \\((f)\\) 处的多项式是 \\(k[ x ] / (f) \cong \bF\_q\\),
 其中 \\(q = p^{\deg f}\\).
 
 若给定 \\(k\\) 的有限扩域 \\(\bF\_q, q = p^n\\),
-则以其为剩余域的点的个数即为 \\(k[x]\\) 中 \\(n\\) 次首一不可约多项式的个数,
+则以其为剩余域的点的个数即为 \\(k[ x ]\\) 中 \\(n\\) 次首一不可约多项式的个数,
 由高斯公式即为
 \\[
 \frac{1}{n} \sum\_{d \mid n} \mu\bigl(\frac{n}{d}\bigr) q^d.
 \\]
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 2.12 _(粘接引理)_.
-
-</div>
-
+{{% exercise "粘接引理" %}}
 结论很有用, 但是证明平凡. 不写了!
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 2.13.
-
-</div>
-
+{{% exercise %}}
 若拓扑空间 \\(X\\) 的任意开覆盖都有子覆盖, 就称 \\(X\\) _拟紧_ (其实就是一般情况下提及的紧).
 
 1.  证明：拓扑空间 Noether 当且仅当其任意开子集拟紧.
@@ -348,17 +249,9 @@ mathdefs = true
     且 \\(\gp\\) 中元素都幂零. 因此 \\(A\\) 只有 \\(\gp\\) 一个素理想, 从而 \\(\Spec A\\) Noether.
     但是 \\(A\\) 显然不 Noether.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 2.14.
-
-</div>
-
+{{% exercise %}}
 1.  设 \\(S\\) 是分次环. 证明 \\(\Proj S = \emptyset\\) 当且仅当 \\(S\_+\\) 中仅包含幂零元素.
 2.  设 \\(\varphi \colon S \to T\\) 是分次环的分次同态 (即保持次数的同态).
     令 \\(U = \\{ \gp \in \Proj T \mid \gp \not \supseteq \varphi(S\_+) \\}\\).
@@ -388,29 +281,13 @@ mathdefs = true
     \\(S\_{(\varphi^{-1}\gp)} \to T\_{(\gp)}\\) 都是同构. 取元素验证其既单又满即可.
 4.  不会.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 2.15.
-
-</div>
-
+{{% exercise %}}
 不会代数簇, 不写了.
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 2.16.
-
-</div>
-
+{{% exercise %}}
 令 \\(X\\) 是概形, \\(f \in \Gamma(X, \cO\_X)\\), 定义
 \\[
 X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
@@ -448,17 +325,9 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
     从而可以粘贴成 \\(t \in A\\), 其在 \\(X\_f\\) 上的限制即是 \\(f^{n + m} b\\).
 4.  显然 \\(f\\) 在 \\(\Gamma(X\_f, \cO\_{X\_f})\\) 上可逆. 从而由 (b) (c) 易证.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 2.17 _(仿射性的判别条件)_.
-
-</div>
-
+{{% exercise "仿射性的判别条件" %}}
 1.  设 \\(f \colon X \to Y\\) 是概形同态, 且 \\(Y\\) 可以由若干开集 \\(U\_i\\) 覆盖,
     使得每个限制映射 \\(f^{-1}(U\_i) \to U\_i\\) 是同构. 证明 \\(f\\) 也是同构.
 2.  概形 \\(X\\) 仿射当且仅当存在有限个元素 \\(f\_1, \dots, f\_r \in A = \Gamma(X, \cO\_X)\\),
@@ -475,17 +344,9 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
     因此再由习题 2.4 就知道 \\(g|\_{X\_{f\_i}}\\) 即是同构 \\(X\_{f\_i} \cong \Spec A\_{f\_i}\\).
     由 \\((f\_1, \dots, f\_r) = A\\) 即知 \\(D(f\_i)\\) 覆盖 \\(\Spec A\\). 因此由 (a) 即证.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 2.18.
-
-</div>
-
+{{% exercise %}}
 本习题中, 我们将比较环同态的若干性质和其诱导的谱的同态的性质.
 
 1.  设 \\(A\\) 是环, \\(X = \Spec A, f \in A\\). 证明 \\(f\\) 幂零当且仅当 \\(D(f)\\) 为空.
@@ -532,17 +393,9 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
     而 \\(f^\sharp\\) 又是单射, 因此是同构.
     \\(f'\\) 也是同胚, 所以 \\(X' \cong Y\\), 因此 \\(A / \ker \varphi \cong B\\), 即 \\(\varphi\\) 是满射.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 2.19.
-
-</div>
-
+{{% exercise %}}
 令 \\(A\\) 是环, 证明下列条件彼此等价：
 
 1.  \\(\Spec A\\) 不连通.
@@ -561,20 +414,14 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
 则 \\(\ga\_1 \cap \ga\_2 = 0, \ga\_1 + \ga\_2 = A\\). 因此 \\(A = \ga\_1 \times \ga\_2\\).
 从而 (3) 成立.
 {{% /proof %}}
-
-</div>
+{{% /exercise %}}
 
 
 ## <span class="org-todo todo TODO">TODO</span> 3. 概形的基本性质 {#3-dot-概形的基本性质}
 
-<div class="exercise theorem">
+{{< newsection >}}
 
-<div class="head">
-
-习题 3.1.
-
-</div>
-
+{{% exercise %}}
 证明概形同态 \\(f \colon X \to Y\\) 局部有限型当且仅当对 \\(Y\\) 中 **任意** 仿射开集 \\(V = \Spec B\\),
 \\(f^{-1}(V)\\) 都可以由若干仿射开集 \\(U\_j = \Spec A\_j\\) 覆盖, 其中 \\(A\_j\\) 都是有限生成 \\(B\\)-代数.
 
@@ -592,20 +439,12 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
 使得 \\(A\_{ij}\\) 是有限生成 \\(B\_{b\_i}\\)-代数.
 因此它们也都是有限生成 \\(B\\)-代数, 并且覆盖 \\(f^{-1}(V)\\). 因此 \\(V\\) 也满足条件.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 3.2.
-
-</div>
-
+{{% exercise %}}
 设 \\(f \colon X \to Y\\) 是概形同态. 若 \\(Y\\) 可以由若干仿射开集 \\(V\_i\\) 覆盖,
 且其中每个 \\(f^{-1}(V\_i)\\) 都拟紧, 就称 \\(f\\)  <span class="underline">拟紧</span> .
-证明 \\(f\\) 拟紧当且仅当对 **任意}仿射开集 \\(V \subset Y\\), \\(f^{-1** (V)\\) 都拟紧.
+证明 \\(f\\) 拟紧当且仅当对 **任意** 仿射开集 \\(V \subset Y\\), \\(f^{-1} (V)\\) 都拟紧.
 
 {{% proof %}}
 充分性显然, 只需证明必要性.
@@ -619,17 +458,9 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
 再设 \\(V = \Spec B\\) 是 \\(Y\\) 中任意仿射开集, 则其可以有有限个基本开集 \\(D(b\_i)\\) 覆盖,
 其中每个 \\(f^{-1}(D(b\_i))\\) 拟紧. 因此 \\(f^{-1}(V) = \bigcup f^{-1}(D(b\_i))\\) 拟紧.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 3.3.
-
-</div>
-
+{{% exercise %}}
 1.  证明概形同态 \\(f \colon X \to Y\\) 有限型当且仅当其局部有限型且拟紧.
 2.  由此说明 \\(f\\) 有限型当且仅当对 \\(Y\\) 中 **任意** 仿射开集 \\(V = \Spec B\\),
     \\(f^{-1}(V)\\) 都可以被有限个仿射开集 \\(U\_j = \Spec A\_j\\) 覆盖,
@@ -659,17 +490,9 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
     不妨设 \\(1 = \sum\_i y\_i a\_i^n\\). 则对任意 \\(a \in A\\), \\(a = \sum\_i y\_i (a\_i^n a)\\).
     因此易知 \\(A\\) 可以由 \\(\\{ x\_{ij} \\} \cup \\{ y\_i \\}\\) 在 \\(B\\) 上生成, 从而是有限生成 \\(B\\)-代数.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 3.4.
-
-</div>
-
+{{% exercise %}}
 证明：概形同态 \\(f \colon X \to Y\\) 有限当且仅当对 \\(Y\\) 中 **任意** 仿射开集 \\(V = \Spec B\\),
 \\(f^{-1}(V)\\) 都是仿射开集, 且若记 \\(f^{-1}(V) = \Spec A\\), 则 \\(A\\) 在 \\(B\\) 上有限.
 
@@ -688,17 +511,9 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
 则每个 \\(A\_{a\_i}\\) 是有限 \\(B\_{b\_i}\\) 模.
 接下来类似前一习题中的 (c) 易证 \\(A\\) 是有限 \\(B\\) 模.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 3.5.
-
-</div>
-
+{{% exercise %}}
 设 \\(f \colon X \to Y\\) 是概形态射. 若对每个 \\(y \in Y\\), \\(f^{-1}(y)\\) 都是有限集,
 就称 \\(f\\)  <span class="underline">拟有限</span> .
 
@@ -713,25 +528,21 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
     其中 \\(k(\gp) = A\_\gp / \gp\\) 是 \\(\gp\\) 的剩余域.
 
     而 \\(B \otimes\_A k(\gp)\\) 作为模是有限维 \\(k(\gp)\\)-线性空间, 从而只包含有限个素理想.
-2.  在任意仿射开集上, 这就是上行性质. 由于概形被仿射开集覆盖, 命题即证. % TODO: 译名
-3.  取“两个原点的直线”到直线的映射即可.
-    显然其有限型, 拟有限, 满且闭.  % TODO: 没验证.
-    但双原点的直线并不仿射, 因此这个映射并不有限.
+2.  在任意仿射开集上, 这就是上行性质. 由于概形被仿射开集覆盖, 命题即证.
 
-    又或者令 \\(X = \Spec \bZ[i]\_{(1+2i)}\\), 其中 \\(i^2 = -1\\).
-    则 \\(X \to \Spec \bZ\\) 有限型, 拟有限, 满且闭. 然而其不有限.
+<!--listend-->
+
+1.  取“两个原点的直线”到直线的映射即可.
+    显然其有限型, 拟有限, 满且闭.
+
+但双原点的直线并不仿射, 因此这个映射并不有限.
+
+又或者令 \\(X = \Spec \bZ[i]\_{(1+2i)}\\), 其中 \\(i^2 = -1\\).
+则 \\(X \to \Spec \bZ\\) 有限型, 拟有限, 满且闭. 然而其不有限.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 3.6.
-
-</div>
-
+{{% exercise %}}
 设 \\(X\\) 是整概形. 证明一般点 \\(\xi\\) 处的局部环 \\(\cO\_\xi\\) 是域.
 其被称作 \\(X\\) 的 <span class="underline">函数域</span> , 记作 \\(K(X)\\).
 证明如果 \\(U = \Spec A\\) 是 \\(X\\) 的任意仿射开集, 则 \\(K(X)\\) 同构于 \\(A\\) 的分式域.
@@ -740,17 +551,9 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
 设 \\(U = \Spec A\\) 是任意仿射开集, 则 \\(\xi \in U\\), 且 \\(\xi\\) 也是 \\(U\\) 的一般点.
 因此 \\(\xi\\) 对应 \\(A\\) 中的零理想, 从而 \\(\cO\_\xi\\) 同构于 \\(A\\) 的分式域.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 3.7.
-
-</div>
-
+{{% exercise %}}
 设 \\(f \colon X \to Y\\) 是概形同态, \\(Y\\) 不可约,
 如果对 \\(Y\\) 的一般点 \\(\eta\\), \\(f^{-1}(\eta)\\) 是有限集,  就称 \\(f\\)  <span class="underline">一般有限</span> .
 如果概形同态 \\(f \colon X \to Y\\) 的像集 \\(f(X)\\) 在 \\(Y\\) 中稠密, 就称 \\(f\\)  <span class="underline">支配</span> .
@@ -789,17 +592,9 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
 仿射, 且 \\(f \colon f^{-1}(V) \to V\\) 有限.
 由于 \\(Y\\) 不可约, \\(V\\) 是开集, 从而稠密.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 3.8 _(正规化)_.
-
-</div>
-
+{{% exercise "正规化" %}}
 若一概形的所有局部环都整闭, 就称其 <span class="underline">正规</span> .
 令 \\(X\\) 为整概形. 对每个仿射开集 \\(U = \Spec A\\), 设 \\(\tilde{A}\\) 是 \\(A\\) 在其分式域中的整闭包,
 令 \\(\tilde{U} = \Spec \tilde{A}\\). 证明这些 \\(\tilde{U}\\) 可以粘接成一个正规概形 \\(\tilde{X}\\),
@@ -830,21 +625,13 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
 且每个 \\(A\_i\\) 都是有限生成 \\(k\\)-代数；因此 \\(\tilde{A}\_i\\) 在 \\(A\_i\\) 上有限.
 所以 \\(\tilde{X} \to X\\) 有限.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 3.9. _(乘积概形的底空间)_.
-
-</div>
-
+{{% exercise %}}
 回忆在代数簇范畴中, 两个代数簇的乘积的 Zariski 拓扑并不是乘积拓扑 (第一章习题 1.4).
 我们将会看到, 在概形范畴中, 乘积概形的底集合甚至都不是乘积集合.
 
-1.  令 \\(k\\) 是域, \\(\uA\_k^1 = \Spec k[x]\\) 是 \\(k\\) 上的仿射直线.
+1.  令 \\(k\\) 是域, \\(\uA\_k^1 = \Spec k[ x ]\\) 是 \\(k\\) 上的仿射直线.
     证明 \\(\uA\_k^1 \times\_{\Spec k} \uA\_k^1 \cong \uA\_k^2\\),
     并证明其底集合并不是两个因子的底集合的乘积 (即使 \\(k\\) 代数闭也一样).
 2.  令 \\(k\\) 是域, \\(s, t\\) 是不定元, 则 \\(\Spec k, \Spec k(s), \Spec k(t)\\)
@@ -853,27 +640,19 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
     描述 \\(\Spec k(s) \times\_{\Spec k} \Spec k(t)\\).
 
 {{% proof %}}
-1.  由定义, \\(\uA\_k^1 \times\_{\Spec k} \uA\_k^1 = \Spec (k[x] \otimes\_k k[x]) = \Spec k[x, y] = \uA\_k^2\\).
+1.  由定义, \\(\uA\_k^1 \times\_{\Spec k} \uA\_k^1 = \Spec (k[ x ] \otimes\_k k[ x ]) = \Spec k[x, y] = \uA\_k^2\\).
     其中任意显含两个变量的不可约多项式生成的素理想
     (如 \\((x - y)\\)) 都不属于两个因子底集合的乘积.
 2.  \\(k, k(s), k(t)\\) 都是域, 因此其谱当然是单点空间.
 
     然而 \\(\Spec k(s) \times\_{\Spec k} \Spec k(t) = \Spec (k(s) \otimes\_k k(t))\\).
     而 \\(k(s) \otimes\_k k(t) = S^{-1} k[s, t]\\),
-    其中 \\(S = \\{ f(s) g(t) \mid f, g \in k[x] \setminus \\{ 0 \\} \\}\\).
+    其中 \\(S = \\{ f(s) g(t) \mid f, g \in k[ x ] \setminus \\{ 0 \\} \\}\\).
     其素理想为 \\((0)\\) 以及 \\((h(s, t))\\), 其中 \\(h\\) 是同时显含 \\(s\\) 和 \\(t\\) 的不可约多项式.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 3.10 _(同态的纤维)_.
-
-</div>
-
+{{% exercise "同态的纤维" %}}
 1.  若 \\(f \colon X \to Y\\) 是同态, \\(y \in Y\\),
     证明 \\(\spp(X\_y)\\) 同胚于装备子空间拓扑的 \\(f^{-1}(y)\\).
 2.  令 \\(X = \Spec k[s, t] / (s - t^2)\\), \\(Y = \Spec k[s]\\),
@@ -909,17 +688,9 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
     若 \\(\eta\\) 是一般点, 则 \\(X\_\eta = \Spec (k[s, t] / (s - t^2))\_s = \Spec k(\sqrt{s})\\),
     而 \\(k(\sqrt{s})\\) 是 \\(\eta\\) 处的剩余域 \\(k(s)\\) 的二次扩张.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 3.11 _(闭子概形)_.
-
-</div>
-
+{{% exercise "闭子概形" %}}
 1.  闭浸入在基扩张下不变：即若 \\(f \colon Y \to X\\) 是闭浸入, \\(X' \to X\\) 是任意同态,
     则 \\(f' \colon Y \times\_X X' \to X'\\) 也是闭浸入.
 2.  若 \\(Y\\) 是仿射概形 \\(X = \Spec A\\) 的闭子概形, 则 \\(Y\\) 仿射；事实上 \\(Y\\) 一定是某个闭浸入 \\(\Spec A / \ga \to \Spec A\\) 的像, \\(\ga\\) 是合适的理想.
@@ -981,17 +752,9 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
     且若 \\(Z\\) 既约, 则 \\(A / \ga\\) 也既约, 因此此时 \\(Y\\) 就是既约诱导闭子概形.
     若 \\(X\\) 任意, 则对每个仿射开集定义 \\(Y\\) 之后粘接起来即可.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 3.12 _(\\(\Proj S\\) 的闭子概形)_.
-
-</div>
-
+{{% exercise "\(\mathit{Proj}\ S\) 的闭子概形" %}}
 1.  设 \\(\varphi \colon S \to T\\) 是分次环之间保持次数的满射.
     证明习题 2.14 中的开集 \\(U\\) 就等于 \\(\Proj T\\),
     且同态 \\(\Proj T \to \Proj S\\) 是闭浸入.
@@ -1017,19 +780,11 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
     则 \\(S / I \to S / I'\\) 的映射在不小于 \\(d\_0\\) 的次数上都是同构.
     因此由习题 2.14c 即知 \\(\Proj S / I\\) 和 \\(\Proj S / I'\\) 同构.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 3.13 _(有限型同态的性质)_.
-
-</div>
-
+{{% exercise "有限型同态的性质" %}}
 1.  闭浸入有限型.
-2.  拟紧的开浸入 (习题 \ref{ex2.3.2}) 有限型.
+2.  拟紧的开浸入 (习题 3.2) 有限型.
 3.  有限型同态的复合有限型.
 4.  有限型同态的基扩张仍然有限型.
 5.  若 \\(X, Y\\) 都在 \\(S\\) 上有限型, 则 \\(X \times\_S Y\\) 也在 \\(S\\) 上有限型.
@@ -1039,7 +794,7 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
 
 {{% proof %}}
 1.  若 \\(f \colon X \to Y\\) 是闭浸入,
-    由习题 \ref{ex2.3.11} 即知对 \\(Y\\) 中任意仿射开集 \\(V = \Spec A\\),
+    由习题 3.11 即知对 \\(Y\\) 中任意仿射开集 \\(V = \Spec A\\),
     其原像都形如 \\(\Spec A / \ga\\). 因此 \\(f\\) 有限型 (甚至有限).
 2.  若 \\(f \colon X \to Y\\) 是开浸入,
     则对 \\(Y\\) 中任意仿射开集 \\(U\\), \\(f^{-1}(U) \cong f(X) \cap U\\)
@@ -1079,17 +834,9 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
     其中 \\(B\_{ij}\\) 在 \\(A\_i\\) 上有限生成. 由 Hilbert 基定理, \\(B\_{ij}\\) Noether.
     因此 \\(X\\) Noether.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 3.14.
-
-</div>
-
+{{% exercise %}}
 若 \\(X\\) 是域上的有限型概形, 证明 \\(X\\) 的闭点稠密.
 给出反例说明这个结论对一般的概形并不成立.
 
@@ -1115,17 +862,9 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
 若去除 \\(X\\) 的有限型条件, 则任取离散赋值环 \\(A\\),
 那么 \\(\Spec A\\) 即不满足条件 (因为存在非幂零但属于所有极大理想的元素).
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 3.15.
-
-</div>
-
+{{% exercise %}}
 令 \\(X\\) 为域 \\(k\\) (不一定代数闭) 上有限型概形.
 
 1.  证明以下三个条件等价 (若它们成立, 则称 \\(X\\)  <span class="underline">几何不可约</span> ):
@@ -1137,10 +876,10 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
     2.  \\(X \times\_k k\_p\\) 既约, 其中 \\(k\_p\\) 表示 \\(k\\) 的完美闭包.
     3.  对 \\(k\\) 的任意扩域 \\(K\\), \\(X \times\_k K\\) 都既约.
 3.  如果 \\(X \times\_k \bar{k}\\) 整, 就说 \\(X\\)  <span class="underline">几何整</span> .
-    给出一个既不几何不可约也不几何既约的整概形. #TODO: 不几何不可约?
+    给出一个既不几何不可约也不几何既约的整概形.
 
 {{% proof %}}
-1.  我们使用 Stacks 项目中的[Stacks \\)1](https://stacks.math.columbia.edu/tag/%5C(1):
+1.  我们使用 Stacks 项目中的[Stacks 引理  O37K](https://stacks.math.columbia.edu/tag/%20O37K):
     对于 \\(k\\) 上的环 \\(R\\), 若 \\(S \otimes\_k k\_p\\) 的素谱不可约,
     则对任意扩域 \\(K / k\\), \\(S \otimes\_k K\\) 的素谱不可约.
     也就是说 \\(X = \Spec R\\) 时命题成立.
@@ -1152,7 +891,7 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
 
     而 \\(X \times\_k K\\) 不可约当且仅当每个 \\(V\_i\\) 都不可约并且 \\(V\_i \cap V\_j\\) 都非空.
     因此即证.
-2.  类似(a): 我们使用[Stacks \\)1](https://stacks.math.columbia.edu/tag/%5C(1):
+2.  类似(a): 我们使用[Stacks 引理  O3OV](https://stacks.math.columbia.edu/tag/%20O3OV):
     对于 \\(k\\) 上的环 \\(S\\), 若 \\(S \otimes\_k k\_s\\) 既约,
     则对任意扩域 \\(K / k\\), 都有 \\(S \otimes\_k K\\) 既约.
     换言之, 当 \\(X\\) 仿射时, 命题成立.
@@ -1176,17 +915,9 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
     其中 \\(A \otimes\_k \bF\_q \cong (\bF\_q \otimes\_k \bF\_q)(x) \cong (\bF\_q \oplus \bF\_q)(x)\\) 并非不可约,
     因此 \\(X\\) 并不几何不可约.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 3.16 (Noether 归纳法).
-
-</div>
-
+{{% exercise "Noether 归纳法" %}}
 设 \\(X\\) 为 Noether 拓扑空间, 并令 \\(\mathcal{P}\\) 是对 \\(X\\) 的闭集定义的性质.
 假设对 \\(X\\) 的任意闭子集 \\(Y\\), 若 \\(Y\\) 的所有真闭子集都满足 \\(\mathcal{P}\\),
 
@@ -1196,17 +927,9 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
 {{% proof %}}
 反证. 若不然, 则由于 \\(X\\) Noether, 存在极小的不满足 \\(\mathcal{P}\\) 的闭子集, 矛盾.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 3.17 _(Zariski 空间)_.
-
-</div>
-
+{{% exercise "Zariski 空间" %}}
 若拓扑空间 \\(X\\) 是 Noether 空间, 且其任意非空不可约闭集都有唯一的一般点,
 则称其为  <span class="underline">Zariski 空间</span> .
 
@@ -1220,10 +943,10 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
 3.  证明 Zariski 空间满足 \\(T\_0\\) 公理: 任意两个点都可以用开集区分.
 4.  若 \\(X\\) 是不可约 Zariski 空间, 则其一般点包含在任意非空开集中.
 5.  若 \\(x\_0, x\_1\\) 是拓扑空间 \\(X\\) 中的点, \\(x\_0 \in \\{x\_1\\}^-\\),
-    就称 \\(x\_0\\) 是 \\(x\_1\\) 的 <span class="underline">特殊化</span> , 记作 \\(x\_1 \specializeto x\_0\\).
+    就称 \\(x\_0\\) 是 \\(x\_1\\) 的 <span class="underline">特殊化</span> , 记作 \\(x\_1 \spto x\_0\\).
     我们也说 \\(x\_1\\)  <span class="underline">特殊化为</span>  \\(x\_0\\), 以及 \\(x\_1\\) 是 \\(x\_0\\) 的  <span class="underline">一般化</span> .
     现设 \\(X\\) 是 Zariski 空间.
-    证明由特殊化定义的偏序 (\\(x\_1 > x\_0\\) 当且仅当 \\(x\_1 \specializeto x\_0\\))
+    证明由特殊化定义的偏序 (\\(x\_1 > x\_0\\) 当且仅当 \\(x\_1 \spto x\_0\\))
     中的极小点就是 \\(X\\) 的不可约分支的一般点.
     证明闭集包含其所有点的特殊化 (即 <span class="underline">对特殊化稳定</span> ).
     同理, 开集 <span class="underline">对一般化稳定</span> .
@@ -1247,17 +970,9 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
     若 \\(X\\) 是 Zariski 空间, 则 \\(\alpha\\) 是闭的连续双射, 所以是同胚.
     反过来若 \\(\alpha\\) 是同胚, 则 \\(X\\) 当然是 Zariski 空间.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 3.18 _(可构造集)_.
-
-</div>
-
+{{% exercise "可构造集" %}}
 令 \\(X\\) 为 Zariski 空间.
 记 \\(\mathcal{F}\\) 是包含 \\(X\\) 的所有闭集且在有限交和取补集下封闭的最小集族.
 我们将 \\(\mathcal{F}\\) 中的集合称为 \\(X\\) 的 <span class="underline">可构造子集</span> .
@@ -1293,17 +1008,9 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
     反过来, 闭集当然可构造且对特殊化封闭.
 4.  平凡. 因为连续映射的原像保持闭集, 有限交和补集.
 {{% /proof %}}
+{{% /exercise %}}
 
-</div>
-
-<div class="exercise theorem">
-
-<div class="head">
-
-习题 3.19.
-
-</div>
-
+{{% exercise %}}
 可构造集的重要性由下述的 Chevally 定理给出:
 设 \\(f \colon X \to Y\\) 是 Noether 概形之间的有限型同态.
 那么 \\(X\\) 的任意构造集的像仍是构造集.
@@ -1342,5 +1049,4 @@ X\_f = \\{ x \in X \mid f\_x \notin \gm\_x \\}.
     其中 \\(f\\) 是 \\(A\\) 系数首一不可约多项式.
     对任意 \\(b = b(x) \in B\\), 考虑 一二三
 {{% /proof %}}
-
-</div>
+{{% /exercise %}}

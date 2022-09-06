@@ -1,7 +1,3 @@
-{{ if (.Get 0) }}
-<div class="theorem theorem-{{ .Get 0 }}">
-{{ else }}
-<div class="theorem">
-{{ end }}
+<div class="theorem {{with .Get 0}}{{ .Get 0 }}{{ end }}">
   {{ .Inner }}
 </div>
