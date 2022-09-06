@@ -21,12 +21,6 @@
   text-indent: 0;
 }
 
-@font-face {
-  font-family: "fa-solid";
-  src: url('/font/fa-solid-900.ttf');
-  font-weight: 900;
-}
-
 .theorem .head p::before {
   content: "\f303";
   font-family: 'fa-solid';

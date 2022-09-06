@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "fa-solid";
+  src: url('/font/fa-solid-900.ttf');
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "fa-brands";
+  src: url('/font/fa-brands-400.ttf');
+  font-weight: 400;
+}
+
 body {
   font-family: 'Noto Sans',Roboto,-apple-system,BlinkMacSystemFont,'Segoe UI','Oxygen','Ubuntu','Cantarell','Helvetica Neue','Microsoft YaHei UI','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans CN',sans-serif;
   letter-spacing: .015em;
@@ -7,14 +19,30 @@ div > p {
   text-indent: 2em;
 }
 
-
 .first-entry {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 320px;
-  margin: var(--gap)0 calc(var(--gap) * 2);
+  min-height: 280px;
+  margin: var(--gap) 0;
+}
+
+.first-entry .entry-header {
+  margin: var(--gap) 0;
+}
+
+.first-entry .entry-content {
+  margin: var(--gap) 0;
+}
+
+.first-entry .entry-content a::before{
+  content: "\f09b";
+  font-family: 'fa-brands';
+  margin-right: .2rem;
+}
+.first-entry .entry-content a{
+  box-shadow: var(--link-underline-shadow);
 }
 
 .entry-content {

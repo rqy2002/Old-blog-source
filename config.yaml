@@ -19,12 +19,13 @@ markup:
 params:
     homeInfoParams:
       Title: _rqy 的博客!
-      # Content: 喵喵喵
+      Content: 好耶! 本博客的源码位于 [Github repo](https://github.com/rqy1458814497/Blog-source).
+      # custom.css 里给这个链接增加了图标和下划线
 
     socialIcons: # optional
       - name: email
         url: mailto:renqy20@qq.com
-      - name: github-simple
+      - name: github
         url: https://github.com/rqy1458814497
       - name: bilibili
         url: https://space.bilibili.com/76936471
