@@ -19,7 +19,7 @@ CLOSED: [2022-09-05 一 00:33]
 所以正好也就选用了这个有轮子 (ox-hugo) 的静态网站生成器. 挺不错的.
 
 
-* 代数几何
+* 代数几何 :代数几何:@数学:
 :PROPERTIES:
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :math true
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :mathdefs true
