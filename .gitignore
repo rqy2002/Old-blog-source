@@ -2,4 +2,5 @@
 /static/ltximg
 /static
 /public
+/resources/_gen
 *.elc
