@@ -34,6 +34,7 @@ params:
     DateFormat: 2006 年 1 月 2 日
     defaultTheme: auto
     ShowToc: true
+    TocOpen: true
     TocSide: right
     ShowBreadCrumbs: true
     ShowPostNavLinks: true
@@ -59,6 +60,14 @@ menu:
       name: 归档
       url: /archives/
       weight: 30
+    - identifier: about
+      name: 关于
+      url: /about/
+      weight: 90
+    - identifier: friends
+      name: 友链
+      url: /friends/
+      weight: 70
     - identifier: search
       name: 搜索
       url: /search/

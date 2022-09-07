@@ -1,0 +1,14 @@
+{{ if .IsNamedParams }}
+    <div class="friend-div">
+        <a target="_blank" href={{ .Get "url"  | safeURL }} title={{ .Get "name" }} >
+        {{ if .Get "logo" }}
+        <img src="{{ .Get "logo" | safeURL }}" alt="{{ .Get "name" }}"
+             {{ with .Get "bg" }} style="background: {{ . }}"{{ end }}/>
+        {{ else }}
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
+        {{ end }}
+            <span class="friend-name">{{ .Get "name" }}</span>
+            <span class="friend-info">{{ .Get "word" }}</span>
+        </a>
+    </div>
+{{ end }}

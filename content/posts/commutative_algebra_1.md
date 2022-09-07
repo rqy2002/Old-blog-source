@@ -3,7 +3,7 @@ title: 交换代数学习笔记 (1)
 categories:
   - 数学
 tags:
-  - Commutative Algebra
+  - 交换代数
 math: true
 date: 2020-06-09 22:42:18
 ---
