@@ -1,7 +1,10 @@
 {{ .Page.Scratch.Add "exerciseId" 1 }}
 <div class="theorem exercise">
   <div class="head">
-    <p>{{ i18n "exercise" | default "习题" }} {{ .Page.Scratch.Get "sectionId" }}.{{ .Page.Scratch.Get "exerciseId" }}{{ with .Get 0 }} <em>({{ . }})</em>{{end}}.</p>
+    <p>
+    <i class="fa fa-pencil"></i>
+    {{ i18n "exercise" | default "习题" }} {{ .Page.Scratch.Get "sectionId" }}.{{ .Page.Scratch.Get "exerciseId" }}{{ with .Get 0 }} <em>({{ . }})</em>{{end}}.
+    </p>
   </div>
   {{ .Inner }}
 </div>

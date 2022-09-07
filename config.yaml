@@ -19,8 +19,7 @@ markup:
 params:
     homeInfoParams:
       Title: _rqy 的博客!
-      Content: 好耶! 本博客的源码位于 [Github repo](https://github.com/rqy2002/Blog-source).
-      # custom.css 里给这个链接增加了图标和下划线
+      Content: 好耶! 本博客的源码位于 [<i class="fa fa-github"></i> Github repo](https://github.com/rqy2002/Blog-source).
 
     socialIcons: # optional
       - name: email

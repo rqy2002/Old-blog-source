@@ -1,6 +1,5 @@
 .hugo_build.lock
 /static/ltximg
-/static
 /public
 /resources/_gen
 *.elc

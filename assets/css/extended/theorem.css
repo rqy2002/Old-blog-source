@@ -21,17 +21,6 @@
   text-indent: 0;
 }
 
-.theorem .head p::before {
-  content: "\f303";
-  font-family: 'fa-solid';
-  margin-right: .5rem;
-}
-
-.exercise .head p::before {
-  content: "\f303";
-  font-family: 'fa-solid';
-}
-
 details.proof {
   margin-bottom: var(--content-gap);
 }

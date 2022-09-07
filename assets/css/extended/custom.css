@@ -36,11 +36,6 @@ div > p {
   margin: var(--gap) 0;
 }
 
-.first-entry .entry-content a::before{
-  content: "\f09b";
-  font-family: 'fa-brands';
-  margin-right: .2rem;
-}
 .first-entry .entry-content a{
   box-shadow: var(--link-underline-shadow);
 }
