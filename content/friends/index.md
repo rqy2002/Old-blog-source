@@ -6,7 +6,7 @@ summary: 友链
 ShowToc: false
 ---
 
-# 个人
+# 友人
 
 <div class="flink" id="article-container">
 <div class="friend-list-div" >
@@ -18,17 +18,25 @@ ShowToc: false
 {{< friend name="Ice1000" url="https://ice1000.org/" logo="ice1000.jpeg" word="千里冰封" >}}
 {{< friend name="DDOSvoid" url="https://ddosvoid.github.io/" logo="ddosvoid.jpg" word="OIer | HDU ICPCer" >}}
 {{< friend name="静静" url="https://leanhe.dev/" logo="jingjing.jpeg" >}}
+{{< friend name="Coelacanthus" url="https://blog.coelacanthus.moe" logo="coelacanthus.svg" >}}
+{{< friend name="Etaoin Wu" url="https://etaoin.com" >}}
 
 </div>
 </div>
 
-# 其他
+# 组织
 
 <div class="flink" id="article-container">
 <div class="friend-list-div" >
 
 {{< friend name="香蕉空间" url="https://www.bananaspace.org/" logo="bananaspace.png" word="中文数学社区" >}}
-{{< friend name="Thunion" url="https://http://wiki.thunion.club/" logo="thunion.png" word="THU MC 社团" >}}
+{{< friend name="Thunion" url="https://http://wiki.thunion.club/" logo="thunion.png" word="THU MC 社团" bg="white" >}}
 
 </div>
 </div>
+
+# 备注
+
+若您希望与我互换友链, 欢迎通过任意方式 (包括但不限于 QQ / tg / 邮箱) 联系.
+
+联系方式可以在首页的社交图标看到.

@@ -30,6 +30,8 @@ params:
         url: https://space.bilibili.com/76936471
       - name: stackoverflow
         url: https://stackoverflow.com/users/19916817/rqy
+      - name: telegram
+        url: https://t.me/rqyqy
 
     DateFormat: 2006 年 1 月 2 日
     defaultTheme: auto
