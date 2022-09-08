@@ -17,9 +17,10 @@ ShowToc: false
 {{< friend name="Margatroid" url="https://blog.mgt.moe/" logo="margatroid.jpg" >}}
 {{< friend name="Ice1000" url="https://ice1000.org/" logo="ice1000.jpeg" word="千里冰封" >}}
 {{< friend name="DDOSvoid" url="https://ddosvoid.github.io/" logo="ddosvoid.jpg" word="OIer | HDU ICPCer" >}}
-{{< friend name="静静" url="https://leanhe.dev/" logo="jingjing.jpeg" >}}
+{{< friend name="SSR" url="https://leanhe.dev/" logo="ssr.jpeg" >}}
 {{< friend name="Coelacanthus" url="https://blog.coelacanthus.moe" logo="coelacanthus.svg" >}}
 {{< friend name="Etaoin Wu" url="https://etaoin.com" >}}
+{{< friend name="Senioria" url="https://91khr.github.io" logo="senioria.png" >}}
 
 </div>
 </div>
