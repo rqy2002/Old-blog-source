@@ -19,7 +19,7 @@ ShowToc: false
 {{< friend name="DDOSvoid" url="https://ddosvoid.github.io/" logo="ddosvoid.jpg" word="OIer | HDU ICPCer" >}}
 {{< friend name="SSR" url="https://leanhe.dev/" logo="ssr.jpeg" >}}
 {{< friend name="Coelacanthus" url="https://blog.coelacanthus.moe" logo="coelacanthus.svg" >}}
-{{< friend name="Etaoin Wu" url="https://etaoin.com" >}}
+{{< friend name="Etaoin Wu" url="https://etaoinwu.com" logo="etaoin_wu.jpg" >}}
 {{< friend name="Senioria" url="https://91khr.github.io" logo="senioria.png" >}}
 
 </div>
