@@ -85,6 +85,9 @@ ol ol {
 .ol-decimal+ol{
   list-style-type: decimal;
 }
+.footnotes ol{
+  list-style-type: decimal;
+}
 </style>
 #+end_export
 
@@ -129,8 +132,7 @@ b) 令 $(X, \cO_X)$ 为概形. 令 $(\cO_X)_{\red}$ 为预层 $U \mapsto \cO_X(U
    其中, 对任意环 $A$, $A_\red$ 表示 $A$ 商掉幂零元的理想构成的商环.
    证明 $(X, (\cO_X)_\red)$ 是概形.
    我们称之为 $X$ 的 /既约化概形/, 记作 $X_\red$.
-# TODO: 译名
-证明存在同态 $X_\red \to X$, 其限制在底空间上是同胚.
+   证明存在同态 $X_\red \to X$, 其限制在底空间上是同胚.
 c) 设 $f \colon X \to Y$ 是概形同态, 且 $X$ 既约. 证明 $f$ 穿过 $Y_\red$.
 
 #+begin_proof
@@ -1156,12 +1158,16 @@ c) 若 $Y$ 是 $X$ 的闭子集, 则 $\codim(Y, X) = \inf \{ \dim \cO_{P, X} \mi
 d) 若 $Y$ 是 $X$ 的闭子集, 则 $\dim Y + \codim(Y, X) = \dim X$.
 e) 若 $U$ 是 $X$ 的非空开子集, 则 $\dim U = \dim X$.
 f) 若 $k' / k$ 是域扩张, 则 $X' = X \times_k k'$ 的每个不可约分支都具有和 $X$ 相同的维数.
+#+begin_proof
+a) 考虑到 $\cO_P$ 中的素理想与
+b)
+#+end_proof
 #+end_exercise
 
 #+begin_exercise
 令 $R$ 为离散赋值环, 且包含其剩余域 $k$.
 令 $X = \Spec R[t]$ 为 $\Spec R$ 上的仿射直线.
-证明习题 3.20 中的 (a), (d), (e) (即 1, 4, 5) 对 $X$ 不成立.
+证明习题 3.20 中的 (a), (d), (e) 对 $X$ 不成立.
 #+end_exercise
 
 #+attr_shortcode: 态射纤维的维数

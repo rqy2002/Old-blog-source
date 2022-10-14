@@ -3,3 +3,9 @@
 /public
 /resources/_gen
 *.elc
+content/posts/*
+!content/posts/OI
+!content/posts/commutative_algebra*.md
+!content/posts/homology_algebra*.md
+!content/posts/TT1.md
+!content/posts/TT2.md
