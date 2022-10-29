@@ -56,6 +56,7 @@ CLOSED: [2022-09-05 一 00:33]
                      ("dim" "\\operatorname{dim}")
                      ("codim" "\\operatorname{codim}")
                      ("height" "\\operatorname{height}")
+                     ("Frac" "\\operatorname{Frac}")
                      ("trd" "\\operatorname{tr.d.}")
                      ("leq" "\\leqslant")
                      ("geq" "\\geqslant")
@@ -495,8 +496,8 @@ $f^{-1}(V)$ 都可以由若干仿射开集 $U_j = \Spec A_j$ 覆盖, 其中 $A_j
 再设 $V = \Spec B$ 是 $Y$ 中任意的仿射开集.
 则 $V$ 可以由有限个基本开集 $D(b_i)$ 覆盖, 且每个 $D(b_i)$ 都满足条件,
 即存在若干 $U_{ij} = \Spec A_{ij}$ 覆盖 $f^{-1}(D(b_i))$,
-使得 $A_{ij}$ 是有限生成 $B_{b_i}$-代数.
-因此它们也都是有限生成 $B$-代数, 并且覆盖 $f^{-1}(V)$. 因此 $V$ 也满足条件.
+使得 $A_{ij}$ 是有限生成 $B_{b_i}$ 代数.
+因此它们也都是有限生成 $B$ 代数, 并且覆盖 $f^{-1}(V)$. 因此 $V$ 也满足条件.
 #+end_proof
 #+end_exercise
 
@@ -1125,7 +1126,7 @@ b) 先证明这个代数结论.
    设 $b = b(x) \in A[ x ]$, 而 $b(x)c(x) \equiv a \pmod{f(x)}$,
    其中 $a \in A, c \in A[ x ]$. 则此 $a$ 满足条件.
    这样的 $a, c(x)$ 的存在性可以由裴属定理保证,
-   或者说考虑 $\frac{c}{a} = b^{-1} \in (\operatorname{Frac} A)[ x ] / (f(x))$.
+   或者说考虑 $\frac{c}{a} = b^{-1} \in (\Frac A)[ x ] / (f(x))$.
 
    接下来设 $X = \Spec B, Y = \Spec A$.
    由于 $f$ 支配, 对应的映射 $A \to B$ 是单射.
@@ -1159,8 +1160,25 @@ d) 若 $Y$ 是 $X$ 的闭子集, 则 $\dim Y + \codim(Y, X) = \dim X$.
 e) 若 $U$ 是 $X$ 的非空开子集, 则 $\dim U = \dim X$.
 f) 若 $k' / k$ 是域扩张, 则 $X' = X \times_k k'$ 的每个不可约分支都具有和 $X$ 相同的维数.
 #+begin_proof
-a) 考虑到 $\cO_P$ 中的素理想与
-b)
+a) 首先考虑到 $\dim X = \sup \{ n \mid V_0 \subsetneq V_1 \subsetneq \dots \subsetneq V_n \}$,
+   其中 $V_k$ 都是 $X$ 中的不可约闭集. 
+   取闭集的一般点即知 $\dim X = \sup \{ n \mid P_0 \spto P_1 \spto \dots \spto P_n \}$.
+   而对于点 $P$, 易知有 $\dim \cO_P = \sup \{ n \mid P_0 \spto P_1 \spto \dots \spto P_n = P \}$.
+   因此 $\dim X = \sup_{P \in X} \dim \cO_P$.
+   但对 $X$ 中任意仿射开集 $\Spec A$, 有 $\dim A = \trd \Frac(A) / k = \trd K(X) / k$,
+   且对于 $A$ 中任意极大理想 $\gm$ 有 $\dim A_\gm = \height \gm = \dim A$.
+   因此对任意闭点 $P$, $\dim X = \dim \cO_P = \trd K(X) / k$.
+b) 在 a 中已证.
+c) 由定义, $\codim(Y, X) = \inf_{V \text{不可约} \subseteq Y} \codim(V, X)$.
+   取一般点即证.
+d) 对任意点 $P$, 设其有仿射邻域 $\Spec A$, 在 $A$ 中对应素理想 $\gp$.
+   则由 $\height \gp + \dim A / \gp = \dim A$ 即知
+   $\dim (\overline{\{P\}} \cap A) + \dim \cO_{P, X} = \dim A = \dim X$.
+   由于这对任意仿射邻域成立, 即知 $\dim \overline{\{P\}} + \dim \cO_{P, X} = \dim X$.
+   再由 c 即证.
+e) $U$ 必定包含某个仿射开集, 而仿射开集与 $X$ 具有相同维数.
+f) 由 e, 仅需考虑仿射开集情况.
+   此时利用 $\dim A = \trd \Frac(A) / k$ 易证.
 #+end_proof
 #+end_exercise
 
@@ -1168,6 +1186,20 @@ b)
 令 $R$ 为离散赋值环, 且包含其剩余域 $k$.
 令 $X = \Spec R[t]$ 为 $\Spec R$ 上的仿射直线.
 证明习题 3.20 中的 (a), (d), (e) 对 $X$ 不成立.
+#+begin_proof
+设 $R$ 的素理想为 $(0), \gm = (\varpi)$.
+则 $R[t]$ 的素理想有 $(0), (f), (\varpi, g)$. 其中 $f$ 是 $R$ 上的不可约多项式,
+$g$ 是 $k$ 上的不可约多项式. 因此 $\dim X = \dim R[t] = 2$.
+
+然而 $R[t]$ 中, $(t\varphi - 1)$ 也是极大理想
+(因 $R[t] / (t\varphi - 1) \cong R_\varphi$ 是域),
+但其局部环维数为 $1$. 因此 a 不成立.
+
+取 $Y = \{ [(t\varphi - 1)] \}$, 则 d 不成立.
+
+取 $U = D(\varphi)$, 则 $\cO|_U \cong \Spec F[t]$, 其中 $F = \Frac(R)$.
+因此 $\dim U = 1$, e 不成立.
+#+end_proof
 #+end_exercise
 
 #+attr_shortcode: 态射纤维的维数
@@ -1178,7 +1210,7 @@ a) 令 $Y'$ 为 $Y$ 中的不可约闭子集, 其一般点 $\eta'$ 属于 $f(X)$
    证明 $\codim(Z, X) \leq \codim(Y', Y)$.
 b) 令 $e = \dim X - \dim Y$ 为 $X$ 在 $Y$ 上的 /相对维数/.
    对任意 $y \in f(X)$, 证明纤维 $X_y$ 的不可约分支的维数不小于 $e$.
-   [提示: 令 $Y' = \{y\}$, 使用 (a) 和习题 3.20 (b).]
+   [提示: 令 $Y' = \{y\}^-$, 使用 (a) 和习题 3.20 (b).]
 c) 证明存在 $X$ 的稠密开子集 $U$, 使得对任意 $y \in f(U)$,
    都有 $\dim U_y = e$.
    [提示: 首先规约到 $X, Y$ 都仿射的情况. 记 $X = \Spec A, Y = \Spec B$,
@@ -1186,7 +1218,7 @@ c) 证明存在 $X$ 的稠密开子集 $U$, 使得对任意 $y \in f(U)$,
    $t_1, \dots, t_e \in A$, 令 $X_1 = \Spec B[t_1, \dots, t_e]$.
    则 $X_1$ 同构于 $Y$ 上的 $e$ 维仿射空间,
    且映射 $X \to X_1$ 一般有限. 使用习题 3.7.]
-d) 回 到原本的映射 $f \colon X \to Y$.
+d) 回到原本的映射 $f \colon X \to Y$.
    对任意整数 $h$, 令 $E_h \subseteq X$ 为满足下述条件的点 $x$ 构成的子集:
    记 $y = f(x)$, 存在 $X_y$ 的包含 $x$ 的不可约分支 $Z$, 且 $\dim Z \geq h$.
 
@@ -1197,6 +1229,42 @@ d) 回 到原本的映射 $f \colon X \to Y$.
 e) 证明如下的 Chevalley 定理 (见 Cartan, Chevalley [1, exposé 8]):
    对任意整数 $h$, 令 $C_h = \{ y \in Y \mid \dim X_y = h \}$.
    则 $C_h$ 可构造, 且 $C_e$ 包含 $Y$ 的某个稠密开子集.
+#+begin_proof
+a) 按定义, $\codim(Z, X) =$ 以 $Z$ 的一般点 $\theta$ 结尾的最长特殊化序列长度,
+   $\codim(Y', Y)$ 同理. 而 $f$ 保持特殊化 /(连续映射都保持特殊化)/,
+   且 $\eta' \in f(Z) \implies f(\theta) \spto \eta'$. 因此即证.
+b) 作为拓扑空间, $X_y$ 同胚于 $f^{-1}(y)$.
+   因此若 $Z$ 是 $X_y$ 的不可约分支,
+   则 $Z$ 同胚于 $\overline{f^{-1}(y)}$ 的某个不可约分支 $Z'$
+   与 $f^{-1}(y)$ 的交集. 又由 3.20 e),
+   $$\dim Z = \dim (Z' \cap f^{-1}(y))
+   = \dim \overline{Z' \cap f^{-1}(y)} = \dim Z'.$$
+   而由 a) 与 3.20 d), 取 $Y' = \overline{\{y\}}$
+   $$\dim Z' = \dim X - \codim(Z', X) \geq e + \dim Y - \codim(Y', Y)
+   = e + \dim Y' \geq y.$$
+c) 任取 $Y$ 中仿射开集和其原像中仿射开集以替换 $Y$ 和 $X$,
+   则 $f$ 仍然支配, 且只要这种情况成立, 原命题显然成立.
+   记 $X = \Spec A, Y = \Spec B$.
+
+   此时由 3.20 b),
+   $e = \trd \Frac A / k - \trd \Frac B / k = \trd \Frac A / \Frac B$.
+   按提示, 取 $t_1, \dots t_e \in A$ 使得它们是 $\Frac(A)$ 在 $\Frac(B)$
+   上的超越基.
+   令 $X_1 = \Spec B[t_1, \dots t_e]$, 则 $X_1$ 是 $Y$ 上的 $e$ 维仿射空间
+   且 $g \colon X \to X_1$ 一般有限 ($X_1$ 的一般点的原像恰仅包含 $X$ 的一般点).
+   由 3.7, 存在 $X_1$ 中的稠密开集 $V$ 使得 $U = g^{-1}(V) \to V$ 有限.
+   那么若 $y \in f(U)$, 则 $U_y$ 在 $V_y$ 上有限且支配;
+   而 $V_y$ 是 $\Spec k(y)[t_1, \dots t_e]$ 中的稠密开集,
+   因此 $\dim U_y = \dim V_y = e$.
+d)
+  1. 由 b), $E_e = X$.
+  2. 由 c), 若 $h > e$, 则 $E_h \subseteq X \setminus U$.
+     因此 $E_h$ 不稠密.
+  3. 暂且不会, 呜呜.
+e) 由于 $E_h$ 闭, 由 3.19, $C_h = f(E_h) \setminus f(E_{h + 1})$ 可构造.
+   而 $Y$ 的一般点 $\in C_e$, 因此 $C_e$ 稠密.
+   由 3.18 b), $C_e$ 包含某个稠密开集.
+#+end_proof
 #+end_exercise
 
 #+begin_exercise
